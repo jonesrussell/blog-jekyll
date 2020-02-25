@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  blog-jekyll
+    image: blog-jekyll
+    build: .
+    ports:
+      - 4000:4000
