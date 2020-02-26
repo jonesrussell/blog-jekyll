@@ -1,5 +1,5 @@
 {
-  "name": "Blog | Russell Jones | Jekyll",
+  "name": "Blog | Russell Jones",
   "dockerFile": "Dockerfile",
   // Use 'settings' to set *default* container specific settings.json values on container create.
   // You can edit these settings after create using File > Preferences > Settings > Remote.
@@ -20,5 +20,7 @@
   "postCreateCommand": "bundle install",
   "remoteUser": "vscode",
   "remote.host": "0.0.0.0",
-  "appPort": [4000]
+  "appPort": [
+    4000
+  ]
 }
