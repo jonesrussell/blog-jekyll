@@ -17,19 +17,19 @@ RUN apt-get update \
     #
     # Install vim, git, process tools, lsb-release
     && apt-get install -y \
-        git zsh zlib1g-dev \
+    git zsh zlib1g-dev \
     #
     # Install ruby
     && apt-get install -y \
-        make \
-		build-essential \
-		ruby \
-        ruby-dev \
+    make \
+    build-essential \
+    ruby \
+    ruby-dev \
     #
     # Install jekyll
     && gem install \
-        bundler \
-        jekyll \
+    bundler \
+    jekyll \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
@@ -44,6 +44,20 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+ARG SERVER_DIR=/home/$USERNAME/.vscode-server
+
+RUN mkdir -p ${SERVER_DIR} && chown ${USERNAME}:${USERNAME} ${SERVER_DIR}
+
+# the user we're applying this too (otherwise it most likely install for root)
+USER $USERNAME
+# terminal colors with xterm
+ENV TERM xterm
+# set the zsh theme
+ENV ZSH_THEME agnoster
+# install oh-my-zsh
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+
+USER root
+
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
-
