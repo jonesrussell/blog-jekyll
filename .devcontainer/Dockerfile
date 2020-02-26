@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # https://aka.ms/vscode-remote/containers/non-root-user for details.
 ARG USERNAME=vscode
 ARG USER_UID=1000
-ARG USER_GID=$USER_UID
+ARG USER_GID=${USER_UID}
 
 # Configure apt and install packages
 RUN apt-get update \
@@ -44,12 +44,12 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-ARG SERVER_DIR=/home/$USERNAME/.vscode-server
+ARG SERVER_DIR=/home/${USERNAME}/.vscode-server
 
 RUN mkdir -p ${SERVER_DIR} && chown ${USERNAME}:${USERNAME} ${SERVER_DIR}
 
 # the user we're applying this too (otherwise it most likely install for root)
-USER $USERNAME
+USER ${USERNAME}
 # terminal colors with xterm
 ENV TERM xterm
 # set the zsh theme
