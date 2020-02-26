@@ -28,7 +28,7 @@ twitter_username: jonesrussell42
 github_username:  jonesrussell
 
 # Build settings
-theme: jekyll-theme-leap-day
+theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
 
