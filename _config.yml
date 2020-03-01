@@ -52,3 +52,6 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - .devcontainer/
+
+include:
+  - _posts
