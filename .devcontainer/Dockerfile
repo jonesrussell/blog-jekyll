@@ -53,3 +53,5 @@ ENV LANG en_US.UTF-8
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
+
+RUN gem install bundler:2.1.4
