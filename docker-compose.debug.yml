@@ -1,10 +1,12 @@
 version: '2.1'
 
 services:
-  blog-jekyll
+  blog-jekyll:
     image: blog-jekyll
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - 4000:4000
+    volumes:
+      - .:/usr/src/app
