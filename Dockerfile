@@ -5,6 +5,8 @@
 
 FROM ruby:2
 
+WORKDIR /usr/src/app
+
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -55,3 +57,6 @@ ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND=dialog
 
 RUN gem install bundler:2.1.4
+
+# COPY Gemfile Gemfile.lock ./
+# RUN bundle install

@@ -1,16 +1,12 @@
 {
   "name": "Russell Jones Blog",
-  "dockerFile": "Dockerfile",
+  "dockerFile": "../Dockerfile",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "extensions": [
-    "rebornix.Ruby"
-  ],
+  "extensions": ["rebornix.Ruby"],
   "postCreateCommand": "bundle install",
   "remoteUser": "vscode",
   "remote.host": "0.0.0.0",
-  "appPort": [
-    4000
-  ]
+  "appPort": [4000]
 }
