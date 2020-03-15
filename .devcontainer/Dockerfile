@@ -17,20 +17,24 @@ RUN apt-get update \
     #
     # Install vim, git, process tools, lsb-release
     && apt-get install -y \
-        git \
-        openssh-client \
+    git \
+    openssh-client \
+    less \
+    zsh \
+    curl \
+    zlib1g-dev \
     #
     # Install ruby
     && apt-get install -y \
-        make \
-		build-essential \
-		ruby \
-        ruby-dev \
+    make \
+    build-essential \
+    ruby \
+    ruby-dev \
     #
     # Install jekyll
     && gem install \
-        bundler \
-        jekyll \
+    bundler \
+    jekyll \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
@@ -47,3 +51,10 @@ RUN apt-get update \
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
+
+#USER ${USERNAME}
+
+# oh-my-zsh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+#USER root
