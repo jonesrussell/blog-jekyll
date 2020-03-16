@@ -21,6 +21,15 @@
                 "kind": "build",
                 "isDefault": true
             },
+        },
+        {
+            "label": "Install",
+            "type": "shell",
+            "command": "bundle install",
+            "group": {
+                "kind": "none"
+            },
+            "isBackground": true,
         }
     ]
 }
