@@ -54,7 +54,10 @@ ENV DEBIAN_FRONTEND=dialog
 
 USER ${USERNAME}
 
-# oh-my-zsh
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-#USER root
+# Uses "agnoster" theme, uses some bundled plugins and install some more from github
+RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
+    -t palenight \
+    -p git \
+    -p ssh-agent \
+    -p https://github.com/zsh-users/zsh-autosuggestions \
+    -p https://github.com/zsh-users/zsh-completions
