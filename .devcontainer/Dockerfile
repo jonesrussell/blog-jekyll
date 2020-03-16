@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM jonesrussell/vscode-deb-zsh:latest
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -20,7 +20,6 @@ RUN apt-get update \
     git \
     openssh-client \
     less \
-    zsh \
     curl \
     zlib1g-dev \
     #
@@ -36,14 +35,6 @@ RUN apt-get update \
     bundler \
     jekyll \
     #
-    # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
-    && groupadd --gid $USER_GID $USERNAME \
-    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    # [Optional] Add sudo support for the non-root user
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-    && chmod 0440 /etc/sudoers.d/$USERNAME \
-    #
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
@@ -51,13 +42,3 @@ RUN apt-get update \
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
-
-USER ${USERNAME}
-
-# Uses "agnoster" theme, uses some bundled plugins and install some more from github
-RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
-    -t palenight \
-    -p git \
-    -p ssh-agent \
-    -p https://github.com/zsh-users/zsh-autosuggestions \
-    -p https://github.com/zsh-users/zsh-completions
