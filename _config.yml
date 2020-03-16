@@ -25,10 +25,10 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jonesrussell42
-github_username:  jonesrussell
+github_username: jonesrussell
 
 # Build settings
-theme: jekyll-theme-minimal
+theme: jekyll-theme-console
 plugins:
   - jekyll-feed
 
@@ -55,3 +55,14 @@ exclude:
 
 include:
   - _posts
+
+header_pages:
+  - index.markdown
+  - about.markdown
+
+style: dark # dark (default) or light
+listen_for_clients_preferred_style: true # true or false (default)
+
+footer: 'follow me on <a href="https://twitter.com/jonesrussell">twitter</a>'
+
+google_analytics: UA-NNNNNNNN-N
