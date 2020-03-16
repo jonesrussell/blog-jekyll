@@ -61,8 +61,8 @@ header_pages:
   - about.markdown
 
 style: dark # dark (default) or light
-listen_for_clients_preferred_style: true # true or false (default)
+listen_for_clients_preferred_style: false # true or false (default)
 
-footer: 'follow me on <a href="https://twitter.com/jonesrussell">twitter</a>'
+footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 
 google_analytics: UA-NNNNNNNN-N
