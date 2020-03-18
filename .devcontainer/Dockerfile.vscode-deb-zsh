@@ -29,17 +29,17 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
 
+# Switch to non-root user
 USER $USERNAME
 
-RUN sh -c "$(wget -O- https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
+# Install oh-my-zsh
+RUN sh -c "$(wget -O- https://raw.githubusercontent.com/jonesrussell/zsh-in-docker/master/zsh-in-docker.sh)" -- \
     -t palenight \
     -p git \
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
 
-RUN wget -O ~/.oh-my-zsh/themes/palenight.zsh-theme \
-    https://raw.githubusercontent.com/jenssegers/palenight.zsh-theme/master/palenight.zsh-theme
-
+# Switch back to root
 USER root
 
 # Clean up
