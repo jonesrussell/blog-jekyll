@@ -1,0 +1,72 @@
+// Definition of tag style in post
+#post{
+    h1, h2, h3, h4, h5, h6{
+        margin : 15px 0 10px 0;
+    }
+    ol, ul {
+        * { font-size: 16px!important; }
+    }
+    ul {
+        list-style-position: outside;
+        list-style-type: none;
+        margin-top:2px;
+        padding-left: 10px;
+        li {
+            position: relative;
+            margin: 5px auto;
+            padding-left:30px!important;
+        }
+    }
+    ul li:before{
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        width: 7px;
+        height: 7px;
+        background-color: $text-gray;
+        border-radius: 50%;
+    }
+    ol {
+        list-style-type: decimal;
+        margin-left: 10px;
+        padding-left: 30px;
+        li {
+            position: relative;
+            margin: 5px auto;
+        }
+    }
+    a {
+        color: #4F86C6;
+    }
+    img {
+        width : 96%;
+        margin : 2%;
+        box-shadow: 0 0px 6px 1px rgba(0,0,0,0.1);
+    }
+    table {
+        width: 100%;
+        margin : 10px auto;
+        word-wrap: break-word;
+        border-collapse:collapse;
+        padding: auto;
+        thead{
+            background-color: #ced3d638;
+        }
+        td, th {
+            padding: 0.5em 1em;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+    }
+    blockquote {
+        background: #ced3d638;
+        color: rgba(0,0,0,0.5);
+        margin: 10px auto;
+        padding: 8px 20px;
+        * { font-size: 16px; }
+    }
+    .preview{
+        display: none;
+    }
+}

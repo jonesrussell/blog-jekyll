@@ -1,9 +1,8 @@
 PATH
   remote: .
   specs:
-    jekyll-theme-console (0.3.7)
-      jekyll (>= 3.5)
-      jekyll-seo-tag
+    grape-theme (0.1.0)
+      jekyll (~> 3.8)
 
 GEM
   remote: https://rubygems.org/
@@ -290,14 +289,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler
+  bundler (~> 2.0)
   dotenv
   github-pages
+  grape-theme!
   jekyll-feed (~> 0.13.0)
   jekyll-seo-tag (~> 2.6, >= 2.6.1)
   jekyll-test
-  jekyll-theme-console!
-  rake
+  rake (~> 12.0)
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)
