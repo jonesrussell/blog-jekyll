@@ -17,7 +17,6 @@ RUN apt-get update \
     wget \
     zsh
 
-#
 # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/zsh --uid $USER_UID --gid $USER_GID -m $USERNAME \
