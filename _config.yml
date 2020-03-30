@@ -77,7 +77,7 @@ theme_settings:
   # Profile Settings
   profile:
     image: assets/img/smile.png
-    username: Nayeong Kim
+    username: Russell Jones
     description: creator of Grape-Theme! Grape-Theme is my first jekyll theme and you can customize this theme easily.
     experience:
       - start: 2017-05-03
