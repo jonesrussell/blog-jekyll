@@ -1,13 +1,39 @@
-{%- assign page_paths = site.header_pages | default: default_paths -%}
+{% assign _url = page.url | split: "/" %}
+{% assign current = _url[-1] | split: "." %}
 <header>
-  <div class="menu">
+  <nav>
     <ul>
-      {%- for path in page_paths -%}
-        {%- assign my_page = site.pages | where: "path", path | first -%}
-        {%- if my_page.title -%}
-        <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
-        {%- endif -%}
-      {%- endfor -%}
+      {% case current[0] %}
+      {% when 'tags'%}
+      <!-- tags -->
+      <a href="{{ site.url }}">
+        <li class="btn-nav">Blog</li>
+      </a>
+      <li class="current">Tags</li>
+      <a href="{{ site.url }}/portfolio">
+        <li class="btn-nav">Portfolio</li>
+      </a>
+      <!-- portfolio -->
+      {% when 'portfolio'%}
+      <a href="{{ site.url }}">
+        <li class="btn-nav">Blog</li>
+      </a>
+      <a href="{{ site.url }}/tags">
+        <li class="btn-nav">Tags</li>
+      </a>
+      <li class="current">Portfolio</li>
+      {% else %}
+      <!-- others -->
+      <a href="{{ site.url }}">
+        <li class="current btn-nav">Blog</li>
+      </a>
+      <a href="{{ site.url }}/tags">
+        <li class="btn-nav">Tags</li>
+      </a>
+      <a href="{{ site.url }}/portfolio">
+        <li class="btn-nav">Portfolio</li>
+      </a>
+      {% endcase %}
     </ul>
-  </div>
+  </nav>
 </header>

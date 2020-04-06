@@ -47,7 +47,8 @@
 		"bungcip.better-toml",
 		"coenraads.bracket-pair-colorizer-2",
 		"naumovs.color-highlight",
-		"github.vscode-pull-request-github"
+		"github.vscode-pull-request-github",
+		"tyriar.lorem-ipsum"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
