@@ -28,7 +28,7 @@ twitter_username: jonesrussell42
 github_username: jonesrussell
 
 # Build settings
-theme: jekyll-theme-console
+theme: grape-theme
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -78,7 +78,7 @@ theme_settings:
   profile:
     image: assets/img/smile.png
     username: Russell Jones
-    description: creator of Grape-Theme! Grape-Theme is my first jekyll theme and you can customize this theme easily.
+    description: A place for me to share a bit of knowledge
     experience:
       - start: 2017-05-03
         end: 2018-05-06
@@ -89,13 +89,13 @@ theme_settings:
 
   # Icons
   icons:
-    email: # Full email address, e.g. "sample@google.com"
-    linkedin: # Full URL
-    github: naye0ng
+    email: russell@web.net
+    linkedin: https://www.linkedin.com/in/jonesrussell42/
+    github: jonesrussell
     gitlab:
     bitbucket:
     google_plus:
-    twitter:
+    twitter: jonesrussell42
     youtube:
     facebook:
     instagram:
