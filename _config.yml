@@ -18,12 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Blog
 email: jonesrussell42@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Tech blog posts by moi, Russell Jones.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://localhost:4000"
 twitter_username: jonesrussell42
 github_username: jonesrussell
 
@@ -71,7 +71,7 @@ google_analytics: UA-NNNNNNNN-N
 
 # Blog Settings
 theme_settings:
-  title: Grape Theme
+  title: Blog | Russell Jones
   favicon: assets/favicon.ico
 
   # Profile Settings
@@ -85,7 +85,7 @@ theme_settings:
         experience: company name, title
     skills:
       - skill: HTML5 & CSS
-        value: 85 # Percent value
+        value: 100 # Percent value
 
   # Icons
   icons:
@@ -94,7 +94,6 @@ theme_settings:
     github: jonesrussell
     gitlab:
     bitbucket:
-    google_plus:
     twitter: jonesrussell42
     youtube:
     facebook:
