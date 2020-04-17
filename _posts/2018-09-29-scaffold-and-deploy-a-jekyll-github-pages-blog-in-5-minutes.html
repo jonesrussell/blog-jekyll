@@ -3,4 +3,216 @@ layout: post
 title: Scaffold and Deploy a Jekyll GitHub Pages Blog in 5 Minutes
 ---
 
-<p>Ahnee! Static websites have made a comeback. Innovations in content generation, the adoption of Markdown in workflows, deployment technology, and free hosting have made static websites an attractive option for those who don’t need the capabilities of a framework or content management system.</p><p><a href="https://jekyllrb.com/">Jekyll</a> is a static site generator that made a big splash in the world of static website generation. And GitHub has become the defacto standard in social coding, with <a href="https://pages.github.com/">GitHub Pages</a> offered as an attractive option for free static website hosting.</p><blockquote>Jekyll is a blog-aware static site generator in Ruby</blockquote><h3>My experience in static</h3><p>18 years ago, in my first job as a web developer, we generated and maintained static websites. The shop I worked for built an in-house Perl templating “engine” which recursively crawled a directory looking for files with a custom file extension to parse.</p><p>These files contained content in the form of HTML and XML-esque tags which were essentially variables that set the active section in the navigation, helped generate breadcrumbs, figure out which shared content blocks to display in the sidebars, etc… The meat of each file was the content for the page being generated. Using regex, the contents of a master template was then populated with the contents of the parsed files then output into an html file.</p><p>The websites were generally 100+ pages and the engine wasn’t great. There was no easy way to generate a single page, or a subset of pages. And it was slow. We would inevitably edit the HTML files directly when doing maintenance work. Site-wide changes ended up being a scary Perl regexp which ran independently of the engine, and our master template would quickly become obsolete.</p><p>Today we have much better tooling. Written in Ruby, Jekyll is arguably the most popular static site generator.</p><h3>Why develop a static website?</h3><p>Why indeed. I can think of a few pros to creating and maintaining a static website.</p><ul><li><strong>No server side programming required</strong><br>Creating a website usually begins with a framework. The most popular software for creating websites today is Wordpress. Written in PHP, WP began as a blogging platform but has since progressed to a full fledged Content Management System. A WordPress website requires a server which supports PHP, which you can setup yourself or pay a hosting provider like <a href="https://wordpress.com/">https://wordpress.com/</a>. It’s definitely possible to create a WordPress website without knowing PHP, but to customize your site, you will eventually have to get your hands dirty with a bit of coding.</li><li><strong>Your website will be fast</strong><br>A static web page is written in HTML and is served by a web server such as Apache or Nginx. Because the HTML document does not require any additional processing, it is served directly to the browser with minimal effort on the web servers part. Web servers such as Nginx are optimized for serving static assets, resulting in web pages which load near instantaneously.</li><li><strong>Search engines favor fast web pages<br></strong>Google provides us with guidelines for Search Engine Optimization. In 2012, Google revealed that speed is a factor in rankings.</li></ul><h3>Tutorial</h3><p>Enough talk, let’s get down to generating our new site.</p><h4>Pre-requisites</h4><ul><li>Terminal (a command-line) — <a href="https://linuxconfig.org/how-to-open-a-terminal-on-ubuntu-bionic-beaver-18-04-linux">How to open Terminal on Ubuntu Bionic Beaver 18.04 Linux</a></li><li>RubyGems — <a href="https://github.com/rvm/ubuntu_rvm">RVM package for Ubuntu</a></li><li>Git — <a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04">How To Install Git on Ubuntu 18.04</a></li><li>A GitHub account — <a href="https://github.com/join">Join GitHub</a></li></ul><p>Installing ‘gem’ and ‘git’ is out of the scope of this tutorial but the links provided above are great for Ubuntu 18.04. Drop me a line or comment below if you need help.</p><h4>Create and Preview Your Site</h4><p>To kick off, first you need to open a terminal and install the Jekyll ruby gem:</p><blockquote>$ gem install bundler jekyll</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*o-WMlkQ2Cra6pT0O8HSeVQ.png" /></figure><p>Use jekyll to generate your awesome new site:</p><blockquote>$ jekyll new my-awesome-site</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*fphO0ihPGqX8UZ8B_P-pdg.png" /></figure><p>If all went well you can use jekyll to preview your new site:</p><blockquote>$ cd my-awesome-site<br>$ bundle exec jekyll serve</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*TGha9u_EC39odTSBF4nETQ.png" /></figure><blockquote>Point your browser to <a href="http://localhost:4000">http://localhost:4000</a>.</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*iaupqu3_PhnF1iRCDlYZng.png" /></figure><blockquote>When you are finished previewing press Ctrl-C to shut down the preview server.</blockquote><h3>Deploy to GitHub Pages</h3><p><a href="https://pages.github.com/">GitHub Pages</a> is an excellent FREE web hosting service for your GitHub repositories.</p><blockquote>Websites for you and your projects.<br>Hosted directly from your GitHub repository. Just edit, push, and your changes are live.</blockquote><h4>Create a New Repository</h4><p>A repository (or repo for short) is a place to manage a project and track changes to project files over time.</p><blockquote>Visit <a href="https://github.com/new">https://github.com/new</a></blockquote><blockquote>Under “Repository name” type “my-awesome-site”</blockquote><blockquote>Optionally fill in a “Description”:</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*n_waIDZ75IoaJxPdNvD0EA.png" /></figure><p>Leave “Public” selected (“Private” repos are only available with paid GitHub plans), and leave all other options as is.</p><blockquote>To continue, click “Create repository”. When your repo is created you will see this screen:</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*Fibe17D9cKelwO2amQP0ag.png" /></figure><p>You now have an empty repo and may continue with configuration.</p><h4>Configure Repository for GitHub Pages</h4><p>To link your repository to GitHub Pages you must specify which branch will be published.</p><p>A <a href="https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is">git branch</a> is essentially a series of snapshots of your code over time. Branching allows you, or multiple users, to modify code in an isolated work area that doesn’t affect other branches or the project as a whole.</p><p>For the purpose of this tutorial we will assign the “master” branch to be published.</p><blockquote>From your “my-awesome-site” repository page click the “Settings” tab which brings you to <a href="https://github.com/jonesrussell/my-awesome-site/settings">https://github.com/<em>username</em>/my-awesome-site/settings</a>.</blockquote><blockquote>Scroll down to “GitHub Pages” where you will see “Source” with a drop-down set to “None”.</blockquote><blockquote>Click the drop-down and select “master branch”:</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*uGIFFtwSc7L0-QnmKAXORA.png" /></figure><blockquote>With “master branch” selected, click “Save”.</blockquote><p>Once saved scroll back down to see the message “Your site is ready to be published at <a href="https://jonesrussell.github.io/my-awesome-site/">https://<em>username</em>.github.io/my-awesome-site/</a>.”</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*MQwnvC6Inb93zlev6ZuYRQ.png" /></figure><p><strong>Configure your Gemfile</strong></p><p>Gemfiles are used by Ruby to set the dependencies required to properly build a Ruby Gem. A Gemfile was automatically generated by Jekyll in the previous steps.</p><p>You must update your Gemfile to instruct GitHub to build your gem for deployment to GitHub Pages.</p><p>Use whichever editor you are comfortable with but here I’m using “vim”:</p><blockquote>$ vim Gemfile</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*Bh6_5s7-bqE7CAfAK-HyNw.png" /></figure><p>Our changes are straight-forward, simply comment out (append the line with #):</p><blockquote>gem “jekyll”, “~&gt; 3.8.4” (line 11 in the above screenshot; 3.8.4 is the version at the time of writing and may have changed by now)</blockquote><p>and un-comment:</p><blockquote># gem “github-pages”, group: :jekyll_plugins (line 18)</blockquote><p>Your Gemfile should now look like the screenshot below. A ‘#’ has been appended to line 11, and the ‘#’ has been removed from the beginning of line 18.</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*9mMkQCJzxLCmXL_I5yfm1g.png" /></figure><p>Now Save and close the Gemfile (instructions for vim):</p><blockquote>:wq</blockquote><p><strong>Update _config.yml</strong></p><p>_config.yml contains variables specific to your website. Before you deploy you may want to set the title and description, and possibly your Twitter and GitHub usernames.</p><p>You must set the baseurl to ensure URLs are generated correctly, otherwise your assets and page links will not work.</p><blockquote>$ vim _config.yml</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*9UEZoWCCdQYb4_ah0aXFKw.png" /></figure><p>Make whatever edits you like, but be sure to edit the “baseurl” (line 22) so it reads:</p><blockquote>baseurl: “/my-awesome-site” # the subpath of your site, e.g. /blog</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*wku2TAwAraDwe4GCoxINHg.png" /></figure><p>Save and close.</p><blockquote>:wq</blockquote><p><strong>Commit Your Site Files</strong></p><p>You have your site files, configured for GitHub Pages, and you have an empty GitHub repository named “my-awesome-site”.</p><p>The next step is to “check-in” your files to the repo (replace <em>username</em> with your GitHub username):</p><blockquote>$ git init<br>$ git add .<br>$ git commit -m “first commit”<br>$ git remote add origin <a href="https://github.com/jonesrussell/my-awesome-site.git">https://github.com/username/my-awesome-site.git</a><br>$ git push -u origin master</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/741/1*XFr7LjpYyynfAapn9UnKlw.png" /></figure><blockquote>Verify your files have been published to GitHub by visiting <a href="https://github.com/jonesrussell/my-awesome-site">https://github.com/<em>username</em>/my-awesome-site</a>:</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*550RFFagQa4dtiXMZkZfdw.png" /></figure><p><strong>Tada! Visit your site</strong></p><p>When you committed your files to the repository, GitHub automagically built a set of HTML files and deployed to GitHub pages.</p><blockquote>Verify your blog is deployed by visiting <a href="https://jonesrussell.github.io/my-awesome-site/">https://username.github.io/my-awesome-site/</a>.</blockquote><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*lP_yQX0QSLepJ29IenSFjQ.png" /></figure><h3>Conclusion</h3><p>You are now initiated into the world of Jekyll and GitHub Pages. To create a new blog post, add a new file to the “_posts” directory and check it into your repo. Be sure to examine the default post and stick to it’s naming convention and the template it uses within. Once checked in visit your site and your new post should appear in the homepage list.</p><p>I hope this post was helpful, drop me a line or comment with any questions, corrections, or just to say Ahnee!</p><p>Gabekana!</p><img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=356a20793149" width="1" height="1">
+<p>
+  Ahnee! Static websites have made a comeback. Innovations in content generation, the adoption of Markdown in workflows,
+  deployment technology, and free hosting have made static websites an attractive option for those who don’t need the
+  capabilities of a framework or content management system.
+</p>
+<p>
+  <a href="https://jekyllrb.com/">Jekyll</a> is a static site generator that made a big splash in the world of static
+  website generation. And GitHub has become the defacto standard in social coding, with
+  <a href="https://pages.github.com/">GitHub Pages</a> offered as an attractive option for free static website hosting.
+</p>
+<blockquote>Jekyll is a blog-aware static site generator in Ruby</blockquote>
+<h3>My experience in static</h3>
+<p>
+  18 years ago, in my first job as a web developer, we generated and maintained static websites. The shop I worked for
+  built an in-house Perl templating “engine” which recursively crawled a directory looking for files with a custom file
+  extension to parse.
+</p>
+<p>
+  These files contained content in the form of HTML and XML-esque tags which were essentially variables that set the
+  active section in the navigation, helped generate breadcrumbs, figure out which shared content blocks to display in
+  the sidebars, etc… The meat of each file was the content for the page being generated. Using regex, the contents of a
+  master template was then populated with the contents of the parsed files then output into an html file.
+</p>
+<p>
+  The websites were generally 100+ pages and the engine wasn’t great. There was no easy way to generate a single page,
+  or a subset of pages. And it was slow. We would inevitably edit the HTML files directly when doing maintenance work.
+  Site-wide changes ended up being a scary Perl regexp which ran independently of the engine, and our master template
+  would quickly become obsolete.
+</p>
+<p>Today we have much better tooling. Written in Ruby, Jekyll is arguably the most popular static site generator.</p>
+<h3>Why develop a static website?</h3>
+<p>Why indeed. I can think of a few pros to creating and maintaining a static website.</p>
+<ul>
+  <li>
+    <strong>No server side programming required</strong><br />Creating a website usually begins with a framework. The
+    most popular software for creating websites today is Wordpress. Written in PHP, WP began as a blogging platform but
+    has since progressed to a full fledged Content Management System. A WordPress website requires a server which
+    supports PHP, which you can setup yourself or pay a hosting provider like
+    <a href="https://wordpress.com/">https://wordpress.com/</a>. It’s definitely possible to create a WordPress website
+    without knowing PHP, but to customize your site, you will eventually have to get your hands dirty with a bit
+    of coding.
+  </li>
+  <li>
+    <strong>Your website will be fast</strong><br />A static web page is written in HTML and is served by a web server
+    such as Apache or Nginx. Because the HTML document does not require any additional processing, it is served directly
+    to the browser with minimal effort on the web servers part. Web servers such as Nginx are optimized for serving
+    static assets, resulting in web pages which load near instantaneously.
+  </li>
+  <li>
+    <strong>Search engines favor fast web pages<br /></strong>Google provides us with guidelines for Search Engine
+    Optimization. In 2012, Google revealed that speed is a factor in rankings.
+  </li>
+</ul>
+<h3>Tutorial</h3>
+<p>Enough talk, let’s get down to generating our new site.</p>
+<h4>Pre-requisites</h4>
+<ul>
+  <li>
+    Terminal (a command-line) —
+    <a href="https://linuxconfig.org/how-to-open-a-terminal-on-ubuntu-bionic-beaver-18-04-linux"
+      >How to open Terminal on Ubuntu Bionic Beaver 18.04 Linux</a
+    >
+  </li>
+  <li>RubyGems — <a href="https://github.com/rvm/ubuntu_rvm">RVM package for Ubuntu</a></li>
+  <li>
+    Git —
+    <a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04"
+      >How To Install Git on Ubuntu 18.04</a
+    >
+  </li>
+  <li>A GitHub account — <a href="https://github.com/join">Join GitHub</a></li>
+</ul>
+<p>
+  Installing ‘gem’ and ‘git’ is out of the scope of this tutorial but the links provided above are great for Ubuntu
+  18.04. Drop me a line or comment below if you need help.
+</p>
+<h4>Create and Preview Your Site</h4>
+<p>To kick off, first you need to open a terminal and install the Jekyll ruby gem:</p>
+<blockquote>$ gem install bundler jekyll</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*o-WMlkQ2Cra6pT0O8HSeVQ.png" /></figure>
+<p>Use jekyll to generate your awesome new site:</p>
+<blockquote>$ jekyll new my-awesome-site</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*fphO0ihPGqX8UZ8B_P-pdg.png" /></figure>
+<p>If all went well you can use jekyll to preview your new site:</p>
+<blockquote>$ cd my-awesome-site<br />$ bundle exec jekyll serve</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*TGha9u_EC39odTSBF4nETQ.png" /></figure>
+<blockquote>Point your browser to <a href="http://localhost:4000">http://localhost:4000</a>.</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*iaupqu3_PhnF1iRCDlYZng.png" /></figure>
+<blockquote>When you are finished previewing press Ctrl-C to shut down the preview server.</blockquote>
+<h3>Deploy to GitHub Pages</h3>
+<p>
+  <a href="https://pages.github.com/">GitHub Pages</a> is an excellent FREE web hosting service for your GitHub
+  repositories.
+</p>
+<blockquote>
+  Websites for you and your projects.<br />Hosted directly from your GitHub repository. Just edit, push, and your
+  changes are live.
+</blockquote>
+<h4>Create a New Repository</h4>
+<p>A repository (or repo for short) is a place to manage a project and track changes to project files over time.</p>
+<blockquote>Visit <a href="https://github.com/new">https://github.com/new</a></blockquote>
+<blockquote>Under “Repository name” type “my-awesome-site”</blockquote>
+<blockquote>Optionally fill in a “Description”:</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*n_waIDZ75IoaJxPdNvD0EA.png" /></figure>
+<p>
+  Leave “Public” selected (“Private” repos are only available with paid GitHub plans), and leave all other options
+  as is.
+</p>
+<blockquote>To continue, click “Create repository”. When your repo is created you will see this screen:</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*Fibe17D9cKelwO2amQP0ag.png" /></figure>
+<p>You now have an empty repo and may continue with configuration.</p>
+<h4>Configure Repository for GitHub Pages</h4>
+<p>To link your repository to GitHub Pages you must specify which branch will be published.</p>
+<p>
+  A <a href="https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is">git branch</a> is essentially a series of
+  snapshots of your code over time. Branching allows you, or multiple users, to modify code in an isolated work area
+  that doesn’t affect other branches or the project as a whole.
+</p>
+<p>For the purpose of this tutorial we will assign the “master” branch to be published.</p>
+<blockquote>
+  From your “my-awesome-site” repository page click the “Settings” tab which brings you to
+  <a href="https://github.com/jonesrussell/my-awesome-site/settings"
+    >https://github.com/<em>username</em>/my-awesome-site/settings</a
+  >.
+</blockquote>
+<blockquote>Scroll down to “GitHub Pages” where you will see “Source” with a drop-down set to “None”.</blockquote>
+<blockquote>Click the drop-down and select “master branch”:</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*uGIFFtwSc7L0-QnmKAXORA.png" /></figure>
+<blockquote>With “master branch” selected, click “Save”.</blockquote>
+<p>
+  Once saved scroll back down to see the message “Your site is ready to be published at
+  <a href="https://jonesrussell.github.io/my-awesome-site/">https://<em>username</em>.github.io/my-awesome-site/</a>.”
+</p>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*MQwnvC6Inb93zlev6ZuYRQ.png" /></figure>
+<p><strong>Configure your Gemfile</strong></p>
+<p>
+  Gemfiles are used by Ruby to set the dependencies required to properly build a Ruby Gem. A Gemfile was automatically
+  generated by Jekyll in the previous steps.
+</p>
+<p>You must update your Gemfile to instruct GitHub to build your gem for deployment to GitHub Pages.</p>
+<p>Use whichever editor you are comfortable with but here I’m using “vim”:</p>
+<blockquote>$ vim Gemfile</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*Bh6_5s7-bqE7CAfAK-HyNw.png" /></figure>
+<p>Our changes are straight-forward, simply comment out (append the line with #):</p>
+<blockquote>
+  gem “jekyll”, “~&gt; 3.8.4” (line 11 in the above screenshot; 3.8.4 is the version at the time of writing and may have
+  changed by now)
+</blockquote>
+<p>and un-comment:</p>
+<blockquote># gem “github-pages”, group: :jekyll_plugins (line 18)</blockquote>
+<p>
+  Your Gemfile should now look like the screenshot below. A ‘#’ has been appended to line 11, and the ‘#’ has been
+  removed from the beginning of line 18.
+</p>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*9mMkQCJzxLCmXL_I5yfm1g.png" /></figure>
+<p>Now Save and close the Gemfile (instructions for vim):</p>
+<blockquote>:wq</blockquote>
+<p><strong>Update _config.yml</strong></p>
+<p>
+  _config.yml contains variables specific to your website. Before you deploy you may want to set the title and
+  description, and possibly your Twitter and GitHub usernames.
+</p>
+<p>
+  You must set the baseurl to ensure URLs are generated correctly, otherwise your assets and page links will not work.
+</p>
+<blockquote>$ vim _config.yml</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*9UEZoWCCdQYb4_ah0aXFKw.png" /></figure>
+<p>Make whatever edits you like, but be sure to edit the “baseurl” (line 22) so it reads:</p>
+<blockquote>baseurl: “/my-awesome-site” # the subpath of your site, e.g. /blog</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/752/1*wku2TAwAraDwe4GCoxINHg.png" /></figure>
+<p>Save and close.</p>
+<blockquote>:wq</blockquote>
+<p><strong>Commit Your Site Files</strong></p>
+<p>
+  You have your site files, configured for GitHub Pages, and you have an empty GitHub repository named
+  “my-awesome-site”.
+</p>
+<p>The next step is to “check-in” your files to the repo (replace <em>username</em> with your GitHub username):</p>
+<blockquote>
+  $ git init<br />$ git add .<br />$ git commit -m “first commit”<br />$ git remote add origin
+  <a href="https://github.com/jonesrussell/my-awesome-site.git">https://github.com/username/my-awesome-site.git</a
+  ><br />$ git push -u origin master
+</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/741/1*XFr7LjpYyynfAapn9UnKlw.png" /></figure>
+<blockquote>
+  Verify your files have been published to GitHub by visiting
+  <a href="https://github.com/jonesrussell/my-awesome-site">https://github.com/<em>username</em>/my-awesome-site</a>:
+</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*550RFFagQa4dtiXMZkZfdw.png" /></figure>
+<p><strong>Tada! Visit your site</strong></p>
+<p>
+  When you committed your files to the repository, GitHub automagically built a set of HTML files and deployed to
+  GitHub pages.
+</p>
+<blockquote>
+  Verify your blog is deployed by visiting
+  <a href="https://jonesrussell.github.io/my-awesome-site/">https://username.github.io/my-awesome-site/</a>.
+</blockquote>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*lP_yQX0QSLepJ29IenSFjQ.png" /></figure>
+<h3>Conclusion</h3>
+<p>
+  You are now initiated into the world of Jekyll and GitHub Pages. To create a new blog post, add a new file to the
+  “_posts” directory and check it into your repo. Be sure to examine the default post and stick to it’s naming
+  convention and the template it uses within. Once checked in visit your site and your new post should appear in the
+  homepage list.
+</p>
+<p>I hope this post was helpful, drop me a line or comment with any questions, corrections, or just to say Ahnee!</p>
+<p>Gabekana!</p>
+<img
+  src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=356a20793149"
+  width="1"
+  height="1"
+/>
