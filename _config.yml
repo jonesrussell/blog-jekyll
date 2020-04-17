@@ -18,17 +18,17 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Blog
 email: jonesrussell42@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Tech blog posts by moi, Russell Jones.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://localhost:4000"
 twitter_username: jonesrussell42
 github_username: jonesrussell
 
 # Build settings
-remote_theme: b2a3e8/jekyll-theme-console
+theme: grape-theme
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -71,31 +71,30 @@ google_analytics: UA-NNNNNNNN-N
 
 # Blog Settings
 theme_settings:
-  title: Grape Theme
+  title: Russell Jones
   favicon: assets/favicon.ico
 
   # Profile Settings
   profile:
     image: assets/img/smile.png
     username: Russell Jones
-    description: creator of Grape-Theme! Grape-Theme is my first jekyll theme and you can customize this theme easily.
+    description: A place for me to share a bit of knowledge
     experience:
       - start: 2017-05-03
         end: 2018-05-06
         experience: company name, title
     skills:
       - skill: HTML5 & CSS
-        value: 85 # Percent value
+        value: 100 # Percent value
 
   # Icons
   icons:
-    email: # Full email address, e.g. "sample@google.com"
-    linkedin: # Full URL
-    github: naye0ng
+    email: russell@web.net
+    linkedin: https://www.linkedin.com/in/jonesrussell42/
+    github: jonesrussell
     gitlab:
     bitbucket:
-    google_plus:
-    twitter:
+    twitter: jonesrussell42
     youtube:
     facebook:
     instagram:
