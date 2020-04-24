@@ -1,3 +1,12 @@
+---
+layout: post
+title: Heed the warnings... don't keep reusing the same password!
+categories: [security]
+tags: [identity-theft, password-manager]
+---
+
+
+
 # Heed the warnings... don't keep reusing the same password!
 
 > "I always use the same password when I sign up for anything." -Hacking Victims Everywhere

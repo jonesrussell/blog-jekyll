@@ -2,31 +2,48 @@
 layout: post
 title: "Can't view saved passwords in Chrome"
 categories: [browsers]
-tags: [google-chrome, passwords]
+tags: [google-chrome, passwords, issue]
 ---
 
-I tried to export my saved passwords in Chrome today and found the relevant
-section in settings to be empty. Observe:
+Ahnii! G'day, g'day g'day.
 
-![Screenshot of Chrome settings with "Saved passwords will appear here" message]({{ site.baseurl }}/assets/img/chrome-saved-passwords.png)
+Earlier today, I tried to export my saved passwords in Chrome settings and found the relevant
+section to be empty. Observe:
 
-To fix it I had to:
+![Screenshot of Chrome settings with "Saved passwords will appear here" message](/home/russell/Development/Portfolio/blog-jekyll/assets/img/chrome-saved-passwords.png)
 
-- Shut down all instances of Chrome
-- Backup and remove "Login Data"
-- Start Chrome and profit
+Screenshot; "Saved passwords will appear here".
 
-## Shut down all instances of Chrome
+## Cause
+
+"Login Data" has become corrupted.
+
+## Solution
+
+To fix we have to allow Chrome to regenerate "Login Data".
+
+1. Locate "Login Data" file
+2. Shut down all instances of Chrome
+3. Backup and remove "Login Data"
+4. Start Chrome and profit
+
+### Locate "Login Data" file
+
+In Chrome, type "chrome://version" into the address bar:
+
+
+
+### Shut down all instances of Chrome
 
 ```bash
 pkill chrome
 ```
 
-## Backup and remove "Login Data"
+### Backup and remove "Login Data"
 
 ```bash
 mkdir -p ~/.local/backups
 mv
 ```
 
-## Start Chrome and profit
+### Start Chrome and profit
