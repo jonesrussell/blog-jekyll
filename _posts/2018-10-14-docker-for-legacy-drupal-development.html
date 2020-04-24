@@ -1,0 +1,310 @@
+---
+layout: post
+title: Docker for Legacy Drupal Development
+categories: [devops]
+tags: [drupal, docker]
+---
+
+<h4>Leveraging Linux containers for Migrating Drupal 6 to Drupal 8</h4>
+<p>
+  Ahnee. Let me start by saying this article/tutorial (artorial, tutarticle!?), this <em>artorial </em>could be titled
+  “<strong>Docker for Development</strong>, <em>Leveraging Linux containers</em>” and be applied to virtually any stack
+  you want.
+</p>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*s-YgL1NW7evYyCBWI-7w8Q.png" /></figure>
+<p>I’m using Drupal because I recently began a Drupal 6 (D6) to Drupal 8 (D8) website migration.</p>
+<blockquote>
+  Drupal is a free, open-source content management system (CMS) with a large, supportive community. It’s used by
+  millions of people and organizations around the globe to build and maintain their websites.
+</blockquote>
+<p>
+  Both versions run on a LAMP stack but with different versions of PHP. D6 reached it’s end-of-life in early 2016,
+  almost a year before PHP 7 was released. Consequently it requires PHP 5.6 and lower to run.
+</p>
+<p>
+  <em>The folks at </em
+  ><a href="https://www.mydropwizard.com/blog/drupal-6-year-2020-and-php-7-support"><em>myDropWizard.com</em></a
+  ><em>
+    are bravely supporting D6 until the cows come home, props to them! I have no affiliation with them, I’m just
+    thunderstruck by their </em
+  ><a href="https://www.mydropwizard.com/blog/drupal-6-2019-yes-really"><em>level of commitment</em></a
+  ><em>.</em>
+</p>
+<p>
+  According to the docs D8 will run on PHP 5.5.9+, but any version less than 7.1 is
+  <a href="https://www.drupal.org/docs/8/system-requirements/php-requirements#php_required">not recommended</a>.
+  <strong>If running Drupal 8 on PHP 5.6 you go, only pain will you find</strong>.
+</p>
+<p>
+  So how do you run PHP 5 and PHP 7 simultaneously on the same host? Spin up a pair of VMs?
+  <a href="https://www.tecmint.com/install-different-php-versions-in-ubuntu/"
+    >Slip in Nginx and PHP-FPM alongside Apache</a
+  >? The former option is acceptable. The latter borders on sadomasochism.
+</p>
+<figure>
+  <img alt="" src="https://cdn-images-1.medium.com/max/244/1*4jh-4MnN2NkYxWZVOKBklw.jpeg" />
+  <figcaption>And there is, Kevin!</figcaption>
+</figure>
+<p>The answer is, of course, Docker.</p>
+<h3>This Guy’s Setup</h3>
+<p>
+  I use Linux as my primary Operating System (OS). Ubuntu 18.04 loaded with the latest packages of Apache 2.4, MySQL
+  5.7, and PHP 7.2 from Ubuntu’s official repositories.
+</p>
+<h4>Drupal 8</h4>
+<p>
+  My Ubuntu host is similar enough to the production environment where D8 is to be deployed that I created an Apache
+  Virtual Host (vhost) and MySQL database then
+  <a
+    href="https://www.drupal.org/docs/develop/using-composer/using-composer-to-manage-drupal-site-dependencies#download-core-option-a"
+    >downloaded D8 using a composer template</a
+  >
+  and installed it with <a href="https://docs.drupalconsole.com/en/commands/site-install.html">Drupal Console</a>.
+</p>
+<blockquote>
+  What is the Drupal Console? The Drupal CLI. A tool to generate boilerplate code, interact with and debug Drupal. From
+  the ground up, it has been built to utilize the same modern PHP practices which were introduced in Drupal 8.
+</blockquote>
+<h4>Drupal 6</h4>
+<p>This is where the fun begins. But first I’ll explain the differences between a VM and a Container.</p>
+<h3>VMs and Containers Compared</h3>
+<h4>VM</h4>
+<p>
+  There are many VM providers. <a href="https://www.virtualbox.org/">VirtualBox</a>,
+  <a href="https://www.qemu.org/">QEMU</a>, and <a href="https://www.vmware.com/">VMWare</a> to name a few. A VM
+  contains a full OS and <a href="https://en.wikipedia.org/wiki/Kernel_(operating_system)">kernel</a> running in
+  isolation (so lonely) from the host. It is indistinguishable from a proper desktop or server.
+</p>
+<p>
+  Before booting, VMs are allocated resources such as RAM and CPU cores. The VM provides a hardware emulation layer
+  between the guest OS and the host, which looks and feels like bare metal as far as the guest OS is concerned.
+</p>
+<p>
+  Because they resemble physical desktops and servers, VMs require significant amounts of the host’s system resources.
+  In contrast to Containers this severely limits the amount of VMs that can run concurrently on a single host. The
+  boot-up and shutdown time is also the same as a physical machine; another significant difference.
+</p>
+<h4>Containers</h4>
+<p>
+  Containers offer the advantages of VMs without the overhead. By virtualizing at the kernel level containers share
+  resources with the host. Many more containers can run simultaneously on a single machine compared to VMs.
+</p>
+<p>
+  Containers worry more about resource prioritization rather than resource allocation. In other words, a container says
+  “When will you run this process for me niijikiwenh?” rather than “How much CPU do I have to run this process?”.
+</p>
+<p>
+  Finally, starting up or shutting down a Container is super fast <em>*whoooooosh*</em>. Because Containers share a
+  fully loaded kernel with the host, they can be started, perform a task, then shut down within milliseconds. Containers
+  are the mayflies of the tech world. On the flip side, they can last until an act of God brings them down along with
+  your house.
+</p>
+<h4>Docker</h4>
+<p>I messed with Docker years ago but only recently gave it a prime time slot in my regularly scheduled programming.</p>
+<p>
+  Docker makes it easier to create, deploy, and run an application in a lightweight and portable Container by packaging
+  it up with it’s dependencies and shipping them out as an image.
+</p>
+<p>
+  I’ve only skimmed the surface of Docker and don’t fully understand how it works under the hood. I’m also anxious to
+  check out a competitor such as <a href="http://www.ubuntu.org.cn/cloud/lxd">Canonical’s LXD</a> or
+  <a href="https://coreos.com/rkt/">CoreOS/Redhat’s Rkt</a>. All in good time.
+</p>
+<h4>Docker Images</h4>
+<p>
+  Docker loads an image containing an OS and the software needed to do a job into a container. In other words, an image
+  contains your applications runtime environment.
+</p>
+<p>
+  Creating an image is rather painless, depending on the complexity of your requirements. You write a set of
+  instructions in YAML saved as a Dockerfile, then run docker build. Our tutorial requirements are simple and can be met
+  with pre-existing images pulled from <a href="https://hub.docker.com/">Docker Hub</a>, a Docker image
+  registry service.
+</p>
+<p>
+  While I can find an image which contains Apache, PHP, and MySQL all together, we’re going to follow
+  <a href="https://devops.stackexchange.com/questions/447/why-it-is-recommended-to-run-only-one-process-in-a-container"
+    >best practices</a
+  >
+  and separate the web server from the database into 2 containers where they will communicate through an internal subnet
+  created by Docker.
+</p>
+<h4>Persisting Data</h4>
+<p>
+  Finally, containers are designed to be disposable, with the ability to run as a single instance on a single host, or
+  to be scaled as multiple instances distributed over server clusters. By default, data is written to a containers
+  writable layer and will be disposed of along with the container.
+</p>
+<p>
+  Volumes and Bind Mounts are Dockers two options for persisting data. I can, and maybe will, write an entire post to
+  fully explain them. But to keep it brief I will say Volumes are managed by Docker, isolated from the host, can be
+  mounted into multiple containers, and stored on remote hosts or in a cloud provider.
+</p>
+<p>
+  Bind Mounts are a file or directory on the host machine mounted into a container. They are a good option to share
+  configuration data, source code, and build artifacts during development. In production, your build artifacts are best
+  copied directly into the image, configuration in the environment, and source code unnecessary.
+</p>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/740/1*W49kEOLhKZTuC9DmRKD6Qg.png" /></figure>
+<p>
+  Volumes are recommended for storing data used and generated by containers. Bind mounts depend on the host machine’s
+  directory structure, hampering container portability.
+</p>
+<p>In this tutorial we will get by with a bind mount.</p>
+<h3>Summary</h3>
+<p>
+  That’s Docker so far as I understand it. I hope you find it beneficial and are encouraged to begin developing with
+  Docker. I invite you to join in on the fun below and follow the step-by-step instructions to get down and dirty
+  with Docker.
+</p>
+<h3>Tutorial</h3>
+<p>
+  Let’s setup Drupal 6 within containers in Ubuntu. If you are not using Ubuntu don’t fret, the only step you need to
+  change is “Install Docker”. In that case refer to
+  <a href="https://docs.docker.com/install/#supported-platforms"
+    >https://docs.docker.com/install/#supported-platforms</a
+  >
+  for instructions to install Docker on your OS.
+</p>
+<p>If you catch any mistakes or see room for improvement please contact me. Otherwise, wacka wacka.</p>
+<h4>Prerequisites</h4>
+<p>
+  sudo (or root) — Required to install and run Docker. To run docker commands without sudo or root you must add your
+  user account to the <em>docker</em> group.
+</p>
+<h4>Table of Contents</h4>
+<ol>
+  <li>Install Docker</li>
+  <li>Add user to docker group</li>
+  <li>Start Docker</li>
+  <li>Pull MySQL image</li>
+  <li>Start container</li>
+  <li>Download Drupal 6</li>
+  <li>Pull Apache/PHP image</li>
+  <li>Enable mod_rewrite</li>
+  <li>Allow Overrides</li>
+  <li>Start container with a bind mount</li>
+  <li>Install Drupal</li>
+  <li>Cleanup</li>
+</ol>
+<p>Biminizha’.</p>
+<h4>Install Docker</h4>
+<p>Open a terminal and ensure your package lists are up to date then install Docker (aka Docker Engine):</p>
+<pre>$ sudo apt update<br>$ sudo apt install docker.io -y</pre>
+<p><em>Output:</em></p>
+<pre>&lt;heaps of output&gt;<br>Processing triggers for systemd (237-3ubuntu10.3) ...</pre>
+<p>Docker Engine is comprised of three major components:</p>
+<ul>
+  <li><em>dockerd</em> (Server) — a daemon that is a long-running background process</li>
+  <li><em>docker</em> (Client) — a command line interface</li>
+  <li>REST API — specifies interfaces that programs can use to communicate with the daemon</li>
+</ul>
+<h4>Start Docker</h4>
+<p>Kick-start the aforementioned long-running background process:</p>
+<pre>$ sudo systemctl start docker</pre>
+<p>Optionally, tell <em>systemd</em> to start docker on system boot:</p>
+<pre>$ sudo systemctl enable docker</pre>
+<p>Docker is now installed and ready for use. Check if docker is running:</p>
+<pre>$ systemctl is-active docker</pre>
+<p><em>Output:</em></p>
+<pre>active</pre>
+<h4>Pull MySQL image</h4>
+<p>
+  Now that you have docker running you can pull your first image. Start with
+  <a href="https://hub.docker.com/r/mysql/mysql-server/">MySQL</a> version 5.6 (without <em>:5.6</em> specified, :<em
+    >latest</em
+  >
+  is implied):
+</p>
+<pre>$ sudo docker pull mysql:5.6</pre>
+<p><em>Output:</em></p>
+<pre>5.6: Pulling from library/mysql<br>802b00ed6f79: Pull complete <br>30f19a05b898: Pull complete <br>3e43303be5e9: Pull complete <br>94b281824ae2: Pull complete <br>51eb397095b1: Pull complete <br>3f6fe5e46bae: Pull complete <br>b5a334ca6427: Pull complete <br>115764d35d7a: Pull complete <br>719bba2efabc: Pull complete <br>284e66788ee1: Pull complete <br>0f085ade122c: Pull complete <br>Digest: sha256:4c44f46efaff3ebe7cdc7b35a616c77aa003dc5de4b26c80d0ccae1f9db4a372<br>Status: Downloaded newer image for mysql:5.6</pre>
+<h3>Start MySQL</h3>
+<p>Start the DB container, options are explained below:</p>
+<pre>$ sudo docker run -d \<br>--name=&quot;drupal-mysql&quot; \<br>-e MYSQL_ROOT_PASSWORD=drupalroot \<br>-e MYSQL_DATABASE=drupal6 \<br>-e MYSQL_USER=drupal \<br>-e MYSQL_PASSWORD=drupal6pass \<br>mysql:5.6</pre>
+<ul>
+  <li>-d — Start the container as a background process.</li>
+  <li>--name —Will be referenced during Drupal install. A random name will be assigned if one isn’t provided.</li>
+  <li>
+    -e — Set’s an environment variable. MySQL will be configured with
+    <a href="https://hub.docker.com/_/mysql/">values passed in</a> by the environment.
+  </li>
+</ul>
+<p><em>Output (will differ):</em></p>
+<pre>de99c912e3fbeb4f113889c145b5fab82787259c21d51962c9186e90c27d2857</pre>
+<h4>Download Drupal 6</h4>
+<p>
+  D6 is available for download from the official Drupal site packaged as a gzipped tarball. You can grab it with wget:
+</p>
+<pre>$ cd ~<br>$ wget <a href="https://ftp.drupal.org/files/projects/drupal-6.38.tar.gz">https://ftp.drupal.org/files/projects/drupal-6.38.tar.gz</a><br>$ tar -xzf drupal-6.38.tar.gz</pre>
+<p>Verify drupal-6.38 exists in your home directory:</p>
+<pre>$ if test -d ~/drupal-6.38; then echo “It exists”; fi</pre>
+<p><em>Output:</em></p>
+<pre>It exists</pre>
+<h4>Pull Apache/PHP image</h4>
+<p>
+  Now pull a docker image of Ubuntu 14.04 LTS with Apache 2, PHP 5, and Composer from
+  <a href="https://hub.docker.com/r/nimmis/apache-php5/:">https://hub.docker.com/r/nimmis/apache-php5/:</a>
+</p>
+<pre>$ sudo docker pull nimmis/apache-php5</pre>
+<p><em>Output:</em></p>
+<pre>Using default tag: latest<br>latest: Pulling from nimmis/apache-php5<br>c2c80a08aa8c: Pull complete <br>6ace04d7a4a2: Pull complete <br>f03114bcfb25: Pull complete <br>99df43987812: Pull complete <br>9c646cd4d155: Pull complete <br>5c017123b62e: Pull complete <br>8f95d9abec41: Pull complete <br>c46de42c66c3: Pull complete <br>9a19620cecad: Pull complete <br>5c62abdf642f: Pull complete <br>Digest: sha256:712d35d5cc30e6a911e260e871f08f77d5684edcc50cba21163535714c547ff5<br>Status: Downloaded newer image for nimmis/apache-php5:latest</pre>
+<h4>DocumentRoot and Incoming Port</h4>
+<p>
+  The containerized Apache’s default DocumentRoot is /var/www/html, which we will bind mount to the D6 files in
+  ~/drupal-6.38.
+</p>
+<p>
+  Because I already have Apache on the host I have to bind the container’s port 80 to something else. I’m using 10080
+  but you can choose almost any other free port.
+</p>
+<pre>$ sudo docker run -d  \<br>-p 10080:80 \<br>-v ~/drupal-6.38:/var/www/html \<br>--name=&quot;drupal-app&quot; \<br>--link=&quot;drupal-mysql&quot; \<br>nimmis/apache-php5</pre>
+<p><em>Output:</em></p>
+<pre>0398890ab8e0a082f68373c8e7fd088e925f9bac0eca178399b883091919ee77</pre>
+<p>An explanation of what’s between run and nimmis/apache-php5:</p>
+<ul>
+  <li>-d — Daemonize, run in background.</li>
+  <li>-p 10080:80 — Bind host port 10080 to container port 80.</li>
+  <li>-v ~/drupal-6.38:/var/www/html — Bind host directory to container directory.</li>
+  <li>— name=&quot;drupal-app&quot; — Name the container instance for convenience.</li>
+  <li>--link=&quot;drupal-mysql&quot; — Link to the MySQL container so Drupal can communicate with the database.</li>
+</ul>
+<h4>Install Drupal</h4>
+<p>
+  Open <a href="http://localhost:10080">http://localhost:10080</a> in a browser (<em
+    >xdg-open is a program that will open a file or URL in the preferred application as set in your OS</em
+  >):
+</p>
+<pre>$ xdg-open <a href="http://localhost:10080">http://localhost:10080</a></pre>
+<p>Tada! The Drupal 6 installation page should be open in a browser, served from within a set of Docker containers.</p>
+<p>
+  To complete the installation use the database name (<em>drupal6</em>), username (<em>drupal</em>), and password
+  (<em>drupal6pass</em>) as set in the <em>Start MySQL</em> step. Under <em>Advanced Options</em>, set the
+  <em>Database host</em> to the name of your MySQL container, <em>drupal-mysql</em>.
+</p>
+<h3>Cleanup</h3>
+<p>When you have finished with Drupal 6 shut down the containers and delete them from the host.</p>
+<p>Stop the containers:</p>
+<pre>$ sudo docker container stop drupal-app drupal-mysql</pre>
+<p><em>Output:</em></p>
+<pre>drupal-app<br>drupal-mysql</pre>
+<p>Remove the containers:</p>
+<pre>$ sudo docker container rm drupal-app drupal-mysql</pre>
+<p><em>Output:</em></p>
+<pre>drupal-app<br>drupal-mysql</pre>
+<p>Verify the containers have been deleted:</p>
+<pre>$ sudo docker container ls</pre>
+<p>That’s it, move along. Baamaapii.</p>
+<h3>Bonus: <em>docker</em> group</h3>
+<p>To display a list of groups you belong to is simple:</p>
+<pre>$ group</pre>
+<p><em>Output:</em></p>
+<pre>roosta adm cdrom sudo dip plugdev lpadmin sambashare</pre>
+<p>Add your user account to the <em>docker</em> group:</p>
+<pre>$ sudo usermod -aG docker $USER</pre>
+<p>You must log out then log back in before it takes effect.</p>
+<img
+  src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=6df4dec8b309"
+  width="1"
+  height="1"
+/>

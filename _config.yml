@@ -18,19 +18,21 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Blog
 email: jonesrussell42@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Tech blog posts by moi, Russell Jones.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://localhost:4000"
 twitter_username: jonesrussell42
-github_username:  jonesrussell
+github_username: jonesrussell
 
 # Build settings
-theme: jekyll-theme-minimal
+theme: grape-theme
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -55,3 +57,58 @@ exclude:
 
 include:
   - _posts
+
+header_pages:
+  - index.markdown
+  - about.markdown
+
+style: dark # dark (default) or light
+listen_for_clients_preferred_style: false # true or false (default)
+
+footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
+
+google_analytics: UA-NNNNNNNN-N
+
+# Blog Settings
+theme_settings:
+  title: Russell Jones
+  favicon: assets/favicon.ico
+
+  # Profile Settings
+  profile:
+    image: assets/img/smile.png
+    username: Russell Jones
+    description: A place for me to share a bit of knowledge
+    experience:
+      - start: 2017-05-03
+        end: 2018-05-06
+        experience: company name, title
+    skills:
+      - skill: HTML5 & CSS
+        value: 100 # Percent value
+
+  # Icons
+  icons:
+    email: russell@web.net
+    linkedin: https://www.linkedin.com/in/jonesrussell42/
+    github: jonesrussell
+    gitlab:
+    bitbucket:
+    twitter: jonesrussell42
+    youtube:
+    facebook:
+    instagram:
+
+  # Disqus
+  disqus_shortname:
+
+# Pagination
+paginate: 5
+paginate_path: "blog/page:num"
+
+# Build Ssttings
+sass:
+  sass_dir: _sass
+  style: :compressed
+bootstrap:
+  assets: true

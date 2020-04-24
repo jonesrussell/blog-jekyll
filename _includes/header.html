@@ -1,0 +1,22 @@
+{% assign _url = page.url | split: "/" %} {% assign current = _url[-1] | split: "." %}
+<header>
+  <nav>
+    <ul>
+      {% case current[0] %} {% when 'tags'%}
+      <!-- tags -->
+      <a href="{{ site.baseurl }}/">
+        <li class="btn-nav">Blog</li>
+      </a>
+      <li class="current">Tags</li>
+      {% else %}
+      <!-- others -->
+      <a href="{{ site.baseurl }}/">
+        <li class="current btn-nav">Blog</li>
+      </a>
+      <a href="{{ site.baseurl }}/tags">
+        <li class="btn-nav">Tags</li>
+      </a>
+      {% endcase %}
+    </ul>
+  </nav>
+</header>
