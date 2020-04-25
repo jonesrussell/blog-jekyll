@@ -9,11 +9,14 @@ I've been developing with Drupal for over 10 years. It's never been known to be 
 
 ## Prerequisites
 
-- composer
-- docker
-- ddev
+Installing the prerequisites is beyond the scope of this post but here is a linked list of what you need installed on your system:
 
-## Install Drupal
+- [Composer](https://getcomposer.org/download/)
+- [Docker](https://docs.docker.com/get-docker/) version 18.06 or higher
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [DDEV](https://ddev.readthedocs.io/en/latest/#installation)
+
+## Download & Install Drupal
 
 1. _composer_ has become the de-facto standard package manager of PHP projects and the Drupal recommended way to manage a Drupal installation:
 
@@ -23,7 +26,7 @@ I've been developing with Drupal for over 10 years. It's never been known to be 
        && cd $_ # $_ will contain 'my-drupal-site'
    ```
 
-2. _DDEV_ is a wrapper for Docker that spins up containers configured to serve PHP projects with an SQL database:
+2. _DDEV_ is a wrapper for *Docker Compose* that spins up containers configured to serve PHP projects with an SQL database:
 
    ```bash
    # create a ddev config and settings.php for Drupal
@@ -43,21 +46,29 @@ I've been developing with Drupal for over 10 years. It's never been known to be 
    Project can be reached at http://my-drupal-site.ddev.site http://127.0.0.1:32780
    ```
 
-4. Before Drupal is useable it must be installed. You can click through the install wizard or use _drush_, a command-line utility for Drupal, that comes installed with _DDEV_:
+4. Before Drupal is usable it must be installed. You can click through the install wizard or use _drush_, a command-line utility for Drupal, that comes installed with _DDEV_:
 
    ```bash
    ddev exec drush site-install -y --account-name=admin --account-pass=my-password
    ```
 
-That's it, Drupal is installed and running at http://my-drupal-site.ddev.site. You can [login](http://my-drupal-site.ddev.site/user/login) with the following credentials:
+That's it! Drupal is installed and running at http://my-drupal-site.ddev.site.
+
+## Login
+
+You can [login](http://my-drupal-site.ddev.site/user/login) with the following credentials:
 
 ```bash
 username: admin
 password: my-password
 ```
 
-## Go forth, be fruitful
+## Further Reading
 
-Foo
+Documentation: https://ddev.readthedocs.io/en/latest/
 
-Gaabeneka.
+DDEV includes some handy functionality, like running composer and [drush](https://www.drush.org/) within the web container to download and install new modules.
+
+You can easily import/export your database, or tap into [ngrok](https://ngrok.com/) to share a browse-able link to your project accessible from the internet.
+
+Happy developing! Gabekana.
