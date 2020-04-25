@@ -3,6 +3,7 @@ layout: post
 title: "Use DDEV to locally develop with Drupals"
 categories: [web-development]
 tags: [drupal, docker, devops, php]
+published: true
 ---
 
 I've been developing with Drupal for over 10 years. It's never been known to be quick and easy to install, but with the rise of containers it's now as easy as executing a few commands in a terminal.
@@ -26,7 +27,7 @@ Installing the prerequisites is beyond the scope of this post but here is a link
        && cd $_ # $_ will contain 'my-drupal-site'
    ```
 
-2. _DDEV_ is a wrapper for *Docker Compose* that spins up containers configured to serve PHP projects with an SQL database:
+2. _DDEV_ is a wrapper for _Docker Compose_ that spins up containers configured to serve PHP projects with an SQL database:
 
    ```bash
    # create a ddev config and settings.php for Drupal
