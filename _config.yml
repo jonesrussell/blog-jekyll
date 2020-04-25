@@ -68,6 +68,8 @@ footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 
 google_analytics: UA-NNNNNNNN-N
 
+repository: jonesrussell/blog
+
 # Blog Settings
 theme_settings:
   title: Russell Jones
