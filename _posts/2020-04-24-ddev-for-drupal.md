@@ -53,7 +53,7 @@ Installing the prerequisites is beyond the scope of this post but here is a link
    ddev exec drush site-install -y --account-name=admin --account-pass=my-password
    ```
 
-That's it! Drupal is installed and running at http://my-drupal-site.ddev.site.
+That's it! Drupal is installed and running at <http://my-drupal-site.ddev.site.>
 
 ## Login
 
@@ -66,7 +66,7 @@ password: my-password
 
 ## Further Reading
 
-Documentation: https://ddev.readthedocs.io/en/latest/
+Documentation: <https://ddev.readthedocs.io/en/latest/>
 
 DDEV includes some handy functionality, like running composer and [drush](https://www.drush.org/) within the web container to download and install new modules.
 
