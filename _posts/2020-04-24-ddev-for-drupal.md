@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Use DDEV to locally develop with Drupals"
+title: "Use DDEV to locally develop with Drupal"
 categories: [web-development]
 tags: [drupal, docker, devops, php]
 published: true
