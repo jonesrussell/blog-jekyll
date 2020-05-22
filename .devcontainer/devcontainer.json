@@ -1,6 +1,14 @@
 {
-  "name": "Russell Jones' Blog",
+  "name": "Russell Jones Blog",
   "dockerFile": "Dockerfile",
+  "build": {
+    "args": {
+      "USERNAME": "russell"
+    }
+  },
+  "forwardPorts": [4000, 35729],
+  "postCreateCommand": "bundle install",
+  "remoteUser": "russell",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh"
   },
@@ -51,8 +59,5 @@
     "vscode-icons-team.vscode-icons",
     "wayou.vscode-todo-highlight",
     "wingrunr21.vscode-ruby"
-  ],
-  "forwardPorts": [4000, 35729],
-  "postCreateCommand": "bundle install",
-  "remoteUser": "russell"
+  ]
 }
