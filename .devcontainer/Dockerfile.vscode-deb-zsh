@@ -5,21 +5,18 @@ LABEL maintainer="jonesrussell42@gmail.com"
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
-# This Dockerfile adds a non-root 'vscode' user with sudo access. However, for Linux,
-# this user's GID/UID must match your local user UID/GID to avoid permission issues
-# with bind mounts. Update USER_UID / USER_GID if yours is not 1000. See
-# https://aka.ms/vscode-remote/containers/non-root-user for details.
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 RUN apt-get update \
     && apt-get -y upgrade \
-    && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-    && apt-get install -y \
+    && apt-get -y install --no-install-recommends apt-utils dialog \
+    ca-certificates \
     wget \
     zsh \
     sudo \
+    2>&1 \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
@@ -36,16 +33,15 @@ RUN groupadd --gid $USER_GID $USERNAME \
 ENV DEBIAN_FRONTEND=dialog
 
 # Switch to non-root user
-USER $USERNAME
+# USER $USERNAME
 
 # Install oh-my-zsh
-RUN sh -c "$(wget -O- https://raw.githubusercontent.com/jonesrussell/zsh-in-docker/master/zsh-in-docker.sh)" -- \
-    -t palenight \
-    -p git \
-    -p https://github.com/zsh-users/zsh-autosuggestions \
-    -p https://github.com/zsh-users/zsh-completions \
-    -p https://github.com/zsh-users/zsh-history-substring-search
+# RUN sh -c "$(wget -O- https://raw.githubusercontent.com/jonesrussell/zsh-in-docker/master/zsh-in-docker.sh)" -- \
+#     -t palenight \
+#     -p git \
+#     -p https://github.com/zsh-users/zsh-autosuggestions \
+#     -p https://github.com/zsh-users/zsh-completions \
+#     -p https://github.com/zsh-users/zsh-history-substring-search
 
 # Switch back to root
-USER root
-
+# USER root
