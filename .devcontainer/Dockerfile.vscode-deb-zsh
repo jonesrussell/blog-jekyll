@@ -1,5 +1,7 @@
 FROM debian:latest
 
+LABEL maintainer="jonesrussell42@gmail.com"
+
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -15,9 +17,9 @@ RUN apt-get update \
     && apt-get -y upgrade \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     && apt-get install -y \
-        wget \
-        zsh \
-        sudo \
+    wget \
+    zsh \
+    sudo \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
@@ -28,7 +30,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/zsh --uid $USER_UID --gid $USER_GID -m $USERNAME \
     # [Optional] Add sudo support for the non-root user
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-    && chmod 0440 /etc/sudoers.d/$USERNAME 
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog

@@ -1,5 +1,7 @@
 FROM jonesrussell/vscode-deb-zsh:latest
 
+LABEL maintainer="jonesrussell42@gmail.com"
+
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -30,6 +32,9 @@ RUN apt-get update \
     ruby \
     ruby-dev \
     #
+    # Update
+    && gem update --system \
+    #
     # Install jekyll
     && gem install \
     bundler \
@@ -42,3 +47,13 @@ RUN apt-get update \
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
+
+# TODO this is a no-no, temporary bypass of "Host key verification failed."
+RUN mkdir -p /home/$USERNAME/.vscode-server/extensions \
+    /home/$USERNAME/.vscode-server-insiders/extensions \
+    /home/$USERNAME/.ssh \
+    && echo "StrictHostKeyChecking no" >> /home/vscode/.ssh/config \
+    && chown -R $USERNAME \
+    /home/$USERNAME/.vscode-server \
+    /home/$USERNAME/.vscode-server-insiders \
+    /home/$USERNAME/.ssh

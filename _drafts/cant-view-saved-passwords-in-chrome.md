@@ -1,14 +1,14 @@
 ---
-layout: post
 title: "Can't view saved passwords in Chrome"
+layout: post
 categories: [browsers]
-tags: [google-chrome, passwords, issue]
+tags: [chrome, passwords, troubleshooting]
 ---
 
 Ahnii! G'day, g'day g'day.
 
 Earlier today, I tried to export my saved passwords in Chrome settings and found the relevant
-section to be empty. Observe:
+section to be nothing more than a fancy promise left unfulfilled. Observe:
 
 ![Screenshot of Chrome settings with "Saved passwords will appear here" message](/home/russell/Development/Portfolio/blog-jekyll/assets/img/chrome-saved-passwords.png)
 
