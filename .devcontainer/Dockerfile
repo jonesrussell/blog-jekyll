@@ -1,4 +1,4 @@
-FROM jonesrussell/vscode-deb-zsh:latest
+FROM debian:latest
 
 LABEL maintainer="jonesrussell42@gmail.com"
 
@@ -10,7 +10,11 @@ ARG USER_GID=$USER_UID
 
 RUN apt-get update \
     && apt-get -y upgrade \
-    && apt-get -y install --no-install-recommends \
+    && apt-get -y install --no-install-recommends apt-utils dialog \
+    ca-certificates \
+    wget \
+    zsh \
+    sudo \
     git \
     openssh-client \
     less \
@@ -34,6 +38,11 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd -s /bin/zsh --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 ENV DEBIAN_FRONTEND=dialog
 
