@@ -6,4 +6,5 @@ vendor
 .history
 .env
 *~
+_audits
 
