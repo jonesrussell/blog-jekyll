@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:buster-slim
 
 LABEL maintainer="jonesrussell42@gmail.com"
 
