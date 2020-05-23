@@ -46,8 +46,9 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 ENV DEBIAN_FRONTEND=dialog
 
-# TODO this is a no-no, temporary bypass of "Host key verification failed."
-RUN mkdir -p /home/${USERNAME}/{.vscode-server,.vscode-server-insiders}/extensions \
+RUN mkdir -p /home/${USERNAME}/.vscode-server/extensions \
+    /home/${USERNAME}/.vscode-server-insiders/extensions \
+    # TODO this is a no-no, temporary bypass of "Host key verification failed." \
     /home/${USERNAME}/.ssh \
     && echo "StrictHostKeyChecking no" >> /home/${USERNAME}/.ssh/config \
-    && chown -R ${USERNAME} /home/${USERNAME}
+    && chown -R ${USERNAME}:${USER_GID} /home/${USERNAME}
