@@ -42,12 +42,15 @@
   position: fixed;
   bottom: 10%;
   right: 15%;
+
   @media (max-width: 991px) {
     right: 10%;
   }
+
   @media (max-width: 576px) {
     right: 2%;
   }
+
   width: 45px;
   height: 45px;
   background-color: $theme-dark;
@@ -56,6 +59,7 @@
   text-align: center;
   line-height: 2.4rem;
   color: #fff;
+
   i {
     color: #fff;
   }
