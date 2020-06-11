@@ -33,7 +33,7 @@ To fix we have to allow Chrome to regenerate "Login Data".
 
 In Chrome, type "chrome://version" into the address bar:
 
-![chrome-version-profile-path](/assets/post/chrome-version-profile-path-1591453390495.png)
+![chrome-version-profile-path](../assets/post/chrome-version-profile-path-1591453390495.png)
 
 ### 2. Shut down all instances of Chrome
 

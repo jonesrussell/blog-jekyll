@@ -12,6 +12,11 @@
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh"
   },
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    "source=ext,target=/home/russell/.vscode-server/extensions,type=volume",
+    "source=ext-insiders,target=/home/russell/.vscode-server-insiders/extensions,type=volume"
+  ],
   "extensions": [
     "alefragnani.bookmarks",
     "alefragnani.project-manager",
@@ -20,7 +25,6 @@
     "christian-kohler.path-intellisense",
     "codezombiech.gitignore",
     "coenraads.bracket-pair-colorizer-2",
-    "coenraads.bracket-pair-colorizer",
     "cronos87.yaml-symbols",
     "cssho.vscode-svgviewer",
     "cybai.yaml-key-viewer",

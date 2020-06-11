@@ -4,7 +4,7 @@ LABEL maintainer="jonesrussell42@gmail.com"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG USERNAME=vscode
+ARG USERNAME=russell
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
@@ -52,3 +52,9 @@ RUN mkdir -p /home/${USERNAME}/.vscode-server/extensions \
     /home/${USERNAME}/.ssh \
     && echo "StrictHostKeyChecking no" >> /home/${USERNAME}/.ssh/config \
     && chown -R ${USERNAME}:${USER_GID} /home/${USERNAME}
+
+USER ${USERNAME}
+
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+
+USER root
