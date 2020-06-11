@@ -7,4 +7,5 @@ vendor
 .env
 *~
 _audits
+node_modules
 
