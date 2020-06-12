@@ -5,5 +5,8 @@
     <div class="container">
       {{ content }}
     </div>
+    {% if page.js_bundle %}
+    <script type="text/javascript" src="/assets/js/{{ page.js_bundle }}.js" async></script>
+    {% endif %}
   </body>
 </html>

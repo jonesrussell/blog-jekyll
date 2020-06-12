@@ -1,3 +1,4 @@
+# Jekyll
 _site
 .sass-cache
 .jekyll-cache
@@ -7,5 +8,10 @@ vendor
 .env
 *~
 _audits
+
+# NodeJS
+public
 node_modules
+.sass-cache
+src/assets/*.js
 

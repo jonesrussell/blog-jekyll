@@ -1,8 +1,8 @@
 {
   "name": "blog-jekyll",
-  "version": "1.0.0",
+  "version": "2.0.0-alpha",
   "description": "![home](./assets/img/home.png)",
-  "main": "index.js",
+  "main": "foobar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,13 +11,16 @@
     "url": "git+https://github.com/jonesrussell/blog.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Russell Jones <jonesrussell42@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jonesrussell/blog/issues"
   },
   "homepage": "https://github.com/jonesrussell/blog#readme",
   "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }

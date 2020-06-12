@@ -13,7 +13,6 @@
     "terminal.integrated.shell.linux": "/bin/zsh"
   },
   "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
     "source=ext,target=/home/russell/.vscode-server/extensions,type=volume",
     "source=ext-insiders,target=/home/russell/.vscode-server-insiders/extensions,type=volume"
   ],

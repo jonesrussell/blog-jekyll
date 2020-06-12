@@ -46,6 +46,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 ENV DEBIAN_FRONTEND=dialog
 
+# Cache extensions in volumes to save time on rebuild
 RUN mkdir -p /home/${USERNAME}/.vscode-server/extensions \
     /home/${USERNAME}/.vscode-server-insiders/extensions \
     # TODO this is a no-no, temporary bypass of "Host key verification failed." \
@@ -58,3 +59,7 @@ USER ${USERNAME}
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
 USER root
+
+# Setup reposiitory and install node v12
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && apt-get install -y nodejs
