@@ -99,7 +99,7 @@ RUN sudo -u ${USERNAME} npm install -g eslint tslint typescript \
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends yarn \
+    && apt-get -y install --no-install-recommends \
     ca-certificates \
     wget \
     zsh \
@@ -118,9 +118,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && gem install \
     bundler \
     jekyll \
-    && gem cleanup all \
+    && gem cleanup all
 
-    ARG EXTRA_NODE_VERSION=v14.14.0
+ARG EXTRA_NODE_VERSION=v14.14.0
 RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
 
 RUN su node -c "mkdir -p /home/$USERNAME/.vscode-server/extensions \
