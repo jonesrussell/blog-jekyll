@@ -9,66 +9,14 @@ ARG INSTALL_ZSH="true"
 ARG UPGRADE_PACKAGES="true"
 ARG ENABLE_NONROOT_DOCKER="true"
 ARG USERNAME=node
+# ARG USER_UID="automatic"
+# ARG USER_GID="automatic"
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 ENV NVM_DIR=/usr/local/share/nvm
 ENV NVM_SYMLINK_CURRENT=true \
     PATH=${NVM_DIR}/current/bin:${PATH}
-
-#RUN apt-get update \
-#    && apt-get -y upgrade \
-#    && apt-get -y install --no-install-recommends apt-utils dialog \
-#    ca-certificates \
-#    wget \
-#    zsh \
-#    sudo \
-#    git \
-#    openssh-client \
-#    less \
-#    curl \
-#    zlib1g-dev \
-#    make \
-#    build-essential \
-#    ruby \
-#    ruby-dev \
-#    2>&1 \
-#    && gem update --system \
-#    && gem install \
-#    bundler \
-#    jekyll \
-#    && gem cleanup all \
-#    && apt-get autoremove -y \
-#    && apt-get clean -y \
-#    && rm -rf /var/lib/apt/lists/*
-
-#RUN groupadd --gid $USER_GID $USERNAME \
-#    && useradd -s /bin/zsh --uid $USER_UID --gid $USER_GID -m $USERNAME \
-#    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-#    && chmod 0440 /etc/sudoers.d/$USERNAME
-
-# ENV DEBIAN_FRONTEND=dialog
-
-# Cache extensions in volumes to save time on rebuild
-#RUN mkdir -p /home/${USERNAME}/.vscode-server/extensions \
-#    /home/${USERNAME}/.vscode-server-insiders/extensions \
-#    # TODO this is a no-no, temporary bypass of "Host key verification failed." \
-#    /home/${USERNAME}/.ssh \
-#    && echo "StrictHostKeyChecking no" >> /home/${USERNAME}/.ssh/config \
-#    && chown -R ${USERNAME}:${USER_GID} /home/${USERNAME}
-
-#USER node
-#
-#RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
-#
-#USER root
-#
-## Setup reposiitory and install node v12
-#RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-#    && apt-get install -y nodejs \
-#    && apt-get autoremove -y \
-#    && apt-get clean -y \
-#    && rm -rf /var/lib/apt/lists/*
 
 COPY library-scripts/*.sh /tmp/library-scripts/
 
@@ -113,15 +61,17 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     build-essential \
     ruby \
     ruby-dev \
+    docker.io \
     2>&1 \
     && gem update --system \
     && gem install \
     bundler \
     jekyll \
-    && gem cleanup all
+    && gem cleanup all \
+    bash /tmp/library-scripts/docker-debian.sh
 
-ARG EXTRA_NODE_VERSION=v14.14.0
-RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+#ARG EXTRA_NODE_VERSION=v14.14.0
+#RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
 
 RUN su node -c "mkdir -p /home/$USERNAME/.vscode-server/extensions \
     /home/$USERNAME/.vscode-server-insiders/extensions \
@@ -129,7 +79,8 @@ RUN su node -c "mkdir -p /home/$USERNAME/.vscode-server/extensions \
     /home/$USERNAME/.vscode-server \
     /home/$USERNAME/.vscode-server-insiders"
 
-
 EXPOSE 4000
 
-CMD [ "sleep", "infinity" ]
+ENTRYPOINT ["/usr/local/share/docker-init.sh"]
+
+CMD ["sleep", "infinity"]

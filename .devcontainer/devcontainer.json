@@ -3,19 +3,33 @@
   "dockerFile": "Dockerfile",
   "build": {
     "args": {
-      "USERNAME": "russell"
+      "USERNAME": "node"
     }
   },
-  "forwardPorts": [4000, 35729],
+  "runArgs": [
+    "--init"
+  ],
+  "overrideCommand": false,
+  "forwardPorts": [
+    4000,
+    35729
+  ],
   "postCreateCommand": "bundle install",
-  "remoteUser": "russell",
+  "remoteUser": "node",
+  "remoteEnv": {
+    // Pass in the host directory for Docker mount commands from inside the container
+    "HOST_PROJECT_PATH": "${localWorkspaceFolder}"
+  },
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh"
   },
   "mounts": [
-    "source=ext,target=/home/russell/.vscode-server/extensions,type=volume",
-    "source=ext-insiders,target=/home/russell/.vscode-server-insiders/extensions,type=volume"
+    "source=ext,target=/home/node/.vscode-server/extensions,type=volume",
+    "source=ext-insiders,target=/home/node/.vscode-server-insiders/extensions,type=volume",
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
   ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
   "extensions": [
     "alefragnani.bookmarks",
     "alefragnani.project-manager",
