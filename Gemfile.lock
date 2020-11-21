@@ -115,6 +115,8 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
+    jekyll-asciinema (0.2.0)
+      jekyll (>= 2.0)
     jekyll-avatar (0.7.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-coffeescript (1.1.1)
@@ -293,6 +295,7 @@ DEPENDENCIES
   dotenv
   github-pages
   grape-theme!
+  jekyll-asciinema
   jekyll-feed (~> 0.13.0)
   jekyll-seo-tag (~> 2.6, >= 2.6.1)
   jekyll-test
