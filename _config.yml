@@ -32,6 +32,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-asciinema 
 
 # Exclude from processing.
 # The following items will not be processed, by default.
