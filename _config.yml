@@ -116,6 +116,3 @@ bootstrap:
   assets: true
 github: [metadata]
 
-kramdown:
-  syntax_highlighter_opts:
-    disable: true
