@@ -28,6 +28,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     # Install nvm
     && rm -rf /opt/yarn-* /usr/local/bin/yarn /usr/local/bin/yarnpkg \
     && bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "none" "${USERNAME}" \
+    && bash /tmp/library-scripts/docker-debian.sh \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /root/.gnupg /tmp/library-scripts
 
@@ -67,8 +68,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && gem install \
     bundler \
     jekyll \
-    && gem cleanup all \
-    bash /tmp/library-scripts/docker-debian.sh
+    && gem cleanup all
 
 #ARG EXTRA_NODE_VERSION=v14.14.0
 #RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
