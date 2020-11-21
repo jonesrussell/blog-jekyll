@@ -2,7 +2,6 @@
   "name": "blog-jekyll",
   "version": "2.0.0-alpha",
   "description": "![home](./assets/img/home.png)",
-  "main": "foobar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
