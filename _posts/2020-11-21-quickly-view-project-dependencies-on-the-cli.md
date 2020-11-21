@@ -9,4 +9,9 @@ Ahnee! I frequently find myself on the command line wanting to know which depend
 
 I do it frequently enough that I decided to experiment with commander and create a command line utitlity in JavaScript/TypeScript.
 
-​	
+{% asciicast 374453 %}
+
+Check it out at https://github.com/jonesrussell/packages
+
+Meegwetch!
+
