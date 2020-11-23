@@ -32,7 +32,6 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
-  - jekyll-asciinema
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -80,7 +79,7 @@ theme_settings:
   profile:
     image: assets/img/smile.png
     username: Russell Jones
-    description: A place for me to share a bit of knowledge
+    description: Stuff about web development
     experience:
       - start: 2017-05-03
         end: 2018-05-06
