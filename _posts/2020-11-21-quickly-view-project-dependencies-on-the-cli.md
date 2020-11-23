@@ -9,9 +9,13 @@ Ahnee! I frequently find myself on the command line wanting to know which depend
 
 I do it frequently enough that I decided to experiment with commander and create a command line utitlity in JavaScript/TypeScript.
 
-{% asciicast 374453 %}
+![packages screenshot]({{ site.baseurl }}/assets/img/screenshot-packages.png)
 
-Check it out at https://github.com/jonesrussell/packages
+Check it out at [https://github.com/jonesrussell/packages](https://github.com/jonesrussell/packages) or simply:
+
+```sh
+npm i -g @jonesrussell42/packages
+```
 
 Meegwetch!
 
