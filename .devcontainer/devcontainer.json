@@ -16,10 +16,10 @@
   ],
   "postCreateCommand": "bundle install",
   "remoteUser": "node",
-  "remoteEnv": {
-    // Pass in the host directory for Docker mount commands from inside the container
-    "HOST_PROJECT_PATH": "${localWorkspaceFolder}"
-  },
+  //"remoteEnv": {
+  // Pass in the host directory for Docker mount commands from inside the container
+  //"HOST_PROJECT_PATH": "${localWorkspaceFolder}"
+  //},
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh"
   },

@@ -6,17 +6,21 @@ LABEL name="Blog of R.E. Jones"
 LABEL version="1.0.0"
 
 ARG INSTALL_ZSH="true"
-ARG UPGRADE_PACKAGES="true"
-ARG ENABLE_NONROOT_DOCKER="true"
 ARG USERNAME=node
-# ARG USER_UID="automatic"
-# ARG USER_GID="automatic"
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
+ARG UPGRADE_PACKAGES="true"
+ARG INSTALL_OH_MYS="true"
+ARG NVM_DIR=/usr/local/share/nvm
+ARG ENABLE_NONROOT_DOCKER="true"
+ARG SOURCE_SOCKET=/var/run/docker-host.sock
+ARG TARGET_SOCKET=/var/run/docker.sock
+ARG NODE_VERSION=v14.15.0
+ARG UPDATE_RC="true"
+# Docker Compose version
+ARG COMPOSE_VERSION=1.24.0
 
-ENV NVM_DIR=/usr/local/share/nvm
-ENV NVM_SYMLINK_CURRENT=true \
-    PATH=${NVM_DIR}/current/bin:${PATH}
+# ENV DOCKER_HOST=unix:///var/run/docker.sock
 
 COPY library-scripts/*.sh /tmp/library-scripts/
 
@@ -27,24 +31,24 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
     # Install nvm
     && rm -rf /opt/yarn-* /usr/local/bin/yarn /usr/local/bin/yarnpkg \
-    && bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "none" "${USERNAME}" \
-    && bash /tmp/library-scripts/docker-debian.sh \
+    && bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${USERNAME}" "${UPDATE_RC}" \
+    && bash /tmp/library-scripts/docker-debian.sh "${ENABLE_NONROOT_DOCKER}" "${SOURCE_SOCKET}" "${TARGET_SOCKET}" "${USERNAME}" \
     # Clean up
-    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /root/.gnupg /tmp/library-scripts
-
-# Configure global npm install location
-ARG NPM_GLOBAL=/usr/local/share/npm-global
-ENV PATH=${NPM_GLOBAL}/bin:${PATH}
-RUN mkdir -p ${NPM_GLOBAL} \
-    && chown ${USERNAME}:root ${NPM_GLOBAL} \
-    && npm config -g set prefix ${NPM_GLOBAL} \
-    && sudo -u ${USERNAME} npm config -g set prefix ${NPM_GLOBAL} \
-    && echo "if [ \"\$(stat -c '%U' ${NPM_GLOBAL})\" != \"${USERNAME}\" ]; then sudo chown -R ${USERNAME}:root ${NPM_GLOBAL} ${NVM_DIR}; fi" \
-    | tee -a /etc/bash.bashrc >> /etc/zsh/zshrc
-
-# Install eslint
-RUN sudo -u ${USERNAME} npm install -g eslint tslint typescript \
-    && npm cache clean --force > /dev/null 2>&1
+    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /root/.gnupg /tmp/library-scripts \
+    #
+    # Install eslint
+    npm install -g eslint tslint typescript \
+    && npm cache clean --force > /dev/null 2>&1 \
+    #
+    # [Optional] Update a non-root user to UID/GID if needed.
+    && if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
+    groupmod --gid $USER_GID $USERNAME \
+    && usermod --uid $USER_UID --gid $USER_GID $USERNAME \
+    && chown -R $USER_UID:$USER_GID /home/$USERNAME; \
+    fi \
+    # [Optional] Add add sudo support for non-root user
+    && echo node ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -70,14 +74,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     jekyll \
     && gem cleanup all
 
-#ARG EXTRA_NODE_VERSION=v14.14.0
-#RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+# ARG EXTRA_NODE_VERSION=v14.14.0
+# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
 
-RUN su node -c "mkdir -p /home/$USERNAME/.vscode-server/extensions \
-    /home/$USERNAME/.vscode-server-insiders/extensions \
-    && chown -R $USERNAME \
-    /home/$USERNAME/.vscode-server \
-    /home/$USERNAME/.vscode-server-insiders"
+# RUN su node -c "mkdir -p /home/$USERNAME/.vscode-server/extensions \
+#    /home/$USERNAME/.vscode-server-insiders/extensions \
+#    && chown -R $USERNAME \
+#    /home/$USERNAME/.vscode-server \
+#    /home/$USERNAME/.vscode-server-insiders"
 
 EXPOSE 4000
 
