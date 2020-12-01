@@ -3,7 +3,8 @@
   "dockerFile": "Dockerfile",
   "build": {
     "args": {
-      "USERNAME": "node"
+      "USERNAME": "node",
+      "UPGRADE_PACKAGES": "true"
     }
   },
   "runArgs": [
@@ -16,10 +17,10 @@
   ],
   "postCreateCommand": "bundle install",
   "remoteUser": "node",
-  //"remoteEnv": {
-  // Pass in the host directory for Docker mount commands from inside the container
-  //"HOST_PROJECT_PATH": "${localWorkspaceFolder}"
-  //},
+  "remoteEnv": {
+    // Pass in the host directory for Docker mount commands from inside the container
+    "HOST_PROJECT_PATH": "${localWorkspaceFolder}"
+  },
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh"
   },
@@ -28,7 +29,7 @@
     "source=ext-insiders,target=/home/node/.vscode-server-insiders/extensions,type=volume",
     "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
   ],
-  // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "workspaceFolder": "/workspace",
   "extensions": [
     "alefragnani.bookmarks",

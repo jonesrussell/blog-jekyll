@@ -34,10 +34,11 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${USERNAME}" "${UPDATE_RC}" \
     && bash /tmp/library-scripts/docker-debian.sh "${ENABLE_NONROOT_DOCKER}" "${SOURCE_SOCKET}" "${TARGET_SOCKET}" "${USERNAME}" \
     # Clean up
-    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /root/.gnupg /tmp/library-scripts \
-    #
-    # Install eslint
-    npm install -g eslint tslint typescript \
+    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /root/.gnupg /tmp/library-scripts
+
+#
+# Install eslint
+RUN npm install -g eslint tslint typescript \
     && npm cache clean --force > /dev/null 2>&1 \
     #
     # [Optional] Update a non-root user to UID/GID if needed.
@@ -77,14 +78,14 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 # ARG EXTRA_NODE_VERSION=v14.14.0
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
 
-# RUN su node -c "mkdir -p /home/$USERNAME/.vscode-server/extensions \
-#    /home/$USERNAME/.vscode-server-insiders/extensions \
-#    && chown -R $USERNAME \
-#    /home/$USERNAME/.vscode-server \
-#    /home/$USERNAME/.vscode-server-insiders"
+RUN su node -c "mkdir -p /home/$USERNAME/.vscode-server/extensions \
+    /home/$USERNAME/.vscode-server-insiders/extensions \
+    && chown -R $USERNAME \
+    /home/$USERNAME/.vscode-server \
+    /home/$USERNAME/.vscode-server-insiders"
 
 EXPOSE 4000
 
-ENTRYPOINT ["/usr/local/share/docker-init.sh"]
+# ENTRYPOINT ["/usr/local/share/docker-init.sh"]
 
 CMD ["sleep", "infinity"]
