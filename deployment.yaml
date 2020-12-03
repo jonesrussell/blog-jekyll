@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blog-jekyll 
+  name: blog-jekyll
 spec:
   replicas: 3
   selector:
@@ -10,21 +10,20 @@ spec:
   template:
     metadata:
       labels:
-        app: blog-jekyll 
+        app: blog-jekyll
     spec:
       containers:
-      - name: blog 
-        image: jonesrussell/blog-app:v1.0.0
-        ports:
-          - containerPort: 80
-        readinessProbe:
-          tcpSocket:
-            port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 10
-        livenessProbe:
-          tcpSocket:
-            port: 80
-          initialDelaySeconds: 15
-          periodSeconds: 20
-
+        - name: blog
+          image: jonesrussell/blog-app:v1.0.0
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
