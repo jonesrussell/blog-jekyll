@@ -9,15 +9,14 @@
   <link rel="manifest" href="/assets/site.webmanifest" />
 
   <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
-    integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E"
-    crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+    integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" />
 
   <!-- Spoqa Han Sans -->
-  <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css" />
+  <link rel="preload" href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css"></noscript>
 
   <!-- CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
@@ -34,20 +33,16 @@
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:description" content="{{ page.subtitle }}" />
   <meta property="og:type" content="website, blog" />
-  <meta
-    property="og:image"
-    content="{{ site.url }}/{% if page.image %}{{ page.image }}{% else %}{{ site.theme_settings.profile.image }}{% endif %}"
-  />
+  <meta property="og:image"
+    content="{{ site.url }}/{% if page.image %}{{ page.image }}{% else %}{{ site.theme_settings.profile.image }}{% endif %}" />
   <meta property="og:site_name" content="{{ site.theme_settings.title }}" />
   <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="{{ title }}" />
   <meta name="twitter:description" content="{{ page.subtitle }}" />
-  <meta
-    name="twitter:image"
-    content="{{ site.url }}/{% if page.image %}{{ page.image }}{% else %}{{ site.theme_settings.profile.image }}{% endif %}"
-  />
+  <meta name="twitter:image"
+    content="{{ site.url }}/{% if page.image %}{{ page.image }}{% else %}{{ site.theme_settings.profile.image }}{% endif %}" />
 
   <title>{{ title }}</title>
 </head>
