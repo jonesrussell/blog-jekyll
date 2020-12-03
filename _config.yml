@@ -67,7 +67,7 @@ listen_for_clients_preferred_style: true # true or false (default)
 
 footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 
-google_analytics: UA-NNNNNNNN-N
+analytics_code: G-3VJWXMBV5B
 
 repository: jonesrussell/blog
 
