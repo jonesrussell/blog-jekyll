@@ -6,7 +6,6 @@ spec:
   selector:
     app: blog-jekyll
   ports:
-  - protocol: TCP
-    port: 80
-  type: LoadBalancer
-
+    - protocol: TCP
+      port: 80
+  type: ClusterIP
