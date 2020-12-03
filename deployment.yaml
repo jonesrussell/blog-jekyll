@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jekyll-website
+  name: blog-jekyll 
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: jekyll-website
+      app: blog-jekyll
   template:
     metadata:
       labels:
-        app: jekyll-website  
+        app: blog-jekyll 
     spec:
       containers:
-      - name: website
-        image: jekyll-app:1.0.0
+      - name: blog 
+        image: jonesrussell/blog-app:v1.0.0
         ports:
           - containerPort: 80
         readinessProbe:
