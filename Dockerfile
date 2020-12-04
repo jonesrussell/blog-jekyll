@@ -12,5 +12,3 @@ LABEL name blog
 LABEL version 1.0.2
 
 EXPOSE 80
-
-CMD ["sleep", "infinity"]

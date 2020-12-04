@@ -22,8 +22,3 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 README.md
-webpack.config.js
-*.yaml
-package*.json
-LICENSE.txt
-/src
