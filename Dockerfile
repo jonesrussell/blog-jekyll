@@ -9,6 +9,6 @@ COPY --from=build /app/_site /usr/share/nginx/html
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 LABEL name blog
-LABEL version 1.0.2
+LABEL version 1.0.4
 
 EXPOSE 80
