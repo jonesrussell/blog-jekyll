@@ -72,6 +72,9 @@ analytics_code: G-3VJWXMBV5B
 repository: jonesrussell/blog
 
 # Blog Settings
+subtitle: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
+page:
+  subtitle: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
 theme_settings:
   title: Russell Jones
   favicon: assets/favicon.ico
