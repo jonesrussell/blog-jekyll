@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include head.html %}
-  <body class="{{ page.layout }}">
-    <div class="container">
-      {{ content }}
-    </div>
-    {% if page.js_bundle %}
-    <script type="text/javascript" src="/assets/js/{{ page.js_bundle }}.js" async></script>
-    {% endif %}
-  </body>
+{% include head.html %}
+
+<body class="{{ page.layout }}">
+  <div class="container">
+    {{ content }}
+  </div>
+  {% if page.js_bundle %}
+  <script type="text/javascript" src="/assets/js/{{ page.js_bundle }}.js" async></script>
+  {% endif %}
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/all.css" />
+</body>
+
 </html>
