@@ -86,6 +86,6 @@ RUN su node -c "mkdir -p /home/$USERNAME/.vscode-server/extensions \
 
 EXPOSE 4000
 
-# ENTRYPOINT ["/usr/local/share/docker-init.sh"]
+ENTRYPOINT ["/usr/local/share/docker-init.sh"]
 
 CMD ["sleep", "infinity"]
