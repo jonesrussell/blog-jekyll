@@ -6,17 +6,20 @@ gemspec
 #
 #     bundle exec jekyll serve
 #
-gem "jekyll", "~> 3.9.0", group: :jekyll_plugins
+gem "jekyll", "~> 3.9.0", group: :production
 gem "dotenv"
 gem 'jekyll-admin', group: :jekyll_plugins
 
 group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'kramdown-parser-gfm'
-  gem 'jekyll-feed', '~> 0.13.0'
   gem 'jekyll-seo-tag', '~> 2.6', '>= 2.6.1'
-  gem 'jekyll-json-feed'
+end
+
+group :production do
   gem "sentry-ruby"
+  gem 'jekyll-json-feed'
+  gem 'jekyll-feed', '~> 0.13.0'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
