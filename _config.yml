@@ -1,47 +1,12 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 email: jonesrussell42@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Tech blog posts by moi, Russell Jones.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://blog.jonesrussell42.xyz" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: jonesrussell42
-# github_username: jonesrussell
-
-# Build settings
+description: 'Tech blog posts by moi, Russell Jones.'
+url: 'https://blog.jonesrussell42.xyz'
 theme: grape-theme
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-json-feed
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
 exclude:
   - .sass-cache/
   - .jekyll-cache/
@@ -54,87 +19,65 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - .devcontainer/
-
 include:
   - _posts
-
 header_pages:
   - index.markdown
   - about.markdown
-
-style: dark # dark (default) or light
-listen_for_clients_preferred_style: true # true or false (default)
-
+style: dark
+listen_for_clients_preferred_style: true
 footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
-
 analytics_code: G-3VJWXMBV5B
-
 repository: jonesrussell/blog
-
-# Blog Settings
 subtitle: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
 page:
-  subtitle: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
+  subtitle: >-
+    Blog posts and conact information of a Full-Stack Developer and DevOps
+    expert.
 theme_settings:
   title: Russell Jones
   favicon: assets/favicon.ico
-
-  # Profile Settings
   profile:
     image: assets/img/smile.png
     username: Russell Jones
     description: Stuff about web development
     experience:
-      - start: 2017-05-03
-        end: 2018-05-06
-        experience: company name, title
+      - start: '2017-05-03'
+        end: '2018-05-06'
+        experience: 'company name, title'
     skills:
       - skill: HTML5 & CSS
-        value: 100 # Percent value
-
-  # Icons
+        value: 100
   icons:
     email: russell@web.net
-    linkedin: https://www.linkedin.com/in/jonesrussell42/
+    linkedin: 'https://www.linkedin.com/in/jonesrussell42/'
     github: jonesrussell
-    gitlab:
-    bitbucket:
     twitter: jonesrussell42
-    youtube:
-    facebook:
-    instagram:
-
-  # Disqus
-  disqus_shortname:
-
-# Pagination
+    youtube: 'null'
 paginate: 5
-paginate_path: "blog/page:num"
-
-# Build Ssttings
+paginate_path: 'blog/page:num'
 sass:
   sass_dir: _sass
-  style: :compressed
+  style: ':compressed'
 bootstrap:
   assets: true
-github: [metadata]
-
+github:
+  - metadata
 uncss:
-  stylesheets: # a list of stylesheets to be processed; mandatory
+  stylesheets:
     - assets/css/main.css
-  files: # html files to consider, globs are supported; default: **/*.html
-    - "**/*.html"
-  compress: false # compress resulting css with sass; default: false
-  ignore: # always keep rules for these selectors; default: none
-    - ".is-loading"
-    - "#titleBar"
-  media: # additional media queries to consider; default: undefined
+  files:
+    - '**/*.html'
+  compress: false
+  ignore:
+    - .is-loading
+    - '#titleBar'
+  media:
     - print
-  timeout: 30 # how long to wait for the JS to be loaded in milliseconds; default: undefined
-  banner: false # should the output include a banner comment; default: undefined
-
+  timeout: 30
+  banner: false
 jekyll_admin:
-  collections:
+  collections: null
   posts:
     output: true
     sidebar_label: Blog
