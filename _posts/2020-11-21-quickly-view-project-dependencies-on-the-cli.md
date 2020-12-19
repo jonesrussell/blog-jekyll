@@ -3,6 +3,7 @@ title: Quickly view project dependencies on the cli
 layout: post
 caegories: [nodejs]
 tags: [cli, web-development]
+slug: quickly-view-project-dependencies-on-the-cli
 ---
 
 Ahnee! I frequently find myself on the command line wanting to know which dependencies and devDependencies are in the package.json file.
