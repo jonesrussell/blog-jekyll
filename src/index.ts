@@ -2,16 +2,18 @@
 import LogRocket from 'logrocket';
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
+import "@fortawesome/fontawesome-free/js/all.js";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 LogRocket.init('herbig-haro/blog-2cuyz');
 
-LogRocket.getSessionURL(function (sessionURL) {
+/*LogRocket.getSessionURL(function (sessionURL) {
   gtag('event', 'LogRocket', {
     hitType: 'event',
     eventCategory: 'LogRocket',
     eventAction: sessionURL,
   });
-});
+});*/
 
 Sentry.init({
   dsn: "https://db6929703c77406ebb9da8cc7ad91fcf@o244827.ingest.sentry.io/5563615",
