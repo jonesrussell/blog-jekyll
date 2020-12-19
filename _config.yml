@@ -132,3 +132,9 @@ uncss:
     - print
   timeout: 30 # how long to wait for the JS to be loaded in milliseconds; default: undefined
   banner: false # should the output include a banner comment; default: undefined
+
+jekyll_admin:
+  collections:
+  posts:
+    output: true
+    sidebar_label: Blog
