@@ -1,4 +1,4 @@
-FROM ruby:2.7.1-buster AS build
+FROM ruby:2.7.2-buster AS build
 
 COPY . /app
 
@@ -19,6 +19,6 @@ COPY --from=build /app/_site /usr/share/nginx/html
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 LABEL name blog
-LABEL version 1.0.7
+LABEL version 1.0.8
 
 EXPOSE 80
