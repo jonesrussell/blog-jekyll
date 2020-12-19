@@ -1,7 +1,18 @@
+title: Full Stack Developer === Russell Jones
+subtitle: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
+description: 'Tech blog posts by moi, Russell Jones.'
 email: jonesrussell42@gmail.com
-description: "Tech blog posts by moi, Russell Jones."
-url: "https://blog.jonesrussell42.xyz"
+repository: jonesrussell/blog
+analytics_code: G-3VJWXMBV5B
+js_bundle: app.bundle
+url: 'https://blog.jonesrussell42.xyz'
+style: dark
+listen_for_clients_preferred_style: true
+footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 theme: grape-theme
+header_pages:
+  - index.markdown
+  - about.markdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -19,22 +30,17 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - .devcontainer/
+  - '*.json'
+  - webpack.config.js
+  - README.md
+  - '*.txt'
+  - '*.yaml'
+  - grape-theme.gemspec
+  - Dockerfile
+  - default.conf
+  - src/
 include:
   - _posts
-header_pages:
-  - index.markdown
-  - about.markdown
-style: dark
-listen_for_clients_preferred_style: true
-footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
-analytics_code: G-3VJWXMBV5B
-repository: jonesrussell/blog
-title: Full Stack Developer === Russell Jones
-subtitle: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
-page:
-  subtitle: >-
-    Blog posts and conact information of a Full-Stack Developer and DevOps
-    expert.
 theme_settings:
   title: Russell Jones
   favicon: assets/favicon.ico
@@ -43,23 +49,23 @@ theme_settings:
     username: Russell Jones
     description: Stuff about web development
     experience:
-      - start: "2017-05-03"
-        end: "2018-05-06"
-        experience: "company name, title"
+      - start: '2017-05-03'
+        end: '2018-05-06'
+        experience: 'company name, title'
     skills:
       - skill: HTML5 & CSS
         value: 100
   icons:
     email: russell@web.net
-    linkedin: "https://www.linkedin.com/in/jonesrussell42/"
+    linkedin: 'https://www.linkedin.com/in/jonesrussell42/'
     github: jonesrussell
     twitter: jonesrussell42
-    youtube: "null"
+    youtube: 'null'
 paginate: 5
-paginate_path: "blog/page:num"
+paginate_path: 'blog/page:num'
 sass:
   sass_dir: _sass
-  style: ":compressed"
+  style: ':compressed'
 bootstrap:
   assets: true
 github:
@@ -68,11 +74,11 @@ uncss:
   stylesheets:
     - assets/css/main.css
   files:
-    - "**/*.html"
+    - '**/*.html'
   compress: false
   ignore:
     - .is-loading
-    - "#titleBar"
+    - '#titleBar'
   media:
     - print
   timeout: 30
