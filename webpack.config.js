@@ -1,6 +1,6 @@
 const path = require('path')
 const glob = require('glob')
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgeCSSPlugin = require('purgecss-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const svgToMiniDataURI = require('mini-svg-data-uri')
@@ -39,12 +39,21 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.(s[ac]ss|css)$/i,
+        test: /\.s[ac]ss$/i,
         use: [
           'style-loader',
           'css-loader',
-          // MiniCssExtractPlugin.loader,
-          'sass-loader'
+          'sass-loader',
+          MiniCssExtractPlugin.loader,
+        ]
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          MiniCssExtractPlugin.loader,
         ]
       },
       {
@@ -68,9 +77,9 @@ module.exports = {
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
-    //new MiniCssExtractPlugin({
-    //  filename: '[name].css'
-    //}),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    }),
     new PurgeCSSPlugin({
       paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
     })
