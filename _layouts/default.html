@@ -6,11 +6,12 @@
   <div class="container">
     {{ content }}
   </div>
+  <!-- Footer -->
+  {% include footer.html %}
   {% if site.js_bundle %}
-  <script type="text/javascript" src="/assets/js/{{ site.js_bundle }}.js" async></script>
+  <script type="text/javascript" src="/assets/js/{{ site.js_bundle }}.js" async defer></script>
   {% endif %}
-  <!-- Font Awesome
-  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/all.css" /> -->
+  <script type="text/javascript" src="/assets/js/styles.bundle.js" async></script>
 </body>
 
 </html>
