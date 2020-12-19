@@ -7,11 +7,11 @@ WORKDIR /app
 RUN apt-get update \
   && apt-get install npm -y \
   && npm install -g npm \
-  && npm install -g uncss \
   && apt-get clean \
   && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN NODE_ENV=production npm install \
+  && bundle install \
   && JEKYLL_ENV=production jekyll build --future
 
 FROM nginx:1.19.6-alpine

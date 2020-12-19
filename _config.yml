@@ -71,19 +71,6 @@ bootstrap:
   assets: true
 github:
   - metadata
-uncss:
-  stylesheets:
-    - assets/css/main.css
-  files:
-    - "**/*.html"
-  compress: false
-  ignore:
-    - .is-loading
-    - "#titleBar"
-  media:
-    - print
-  timeout: 30
-  banner: false
 jekyll_admin:
   collections: null
   posts:
