@@ -17,7 +17,7 @@ module.exports = {
     filename: "[name].bundle.js",
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".json", ".scss"],
   },
   optimization: {
     splitChunks: {
@@ -40,23 +40,39 @@ module.exports = {
         loader: "babel-loader",
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.module\.s(a|c)ss$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-          MiniCssExtractPlugin.loader,
-        ],
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: isDev
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDev
+            }
+          }
+        ]
       },
       {
-        test: /\.css$/i,
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-          MiniCssExtractPlugin.loader,
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDev
+            }
+          }
         ],
       },
+
       {
         test: /\.(woff|woff2|ttf|eot)$/,
         use: {
@@ -79,7 +95,8 @@ module.exports = {
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: isDev ? '[name].css' : '[name].[fullhash].css',
+      chunkFilename: isDev ? '[id].css' : '[id].[fullhash].css',
     }),
     new PurgeCSSPlugin({
       paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
