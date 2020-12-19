@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-jekyll
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blog-jekyll
+  template:
+    metadata:
+      labels:
+        app: blog-jekyll
+    spec:
+      containers:
+        - name: blog
+          image: jonesrussell/blog-app:1.0.6
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: blog-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - blog.jonesrussell42.xyz
+      secretName: blog-tls
+  rules:
+    - host: blog.jonesrussell42.xyz
+      http:
+        paths:
+          - backend:
+              serviceName: blog-jekyll
+              servicePort: 80
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    # Email address used for ACME registration
+    email: jonesrussell42@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # Name of a secret used to store the ACME account private key
+      name: letsencrypt-prod-private-key
+    # Add a single challenge solver, HTTP01 using nginx
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-jekyll
+spec:
+  selector:
+    app: blog-jekyll
+  ports:
+    - protocol: TCP
+      port: 80
+  type: ClusterIP
