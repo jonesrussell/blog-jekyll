@@ -3,7 +3,7 @@ import LogRocket from 'logrocket';
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
 import "@fortawesome/fontawesome-free/js/all.js";
-import "./scss/main.scss"
+import "../_sass/main";
 
 LogRocket.init('herbig-haro/blog-2cuyz');
 
