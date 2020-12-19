@@ -1,34 +1,35 @@
-const path = require('path')
-const glob = require('glob')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const PurgeCSSPlugin = require('purgecss-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const svgToMiniDataURI = require('mini-svg-data-uri')
+const path = require("path");
+const glob = require("glob");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const PurgeCSSPlugin = require("purgecss-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const svgToMiniDataURI = require("mini-svg-data-uri");
+const isDev = process.env.NODE_ENV === "development";
 
 const PATHS = {
-  src: path.join(__dirname, 'assets')
-}
+  src: path.join(__dirname, "assets"),
+};
 
 module.exports = {
-  entry: './src/index',
+  entry: "./src/index",
   output: {
-    path: path.resolve(__dirname, 'assets/js/'),
-    filename: '[name].bundle.js'
+    path: path.resolve(__dirname, "assets/js/"),
+    filename: "[name].bundle.js",
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: [".ts", ".tsx", ".js", ".json"],
   },
   optimization: {
     splitChunks: {
       cacheGroups: {
         styles: {
-          name: 'styles',
+          name: "styles",
           test: /\.css$/,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
+          chunks: "all",
+          enforce: true,
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -36,52 +37,52 @@ module.exports = {
         // Include ts, tsx, js, and jsx files.
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: "babel-loader",
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
+          "style-loader",
+          "css-loader",
+          "sass-loader",
           MiniCssExtractPlugin.loader,
-        ]
+        ],
       },
       {
         test: /\.css$/i,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
+          "style-loader",
+          "css-loader",
+          "sass-loader",
           MiniCssExtractPlugin.loader,
-        ]
+        ],
       },
       {
         test: /\.(woff|woff2|ttf|eot)$/,
         use: {
-          loader: 'url-loader'
-        }
+          loader: "url-loader",
+        },
       },
       {
         test: /\.svg$/i,
         use: [
           {
-            loader: 'url-loader',
+            loader: "url-loader",
             options: {
-              generator: content => svgToMiniDataURI(content.toString())
-            }
-          }
-        ]
-      }
-    ]
+              generator: (content) => svgToMiniDataURI(content.toString()),
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: "[name].css",
     }),
     new PurgeCSSPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
-    })
-  ]
-}
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    }),
+  ],
+};
