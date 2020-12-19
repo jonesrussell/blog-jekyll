@@ -5,7 +5,8 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/.history": true
+    "**/.history": true,
+    "**/.sass-cache": true
   },
   "explorerExclude.backup": null
 }

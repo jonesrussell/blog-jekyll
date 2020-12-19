@@ -13,5 +13,4 @@ _audits
 public
 node_modules
 .sass-cache
-src/assets/*.js
-
+assets/js/

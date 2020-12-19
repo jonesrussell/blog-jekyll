@@ -1,25 +1,20 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
-  entry: {
-    path: path.resolve(__dirname, "./src/assets/js/")
-  },
+  entry: './src/index',
   output: {
-    path: path.resolve(__dirname, "./_site/main.js")
+    path: path.resolve(__dirname, 'assets/js/'),
+    filename: 'app.bundle.js'
   },
-  mode: "production",
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json']
+  },
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules)/,
-        loader: "babel-loader",
-        query: {
-          presets: ["@babel/preset-env"]
-        }
-      }
-    ]
+    rules: [{
+      // Include ts, tsx, js, and jsx files.
+      test: /\.(ts|js)x?$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+    }],
   }
 };
-
