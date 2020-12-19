@@ -32,7 +32,7 @@ exclude:
   - vendor/ruby/
   - .devcontainer/
   - "*.json"
-  - webpack.config.js
+  - webpack.*.js
   - README.md
   - "*.txt"
   - "*.yaml"

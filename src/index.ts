@@ -19,7 +19,7 @@ Sentry.init({
   dsn: "https://db6929703c77406ebb9da8cc7ad91fcf@o244827.ingest.sentry.io/5563615",
 
   // To set your release version
-  release: `blog@1.0.8`,
+  release: `blog@1.0.9`,
   integrations: [new Integrations.BrowserTracing()],
 
   // Set tracesSampleRate to 1.0 to capture 100%
