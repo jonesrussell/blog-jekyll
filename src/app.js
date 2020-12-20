@@ -1,9 +1,7 @@
-
 import LogRocket from 'logrocket';
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
 import "@fortawesome/fontawesome-free/js/all.js";
-import "../_sass/main";
 
 LogRocket.init('herbig-haro/blog-2cuyz');
 
@@ -26,5 +24,4 @@ Sentry.init({
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
-
 });
