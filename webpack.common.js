@@ -11,22 +11,24 @@ const PATHS = {
 };
 
 module.exports = {
-  entry: "./src/index",
+  entry: { app: "./src/index" },
   output: {
     path: path.resolve(__dirname, "assets/js/"),
-    filename: "[name].bundle.js",
+    //filename: '[name].[contenthash].js',
+    filename: '[name].js',
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json", ".scss"],
   },
   optimization: {
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
-        styles: {
-          name: "styles",
-          test: /\.css$/,
-          chunks: "all",
-          enforce: true,
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
         },
       },
     },
