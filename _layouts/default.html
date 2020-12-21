@@ -8,9 +8,9 @@
   </div>
   <!-- Footer -->
   {% include footer.html %}
-  {% if site.js_bundle %}
-  <script type="text/javascript" src="/assets/js/{{ site.js_bundle }}.js" async defer></script>
-  {% endif %}
+  <script src="/assets/js/manifest.js"></script>
+  <script src="/assets/js/vendor.js"></script>
+  <script src="/assets/js/app.js" async defer></script>
 </body>
 
 </html>

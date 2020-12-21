@@ -4,17 +4,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
   <!-- CSS -->
-  <script type="text/javascript" src="/assets/js/styles.bundle.js?{{ "December 19, 2020 18:22" | date: "%Y%m%d%H%M" }}"></script>
+  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}?{{ " December 19, 2020 18:22" |
+    date: "%Y%m%d%H%M" }}" />
 
   <!--Favicon-->
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon-16x16.png' | relative_url }}" />
-  <link rel="manifest" href="/assets/site.webmanifest" />
-
-  <!-- CSS
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?20201218223035" />
-  <link rel="stylesheet" href="/assets/js/styles.css" /> -->
+  <link rel="manifest" href="{{ /mix-manifest.json | relative_url }}" />
 
   <!-- OG Tag -->
   {% if page.title %} {% assign title = page.title | append: " | " | append: site.theme_settings.title %} {% else %} {%
