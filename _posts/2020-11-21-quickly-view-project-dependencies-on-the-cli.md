@@ -1,21 +1,21 @@
 ---
-title: Quickly view project scripts on the cli
+title: Quickly view project dependencies on the cli
 layout: post
 caegories: [nodejs]
 tags: [cli, web-development]
-slug: quickly-view-project-scripts-on-the-cli
+slug: quickly-view-project-dependencies-on-the-cli
 ---
 
-Ahnii! I previously wrote a command line utility named '[packages](./quickly-view-project-dependencies-on-the-cli.html)' which simply prints a list of project dependencies on the command line.
+Ahnee! I frequently find myself on the command line wanting to know which dependencies and devDependencies are in the package.json file.
 
-I also found that I often want to see a list of scripts in package.json too, so I wrote another utility I've named 'scripts'.
+I do it frequently enough that I decided to experiment with commander and create a command line utitlity in JavaScript/TypeScript.
 
-![scripts screenshot](../assets/img/screenshot-scripts.png)
+![packages screenshot]({{ site.baseurl }}/assets/img/screenshot-packages.png)
 
-Check it out at [https://github.com/jonesrussell/scripts](https://github.com/jonesrussell/scripts) or simply:
+Check it out at [https://github.com/jonesrussell/packages](https://github.com/jonesrussell/packages) or simply:
 
 ```sh
-npm i -g @jonesrussell42/scripts
+npm i -g @jonesrussell42/packages
 ```
 
 Meegwetch!
