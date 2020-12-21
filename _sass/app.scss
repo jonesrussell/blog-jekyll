@@ -5,3 +5,19 @@
 h3 a, li a {
   font-size: inherit;
 }
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#post {
+  img.half {
+    width: 50%;
+    height: auto;
+  }
+}
+
+.center {
+  text-align: center;
+}

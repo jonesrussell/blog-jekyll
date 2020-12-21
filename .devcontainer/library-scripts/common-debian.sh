@@ -92,6 +92,7 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         dialog \
         libc6 \
         libgcc1 \
+        libkrb5-3 \
         libgssapi-krb5-2 \
         libicu[0-9][0-9] \
         liblttng-ust0 \
@@ -100,7 +101,8 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         locales \
         sudo \
         ncdu \
-        man-db"
+        man-db \
+        strace"
 
     # Install libssl1.1 if available
     if [[ ! -z $(apt-cache --names-only search ^libssl1.1$) ]]; then
@@ -224,7 +226,15 @@ prompt() {
     fi
     local cwd="\$(pwd | sed "s|^\${HOME}|~|")"
     PS1="\${green}\${USERNAME} \${arrow_color}➜\${reset_color} \${bold_blue}\${cwd}\${reset_color} \$(scm_prompt_info)\${white}$ \${reset_color}"
+    
+    # Prepend Python virtual env version to prompt
+    if [[ -n \$VIRTUAL_ENV ]]; then
+        if [ -z "\${VIRTUAL_ENV_DISABLE_PROMPT:-}" ]; then
+            PS1="(\`basename \"\$VIRTUAL_ENV\"\`) \${PS1:-}"
+        fi
+    fi
 }
+
 SCM_THEME_PROMPT_PREFIX="\${reset_color}\${cyan}(\${bold_red}"
 SCM_THEME_PROMPT_SUFFIX="\${reset_color} "
 SCM_THEME_PROMPT_DIRTY=" \${bold_yellow}✗\${reset_color}\${cyan})"
