@@ -24,6 +24,7 @@ sed -n -e '/scripts/,/},/ p' package.json
 ![scripts sed screenshot](/assets/img/screenshot-scripts-sed.png)
 </p>
 
+
 Check it out at [https://github.com/jonesrussell/scripts](https://github.com/jonesrussell/scripts) or simply install it and try:
 
 ```sh
