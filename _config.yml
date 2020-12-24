@@ -18,7 +18,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
-  - jekyll-json-feed
+#  - jekyll-json-feed
 exclude:
   - .sass-cache/
   - .jekyll-cache/
@@ -31,7 +31,9 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - .devcontainer/
-  - "*.json"
+  - tsconfig.json
+  - package*.json
+  - mix-manifest.json
   - webpack.*.js
   - README.md
   - "*.txt"

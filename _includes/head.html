@@ -12,6 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon-16x16.png' | relative_url }}" />
   <link rel="manifest" href="{{ /mix-manifest.json | relative_url }}" />
+  <link rel="alternate" title="{{ site.title }}" type="application/json" href="{{ "/feed.json" | absolute_url }}" />
 
   <!-- OG Tag -->
   {% if page.title %} {% assign title = page.title | append: " | " | append: site.theme_settings.title %} {% else %} {%
@@ -19,11 +20,11 @@
   <meta name="title" content="{{ title }}" />
   <meta name="author" content="{{ site.theme_settings.profile.username }}" />
   <meta name="keywords" content="{{ page.tags | join: ',' }}" />
-  <meta name="description" content="{{ page.subtitle }}" />
+  <meta name="description" content="{{ subtitle }}" />
   <meta name="robots" content="index,follow" />
 
   <meta property="og:title" content="{{ title }}" />
-  <meta property="og:description" content="{{ page.subtitle }}" />
+  <meta property="og:description" content="{{ subtitle }}" />
   <meta property="og:type" content="website, blog" />
   <meta property="og:image"
     content="{{ site.url }}/{% if page.image %}{{ page.image }}{% else %}{{ site.theme_settings.profile.image }}{% endif %}" />
@@ -32,7 +33,7 @@
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="{{ title }}" />
-  <meta name="twitter:description" content="{{ page.subtitle }}" />
+  <meta name="twitter:description" content="{{ subtitle }}" />
   <meta name="twitter:image"
     content="{{ site.url }}/{% if page.image %}{{ page.image }}{% else %}{{ site.theme_settings.profile.image }}{% endif %}" />
 
