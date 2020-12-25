@@ -36,7 +36,6 @@ exclude:
   - .devcontainer/
   - tsconfig.json
   - package*.json
-  - mix-manifest.json
   - webpack.*.js
   - README.md
   - "*.txt"

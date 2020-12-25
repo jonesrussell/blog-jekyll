@@ -22,9 +22,9 @@ layout: page
       <h4 id="{{ group | cgi_escape }}" class="title">{{ group | cgi_escape }}</h4>
       <div class="items">
         {% for post in site.tags[group] %}
-        <a href="{{ post.url | relative_url }}" class="post-link">
+        <a href="{{ post.url  }}" class="post-link">
           <div class="item">
-            <p class="meta">{{ post.date  | date: "%B %-d, %Y" }}</p>
+            <p class="meta">{{ post.date | date: "%B %-d, %Y" }}</p>
             <p class="title">{{ post.title }}</p>
           </div>
         </a>
