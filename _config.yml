@@ -1,16 +1,19 @@
-title: Full Stack Developer === Russell Jones
-subtitle: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
-description: "Tech blog posts by moi, Russell Jones."
+title: Russell Jones Blog
+description: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
 email: jonesrussell42@gmail.com
 repository: jonesrussell/blog
 analytics_code: G-3VJWXMBV5B
-js_bundle: main.bundle
-css_bunclde: styles.bundle
 url: "https://blog.jonesrussell42.xyz"
 style: dark
 listen_for_clients_preferred_style: true
 footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 theme: grape-theme
+tags:
+  - web-development
+  - php
+  - javascript
+  - typescript
+  - docker
 header_pages:
   - index.markdown
   - about.markdown
@@ -45,7 +48,7 @@ exclude:
 include:
   - _posts
 theme_settings:
-  title: Russell Jones
+  title: Russell Jones Blog
   favicon: assets/favicon.ico
   profile:
     image: assets/img/smile.png
@@ -66,9 +69,9 @@ theme_settings:
     youtube: "null"
 paginate: 5
 paginate_path: "blog/page:num"
-sass:
-  sass_dir: _sass
-  style: ":compressed"
+#sass:
+#  sass_dir: _sass
+#  style: ":compressed"
 bootstrap:
   assets: true
 github:
