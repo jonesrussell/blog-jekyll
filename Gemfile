@@ -6,7 +6,7 @@ gemspec
 #
 #     bundle exec jekyll serve
 #
-gem "jekyll", "~> 3.9.0", group: :production
+gem "jekyll", "~> 4.0.0", group: :production
 gem "dotenv"
 gem 'jekyll-admin', group: :jekyll_plugins
 

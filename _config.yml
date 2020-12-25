@@ -41,7 +41,6 @@ exclude:
   - README.md
   - "*.txt"
   - "*.yaml"
-  - grape-theme.gemspec
   - Dockerfile
   - default.conf
   - src/
