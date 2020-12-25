@@ -18,7 +18,6 @@ end
 
 group :production do
   gem "sentry-ruby"
-  # gem 'jekyll-json-feed'
   gem 'jekyll-feed', '~> 0.13.0'
 end
 
