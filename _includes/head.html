@@ -4,15 +4,15 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}?{{ " December 19, 2020 18:22" |
-    date: "%Y%m%d%H%M" }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}?{{ 'December 19, 2020 18:22' |
+    date: '%Y%m%d%H%M' }}" />
 
   <!--Favicon-->
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon-16x16.png' | relative_url }}" />
   <link rel="manifest" href="{{ /mix-manifest.json | relative_url }}" />
-  <link rel="alternate" title="{{ site.title }}" type="application/json" href="{{ "/feed.json" | absolute_url }}" />
+  <link rel="alternate" title="{{ site.title }}" type="application/json" href="{{ '/feed.json' | absolute_url }}" />
 
   <!-- OG Tag -->
   {% if page.title %} {% assign title = page.title | append: " | " | append: site.theme_settings.title %} {% else %} {%
@@ -21,7 +21,7 @@
   <meta name="author" content="{{ site.theme_settings.profile.username }}" />
   <meta name="keywords" content="{{ page.tags | join: ',' }}" />
   <!-- @TODO homepage this should be site.description -->
-  <meta name="description" content="{{ excerpt }}" />
+  <meta name="description" content="{{ page.excerpt | strip_html }}" />
   <meta name="robots" content="index,follow" />
 
   <meta property="og:title" content="{{ title }}" />
