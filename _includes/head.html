@@ -25,7 +25,7 @@
   <meta name="robots" content="index,follow" />
 
   <meta property="og:title" content="{{ title }}" />
-  <meta property="og:description" content="{{ site.description }}" />
+  <meta property="og:description" content="{{ page.excerpt | strip_html }}" />
   <meta property="og:type" content="website, blog" />
   <meta property="og:image"
     content="{{ site.url }}/{% if page.image %}{{ page.image }}{% else %}{{ site.theme_settings.profile.image }}{% endif %}" />
@@ -34,7 +34,7 @@
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="{{ title }}" />
-  <meta name="twitter:description" content="{{ site.description }}" />
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html }}" />
   <meta name="twitter:image"
     content="{{ site.url }}/{% if page.image %}{{ page.image }}{% else %}{{ site.theme_settings.profile.image }}{% endif %}" />
 
