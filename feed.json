@@ -20,7 +20,7 @@ layout: null
 "items": [
     {% for post in site.posts limit:36 %}
         {
-            "id": "{{ post.url | sha1 }}",
+            "id": "{{ post.url | replace: ".html", "" | slugify }}",
             "title": {{ post.title | jsonify }},
             "summary": {{ post.seo_description | jsonify }},
             "content_text": {{ post.content | strip_html | strip_newlines | jsonify }},
