@@ -1,14 +1,10 @@
-# Grape-Theme
+# Russell Jones Blog
 
-![home](./assets/img/home.png)
+![home](./assets/img/smile.png)
 
-블로그뿐만 아니라 포트폴리오 페이지도 지원하는 Grape-Theme를 자유롭게 사용하세요.
+![Jekyll site CI](https://github.com/jonesrussell/blog/workflows/Jekyll%20site%20CI/badge.svg)
 
-Welcome to Grape Theme! It is good for a portfolio as well as a blog.
-<br>
-Customize Grape-Theme and use it for free.
-
-[Demo](https://grape-theme.netlify.com)
+[Visit Blog >](https://blog.jonesrussell42.xyz)
 
 ## Installation
 
