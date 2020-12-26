@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: blog
-          image: jonesrussell/blog-app:1.1.0
+          image: jonesrussell/blog-app:1.1.1
           ports:
             - containerPort: 80
           readinessProbe:
