@@ -1,5 +1,5 @@
 title: Russell Jones Blog
-description: Blog posts and conact information of a Full-Stack Developer and DevOps expert.
+description: Blog posts and contact information of a Full Stack Developer and DevOps expert.
 email: jonesrussell42@gmail.com
 repository: jonesrussell/blog
 analytics_code: G-3VJWXMBV5B
@@ -51,7 +51,7 @@ theme_settings:
   profile:
     image: assets/img/smile.png
     username: Russell Jones
-    description: Stuff about web development
+    description: Blog posts and contact information of a Full Stack Developer and DevOps expert.
     experience:
       - start: "2017-05-03"
         end: "2018-05-06"

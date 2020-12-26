@@ -16,7 +16,7 @@ layout: default
       {% include aside.html %}
     </aside>
     <!-- Post List -->
-    <section id="posts" class="col-md-8">
+    <main id="posts" class="col-md-8">
       {% for post in paginator.posts %}
       <div class="post">
         <div class="post-wrap">
@@ -84,6 +84,6 @@ layout: default
         </ul>
       </div>
       {% endif %}
-    </section>
+    </main>
   </div>
 </div>
