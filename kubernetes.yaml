@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: blog-jekyll
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: blog-jekyll
@@ -27,6 +27,13 @@ spec:
               port: 80
             initialDelaySeconds: 15
             periodSeconds: 20
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
