@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v2
 
       - name: Install
-        run: npm install -g node-redis-pubsub
+        run: npm install
 
       - name: PubSub
         run: npm run pubsub
