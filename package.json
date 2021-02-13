@@ -14,7 +14,8 @@
     "jekyll:prod": "JEKYLL_ENV=production bundle exec jekyll build --future",
     "jekyll:install": "bundle install",
     "jekyll:dev": "bundle exec jekyll serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pubsub": "./src/pubsub.js"
   },
   "repository": {
     "type": "git",
@@ -58,5 +59,7 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.7.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "node-redis-pubsub": "^5.0.0"
+  }
 }
