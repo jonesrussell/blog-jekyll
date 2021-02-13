@@ -27,7 +27,9 @@ jobs:
       - uses: actions/setup-node@v2
 
       - name: Install
-        run: npm install
+        run: npm install -g node-redis-pubsub
 
       - name: PubSub
         run: npm run pubsub
+        env:
+          - REDIS_URL: $REDIS_URL
