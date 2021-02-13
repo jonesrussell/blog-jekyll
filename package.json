@@ -14,7 +14,6 @@
     "jekyll:prod": "JEKYLL_ENV=production bundle exec jekyll build --future",
     "jekyll:install": "bundle install",
     "jekyll:dev": "bundle exec jekyll serve",
-    "postinstall": "npm run jekyll:install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
