@@ -32,4 +32,4 @@ jobs:
       - name: PubSub
         run: npm run pubsub
         env:
-          - REDIS_URL: $REDIS_URL
+          REDIS_URL: $REDIS_URL
