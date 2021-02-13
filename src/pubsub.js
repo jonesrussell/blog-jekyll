@@ -11,9 +11,13 @@ console.log('config', config);
 
 const nrp = new NRP(config); // This is the NRP client
 
-nrp.emit('blog:post', {
+const foo = {
   url: 'https://blog.jonesrussell42.xyz/feed.json',
   hello: 'world'
-});
+};
+
+console.log('foo', foo);
+
+nrp.emit('blog:post', foo);
 
 nrp.quit();
