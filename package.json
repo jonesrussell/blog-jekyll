@@ -15,7 +15,7 @@
     "jekyll:install": "bundle install",
     "jekyll:dev": "bundle exec jekyll serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pubsub": "./src/pubsub.js"
+    "pubsub": "node ./src/pubsub.js"
   },
   "repository": {
     "type": "git",
