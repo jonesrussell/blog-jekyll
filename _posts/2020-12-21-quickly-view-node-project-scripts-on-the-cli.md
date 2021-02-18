@@ -1,5 +1,6 @@
 ---
 title: Quickly view nodejs project 'scripts' on the cli
+image: /assets/img/screenshot-scripts.png
 layout: post
 caegories: [nodejs]
 tags: [cli, web-development]
