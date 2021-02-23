@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://cdn-images-1.medium.com/max/1024/1*s-YgL1NW7evYyCBWI-7w8Q.png
 title: Docker for Legacy Drupal Development
 categories: [devops]
 tags: [drupal, docker]
@@ -22,13 +23,11 @@ tags: [drupal, docker]
   almost a year before PHP 7 was released. Consequently it requires PHP 5.6 and lower to run.
 </p>
 <p>
-  <em>The folks at </em
-  ><a href="https://www.mydropwizard.com/blog/drupal-6-year-2020-and-php-7-support"><em>myDropWizard.com</em></a
-  ><em>
+  <em>The folks at </em><a
+    href="https://www.mydropwizard.com/blog/drupal-6-year-2020-and-php-7-support"><em>myDropWizard.com</em></a><em>
     are bravely supporting D6 until the cows come home, props to them! I have no affiliation with them, I’m just
-    thunderstruck by their </em
-  ><a href="https://www.mydropwizard.com/blog/drupal-6-2019-yes-really"><em>level of commitment</em></a
-  ><em>.</em>
+    thunderstruck by their </em><a href="https://www.mydropwizard.com/blog/drupal-6-2019-yes-really"><em>level of
+      commitment</em></a><em>.</em>
 </p>
 <p>
   According to the docs D8 will run on PHP 5.5.9+, but any version less than 7.1 is
@@ -37,9 +36,8 @@ tags: [drupal, docker]
 </p>
 <p>
   So how do you run PHP 5 and PHP 7 simultaneously on the same host? Spin up a pair of VMs?
-  <a href="https://www.tecmint.com/install-different-php-versions-in-ubuntu/"
-    >Slip in Nginx and PHP-FPM alongside Apache</a
-  >? The former option is acceptable. The latter borders on sadomasochism.
+  <a href="https://www.tecmint.com/install-different-php-versions-in-ubuntu/">Slip in Nginx and PHP-FPM alongside
+    Apache</a>? The former option is acceptable. The latter borders on sadomasochism.
 </p>
 <figure>
   <img alt="" src="https://cdn-images-1.medium.com/max/244/1*4jh-4MnN2NkYxWZVOKBklw.jpeg" />
@@ -56,9 +54,8 @@ tags: [drupal, docker]
   My Ubuntu host is similar enough to the production environment where D8 is to be deployed that I created an Apache
   Virtual Host (vhost) and MySQL database then
   <a
-    href="https://www.drupal.org/docs/develop/using-composer/using-composer-to-manage-drupal-site-dependencies#download-core-option-a"
-    >downloaded D8 using a composer template</a
-  >
+    href="https://www.drupal.org/docs/develop/using-composer/using-composer-to-manage-drupal-site-dependencies#download-core-option-a">downloaded
+    D8 using a composer template</a>
   and installed it with <a href="https://docs.drupalconsole.com/en/commands/site-install.html">Drupal Console</a>.
 </p>
 <blockquote>
@@ -123,9 +120,8 @@ tags: [drupal, docker]
 </p>
 <p>
   While I can find an image which contains Apache, PHP, and MySQL all together, we’re going to follow
-  <a href="https://devops.stackexchange.com/questions/447/why-it-is-recommended-to-run-only-one-process-in-a-container"
-    >best practices</a
-  >
+  <a href="https://devops.stackexchange.com/questions/447/why-it-is-recommended-to-run-only-one-process-in-a-container">best
+    practices</a>
   and separate the web server from the database into 2 containers where they will communicate through an internal subnet
   created by Docker.
 </p>
@@ -161,9 +157,8 @@ tags: [drupal, docker]
 <p>
   Let’s setup Drupal 6 within containers in Ubuntu. If you are not using Ubuntu don’t fret, the only step you need to
   change is “Install Docker”. In that case refer to
-  <a href="https://docs.docker.com/install/#supported-platforms"
-    >https://docs.docker.com/install/#supported-platforms</a
-  >
+  <a
+    href="https://docs.docker.com/install/#supported-platforms">https://docs.docker.com/install/#supported-platforms</a>
   for instructions to install Docker on your OS.
 </p>
 <p>If you catch any mistakes or see room for improvement please contact me. Otherwise, wacka wacka.</p>
@@ -211,9 +206,8 @@ tags: [drupal, docker]
 <h4>Pull MySQL image</h4>
 <p>
   Now that you have docker running you can pull your first image. Start with
-  <a href="https://hub.docker.com/r/mysql/mysql-server/">MySQL</a> version 5.6 (without <em>:5.6</em> specified, :<em
-    >latest</em
-  >
+  <a href="https://hub.docker.com/r/mysql/mysql-server/">MySQL</a> version 5.6 (without <em>:5.6</em>
+  specified, :<em>latest</em>
   is implied):
 </p>
 <pre>$ sudo docker pull mysql:5.6</pre>
@@ -271,9 +265,8 @@ tags: [drupal, docker]
 </ul>
 <h4>Install Drupal</h4>
 <p>
-  Open <a href="http://localhost:10080">http://localhost:10080</a> in a browser (<em
-    >xdg-open is a program that will open a file or URL in the preferred application as set in your OS</em
-  >):
+  Open <a href="http://localhost:10080">http://localhost:10080</a> in a browser (<em>xdg-open is a program that will
+    open a file or URL in the preferred application as set in your OS</em>):
 </p>
 <pre>$ xdg-open <a href="http://localhost:10080">http://localhost:10080</a></pre>
 <p>Tada! The Drupal 6 installation page should be open in a browser, served from within a set of Docker containers.</p>
@@ -303,8 +296,5 @@ tags: [drupal, docker]
 <p>Add your user account to the <em>docker</em> group:</p>
 <pre>$ sudo usermod -aG docker $USER</pre>
 <p>You must log out then log back in before it takes effect.</p>
-<img
-  src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=6df4dec8b309"
-  width="1"
-  height="1"
-/>
+<img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=6df4dec8b309" width="1"
+  height="1" />

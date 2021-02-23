@@ -1,5 +1,6 @@
 ---
 layout: post
+image: https://cdn-images-1.medium.com/max/734/1*MLwvtPEG0yoOEtCzml-R9Q.png
 title: Whalebrew
 categories: [mildly-interesting]
 tags: [docker, linux]
@@ -44,9 +45,9 @@ tags: [docker, linux]
 </p>
 <p>
   As I’ve
-  <a href="https://medium.com/@jonesrussell42/docker-for-legacy-drupal-development-6df4dec8b309#b965"
-    >previously written</a
-  >, containers can be started, perform a task, then stopped in a matter of milliseconds. And that’s exactly what
+  <a href="https://medium.com/@jonesrussell42/docker-for-legacy-drupal-development-6df4dec8b309#b965">previously
+    written</a>, containers can be started, perform a task, then stopped in a matter of milliseconds. And that’s exactly
+  what
   Whalebrew allows you to do in the form of Docker images aliased in your $PATH.
 </p>
 <p>Now let’s put a magnifying glass up to Whalebrew by walking through its installation then “install a package”.</p>
@@ -57,9 +58,8 @@ tags: [docker, linux]
 </p>
 <p>
   What does that look like exactly? Assuming you already have
-  <a href="https://medium.com/@jonesrussell42/docker-for-legacy-drupal-development-6df4dec8b309#db40"
-    >Docker installed</a
-  >, we’ll start by installing Whalebrew (from
+  <a href="https://medium.com/@jonesrussell42/docker-for-legacy-drupal-development-6df4dec8b309#db40">Docker
+    installed</a>, we’ll start by installing Whalebrew (from
   <a href="https://github.com/bfirsh/whalebrew">https://github.com/bfirsh/whalebrew</a>):
 </p>
 <pre><strong>$</strong> sudo curl -L &quot;https://github.com/bfirsh/whalebrew/releases/download/0.1.0/whalebrew-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/whalebrew; sudo chmod +x /usr/local/bin/whalebrew</pre>
@@ -94,9 +94,8 @@ tags: [docker, linux]
 <figure>
   <img alt="" src="https://cdn-images-1.medium.com/max/799/1*zpAHqMDHdy4hqXN3fo1hAQ.jpeg" />
   <figcaption>
-    <a href="http://bibliodyssey.blogspot.com/2006/08/bodmer-series-on-native-america.html"
-      >Facsimile of an Indian Painting</a
-    >
+    <a href="http://bibliodyssey.blogspot.com/2006/08/bodmer-series-on-native-america.html">Facsimile of an
+      Indian Painting</a>
   </figcaption>
 </figure>
 <p>
@@ -114,8 +113,5 @@ tags: [docker, linux]
 <pre><strong>$</strong> docker run -it -v &quot;$(pwd)&quot;:/workdir -w /workdir whalebrew/figlet &quot;It&#39;s a whale of a time\!&quot;</pre>
 <figure><img alt="" src="https://cdn-images-1.medium.com/max/734/1*lSmdCGIGlEE6KDWGBHfFMA.png" /></figure>
 <p>And well, that’s it, move along. Baamaapii.</p>
-<img
-  src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=9c3535b3c722"
-  width="1"
-  height="1"
-/>
+<img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=9c3535b3c722" width="1"
+  height="1" />
