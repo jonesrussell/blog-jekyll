@@ -12,9 +12,11 @@ spec:
       labels:
         app: blog-jekyll
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
         - name: blog
           image: jonesrussell/blog-app:latest
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 80
           readinessProbe:
