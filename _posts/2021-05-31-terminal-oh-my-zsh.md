@@ -1,8 +1,8 @@
+---
 title: My Up-Arrow key is fried :( How to cope...
 layout: post
 categories: [terminal]
 tags: [shortcuts, alternatives]
-
 ---
 
 To my dismay (and klutziness), I spilled a glass of water onto my laptop keyboard.
@@ -45,4 +45,3 @@ I suppose I want to illustrate that there's usually a way to work around issues,
 
 * [oh-my-zsh](https://ohmyz.sh/)
 * [vim cheatsheet](https://devhints.io/vim)
-
