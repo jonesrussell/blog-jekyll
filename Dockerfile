@@ -33,6 +33,6 @@ COPY --from=nodeBuild /app/assets /usr/share/nginx/html
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 LABEL name blog
-LABEL version 1.1.2
+LABEL version 1.1.3
 
 EXPOSE 80

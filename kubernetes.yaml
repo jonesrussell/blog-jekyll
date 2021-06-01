@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: blog
-          image: jonesrussell/blog-app:1.1.2
+          image: jonesrussell/blog-app:1.1.3
           imagePullPolicy: "Always"
           ports:
             - containerPort: 80
