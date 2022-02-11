@@ -5,9 +5,9 @@ COPY . /app
 WORKDIR /app
 
 RUN gem install bundler \
-  && bundle install \
-  && JEKYLL_ENV=production jekyll build --future \
-  && gem cleanup all
+    && bundle install \
+    && JEKYLL_ENV=production jekyll build --future \
+    && gem cleanup all
 
 FROM node:14-buster AS nodeBuild
 
@@ -33,9 +33,8 @@ COPY --from=nodeBuild /app/assets /usr/share/nginx/html
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 LABEL name blog
-LABEL version 1.1.3
+LABEL version 1.1.4
 
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
-
