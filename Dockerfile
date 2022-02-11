@@ -36,3 +36,6 @@ LABEL name blog
 LABEL version 1.1.3
 
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+
