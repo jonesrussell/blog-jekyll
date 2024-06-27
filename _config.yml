@@ -3,7 +3,7 @@ description: Blog posts and contact information of a Full Stack Developer and De
 email: jonesrussell42@gmail.com
 repository: jonesrussell/blog
 analytics_code: G-3VJWXMBV5B
-url: "https://blog.jonesrussell42.xyz"
+url: "https://jonesrussell.github.io/blog"
 style: dark
 listen_for_clients_preferred_style: true
 footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
@@ -19,8 +19,8 @@ header_pages:
   - about.markdown
 plugins:
   - jekyll-feed
-#  - jekyll-seo-tag
-#  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-paginate
 exclude:
   - .sass-cache/
   - .jekyll-cache/
@@ -35,7 +35,7 @@ exclude:
   - .devcontainer/
   - tsconfig.json
   - package*.json
-  - webpack.*.js
+  - vite.*.js
   - README.md
   - "*.txt"
   - "*.yaml"
