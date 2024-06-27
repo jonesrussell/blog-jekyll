@@ -10,15 +10,12 @@ gem "dotenv"
 # Jekyll plugins (commented out for now)
 group :jekyll_plugins do
   gem 'jekyll-paginate'
-#   gem 'kramdown-parser-gfm'
-#   gem 'jekyll-seo-tag', '~> 2.6', '>= 2.6.1'
+  gem 'kramdown-parser-gfm'
+  gem 'jekyll-seo-tag'
 end
 
 # Production group
 group :production do
-  # gem "sentry-ruby"
-  
-  # gem 'jekyll-feed', '~> 0.13.0'
   gem 'jekyll-feed'
 end
 
