@@ -4,18 +4,20 @@
   "description": "![home](./assets/img/home.png)",
   "type": "module",
   "scripts": {
+    "build": "npm run jekyll:prod && npm run vite:build",
     "clean": "rm -rf _site/",
-    "dev": "NODE_ENV=development vite && npm run jekyll:dev",
-    "build": "NODE_ENV=production vite build && npm run jekyll:prod",
-    "serve": "vite preview",
+    "vite:dev": "vite",
+    "vite:build": "vite build",
+    "vite:serve": "vite preview",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build:types": "tsc --emitDeclarationOnly",
     "jekyll:prod": "JEKYLL_ENV=production bundle exec jekyll build --future",
     "jekyll:install": "bundle install",
     "jekyll:dev": "bundle exec jekyll serve",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pubsub": "node ./src/pubsub.js"
+    "postbuild": "tsc moveViteFiles.ts && mv moveViteFiles.js moveViteFiles.cjs && node moveViteFiles.cjs",
+    "pubsub": "node ./src/pubsub.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

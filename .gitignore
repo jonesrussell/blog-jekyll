@@ -16,3 +16,4 @@ node_modules
 assets/js/
 assets/css/
 /lib
+moveViteFiles.cjs

@@ -4,8 +4,9 @@ import { resolve } from 'path';
 export default defineConfig({
   assetsInclude: ['**/*.png'],
   build: {
-    outDir: 'dist',
-    assetsDir: 'js',
+    manifest: true,
+    outDir: '_site/vite',
+    assetsDir: 'assets/js',
     assetsInlineLimit: 0,
     rollupOptions: {
       input: resolve(__dirname, 'src/app.js')
