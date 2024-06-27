@@ -8,11 +8,11 @@ gem "jekyll", "~> 4.3.3", group: :production
 gem "dotenv"
 
 # Jekyll plugins (commented out for now)
-# group :jekyll_plugins do
-#   gem 'jekyll-paginate'
+group :jekyll_plugins do
+  gem 'jekyll-paginate'
 #   gem 'kramdown-parser-gfm'
 #   gem 'jekyll-seo-tag', '~> 2.6', '>= 2.6.1'
-# end
+end
 
 # Production group
 group :production do
