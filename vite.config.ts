@@ -4,7 +4,7 @@ import { resolve } from 'path';
 export default defineConfig({
   assetsInclude: ['**/*.png'],
   build: {
-    outDir: 'assets',
+    outDir: 'dist',
     assetsDir: 'js',
     assetsInlineLimit: 0,
     rollupOptions: {
