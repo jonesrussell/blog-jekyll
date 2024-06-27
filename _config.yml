@@ -19,9 +19,8 @@ header_pages:
   - about.markdown
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-paginate
-#  - jekyll-json-feed
+#  - jekyll-seo-tag
+#  - jekyll-paginate
 exclude:
   - .sass-cache/
   - .jekyll-cache/
