@@ -7,7 +7,7 @@ url: "https://jonesrussell.github.io/blog"
 style: dark
 listen_for_clients_preferred_style: true
 footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
-theme: grape-theme
+theme: minima
 destination: _site/jekyll
 tags:
   - web-development

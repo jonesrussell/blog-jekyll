@@ -3,6 +3,7 @@ gemspec
 
 # Use Jekyll version 4.3.3
 gem "jekyll", "~> 4.3.3", group: :production
+gem "minima", "~> 2.5"
 
 # Use dotenv for environment variables
 gem "dotenv"
