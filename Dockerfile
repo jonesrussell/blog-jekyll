@@ -12,18 +12,24 @@ RUN gem install bundler \
 FROM node:20-bookworm AS nodeBuild
 
 COPY --from=build /app/_site /app/_site
+
 COPY . /app
+
+RUN tail -n 10 /app/_site/jekyll/index.html
 
 WORKDIR /app
 
-RUN npm install
+RUN node --version && npm --version
 
-RUN npm run vite:build && \
-    npm run postbuild
+RUN npm ci
+
+RUN npm run vite:build
+
+RUN npm run postbuild
 
 FROM nginx:1.27.0-alpine
 
-COPY --from=build /app/_site/jekyll /usr/share/nginx/html
+COPY --from=nodeBuild /app/_site/jekyll /usr/share/nginx/html
 
 COPY --from=nodeBuild /app/assets /usr/share/nginx/html
 

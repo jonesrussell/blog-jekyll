@@ -29,4 +29,17 @@ fs.renameSync(path.join(sourceDir, hashedFilename), path.join(destDir, hashedFil
 const htmlFilePath = path.join(__dirname, '_site', 'jekyll', 'index.html');
 let htmlContent = fs.readFileSync(htmlFilePath, 'utf-8');
 htmlContent = htmlContent.replace('APP_JS_FILE', hashedFilename);
+
+////////////////
+// CSS
+///////////////
+
+// Get the hashed filename of the CSS file from the manifest
+const hashedCssFilename = appJsManifest.css[0];
+
+// Move the CSS file from the source to the destination directory
+fs.renameSync(path.join(sourceDir, hashedCssFilename), path.join(destDir, hashedCssFilename));
+
+htmlContent = htmlContent.replace('APP_CSS_FILE', hashedCssFilename);
+
 fs.writeFileSync(htmlFilePath, htmlContent);
