@@ -2,7 +2,10 @@ title: Russell Jones Blog
 description: Blog posts and contact information of a Full Stack Developer and DevOps expert.
 email: jonesrussell42@gmail.com
 repository: jonesrussell/blog
-url: "https://jonesrussell.github.io/blog"
+
+domain: jonesrussell.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://jonesrussell.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+baseurl: /blog/      # place folder name if the site is served in a subfolder
 
 analytics_code: G-3VJWXMBV5B
 
@@ -12,10 +15,9 @@ future:      true
 
 style: dark
 listen_for_clients_preferred_style: true
-footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 theme: minima
 
-# destination: _site/jekyll
+footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 
 tags:
   - web-development
@@ -23,10 +25,6 @@ tags:
   - javascript
   - typescript
   - docker
-
-# header_pages:
-#   - index.markdown
-#   - about.markdown
 
 plugins:
   - jekyll/vite
@@ -37,35 +35,6 @@ plugins:
 kramdown:
   input: GFM
   hard_wrap: false
-
-# exclude:
-#   - bin
-#   - config
-#   - vite.config.ts
-#   - tmp
-#   - Procfile.dev
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-#   - .devcontainer/
-#   - tsconfig.json
-#   - package*.json
-#   - vite.*.js
-#   - README.md
-#   - "*.txt"
-#   - "*.yaml"
-#   - Dockerfile
-#   - default.conf
-#   - src/
-#include:
-#  - _posts
 
 theme_settings:
   title: Russell Jones Blog
@@ -115,6 +84,7 @@ defaults:
 
 include:
   - _headers
+#  - _posts
 
 exclude:
   - bin
