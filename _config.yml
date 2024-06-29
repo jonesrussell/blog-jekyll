@@ -32,6 +32,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
 
+gem "github-pages", "~> 231", group: :jekyll_plugins
+
 kramdown:
   input: GFM
   hard_wrap: false
