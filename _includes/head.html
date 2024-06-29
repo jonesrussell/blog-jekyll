@@ -39,5 +39,7 @@
   {% include google.html %}
   {% endif %}
 
+  {% if jekyll.environment != "production" %}
   {% include custom-head.html %}
+  {% endif %}
 </head>
