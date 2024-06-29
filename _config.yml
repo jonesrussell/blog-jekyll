@@ -2,55 +2,71 @@ title: Russell Jones Blog
 description: Blog posts and contact information of a Full Stack Developer and DevOps expert.
 email: jonesrussell42@gmail.com
 repository: jonesrussell/blog
-analytics_code: G-3VJWXMBV5B
 url: "https://jonesrussell.github.io/blog"
+
+analytics_code: G-3VJWXMBV5B
+
+permalink:   /:categories/:title/ # http://jekyllrb.com/docs/permalinks
+timezone:    America/Toronto
+future:      true
+
 style: dark
 listen_for_clients_preferred_style: true
 footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 theme: minima
+
 # destination: _site/jekyll
+
 tags:
   - web-development
   - php
   - javascript
   - typescript
   - docker
-header_pages:
-  - index.markdown
-  - about.markdown
+
+# header_pages:
+#   - index.markdown
+#   - about.markdown
+
 plugins:
   - jekyll/vite
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
-exclude:
-  - bin
-  - config
-  - vite.config.ts
-  - tmp
-  - Procfile.dev
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - .devcontainer/
-  - tsconfig.json
-  - package*.json
-  - vite.*.js
-  - README.md
-  - "*.txt"
-  - "*.yaml"
-  - Dockerfile
-  - default.conf
-  - src/
-include:
-  - _posts
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# exclude:
+#   - bin
+#   - config
+#   - vite.config.ts
+#   - tmp
+#   - Procfile.dev
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+#   - .devcontainer/
+#   - tsconfig.json
+#   - package*.json
+#   - vite.*.js
+#   - README.md
+#   - "*.txt"
+#   - "*.yaml"
+#   - Dockerfile
+#   - default.conf
+#   - src/
+#include:
+#  - _posts
+
 theme_settings:
   title: Russell Jones Blog
   favicon: assets/favicon.ico
@@ -85,3 +101,32 @@ jekyll_admin:
   posts:
     output: true
     sidebar_label: Blog
+
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      category: posts
+      excerpt_separator: <!--more-->
+
+include:
+  - _headers
+
+exclude:
+  - bin
+  - config
+  - docs
+  - exe
+  - netlify.toml
+  - node_modules
+  - package.json
+  - shims.d.ts
+  - windi.config.ts
+  - tsconfig.json
+  - pnpm-lock.yaml
+  - vite.config.ts
+  - Procfile.dev
