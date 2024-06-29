@@ -8,7 +8,7 @@ style: dark
 listen_for_clients_preferred_style: true
 footer: 'follow me on <a href="https://twitter.com/jonesrussell42">twitter</a>'
 theme: minima
-destination: _site/jekyll
+# destination: _site/jekyll
 tags:
   - web-development
   - php
@@ -19,10 +19,16 @@ header_pages:
   - index.markdown
   - about.markdown
 plugins:
+  - jekyll/vite
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
 exclude:
+  - bin
+  - config
+  - vite.config.ts
+  - tmp
+  - Procfile.dev
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/

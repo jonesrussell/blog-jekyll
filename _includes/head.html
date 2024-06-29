@@ -35,5 +35,9 @@
 
   <title>{{ title }}</title>
 
+  {% if environment == 'production' %}
   {% include google.html %}
+  {% endif %}
+
+  {% include custom-head.html %}
 </head>

@@ -1,14 +1,8 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { defineConfig } from 'vite'
+import ruby from 'vite-plugin-ruby'
 
 export default defineConfig({
-  build: {
-    manifest: true,
-    outDir: '_site/vite',
-    assetsDir: 'assets/js',
-    assetsInlineLimit: 0,
-    rollupOptions: {
-      input: resolve(__dirname, 'src/app.js')
-    }
-  }
+  plugins: [
+    ruby(),
+  ],
 })

@@ -7,7 +7,9 @@ gem "minima", "~> 2.5"
 # Use dotenv for environment variables
 gem "dotenv"
 
-# Jekyll plugins (commented out for now)
+gem "jekyll-vite"
+
+# Jekyll plugins
 group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'kramdown-parser-gfm'
