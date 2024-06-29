@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-gemspec
 
 # Use Jekyll version 4.3.3
 gem "jekyll", "~> 4.3.3", group: :production
