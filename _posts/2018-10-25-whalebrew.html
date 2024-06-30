@@ -1,0 +1,117 @@
+---
+layout: post
+image: https://cdn-images-1.medium.com/max/734/1*MLwvtPEG0yoOEtCzml-R9Q.png
+title: Whalebrew
+categories: [mildly-interesting]
+tags: [docker, linux]
+---
+
+<h4>Docker Images as ‘Native’ Commands</h4>
+<p>
+  Ahnee! If you’re from the Mac World you’ve probably used, or at least heard of,
+  <a href="https://brew.sh/">Homebrew</a>. For the uninformed, Homebrew is
+  <em>The missing package manager for macOS. </em>Or more accurately it’s a package management system for macOS that’s
+  comparable to Redhat’s <a href="http://rpm.org/">RPM</a>, Debian’s <a href="https://wiki.debian.org/Apt">APT</a>, and
+  Window’s <a href="https://chocolatey.org/">Chocolatey</a>.
+</p>
+<p>
+  Package managers make installing software easy by automagically fetching a pre-compiled binary and its dependencies,
+  then copying them into your $PATH.
+</p>
+<p>
+  Depending on the software, compiling from source code is often difficult and time-consuming. Package managers let you
+  get on with the using the software.
+</p>
+<h3>Installing With APT</h3>
+<figure>
+  <img alt="" src="https://cdn-images-1.medium.com/max/734/1*MLwvtPEG0yoOEtCzml-R9Q.png" />
+  <figcaption>figlet displays large characters made up of ordinary screen characters</figcaption>
+</figure>
+<p>I’ll demonstrate installing a package with APT in Ubuntu 18.10:</p>
+<pre><strong>$</strong> sudo apt install figlet</pre>
+<p>
+  As you can see in the screenshot, APT downloads the figlet package (figlet_2.2.5–3_amd64.deb), unpacks it, then
+  finally installs to /usr/bin/figlet.
+</p>
+<pre><strong>$</strong> figlet &quot;p4ck4g3&#39;s 4 l1fe\!&quot;</pre>
+<figure>
+  <img alt="" src="https://cdn-images-1.medium.com/max/734/1*XkvZZOmATGe8p6Ri2ZqOaA.png" />
+  <figcaption>figlet in action</figcaption>
+</figure>
+<h3>I Whale Always Love You</h3>
+<p>
+  Whalebrew is an inevitable side effect of container proliferation. Their ease of use, speed, and low resource
+  consumption make them ideal vehicles for single command or function execution.
+</p>
+<p>
+  As I’ve
+  <a href="https://medium.com/@jonesrussell42/docker-for-legacy-drupal-development-6df4dec8b309#b965">previously
+    written</a>, containers can be started, perform a task, then stopped in a matter of milliseconds. And that’s exactly
+  what
+  Whalebrew allows you to do in the form of Docker images aliased in your $PATH.
+</p>
+<p>Now let’s put a magnifying glass up to Whalebrew by walking through its installation then “install a package”.</p>
+<h3>Whalebrew Demonstration</h3>
+<p>
+  By creating an alias for running a Docker container and storing it in $PATH, running a command within a container is
+  seamless and virtually indistinguishable from running a command directly in the environment.
+</p>
+<p>
+  What does that look like exactly? Assuming you already have
+  <a href="https://medium.com/@jonesrussell42/docker-for-legacy-drupal-development-6df4dec8b309#db40">Docker
+    installed</a>, we’ll start by installing Whalebrew (from
+  <a href="https://github.com/bfirsh/whalebrew">https://github.com/bfirsh/whalebrew</a>):
+</p>
+<pre><strong>$</strong> sudo curl -L &quot;https://github.com/bfirsh/whalebrew/releases/download/0.1.0/whalebrew-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/whalebrew; sudo chmod +x /usr/local/bin/whalebrew</pre>
+<figure>
+  <img alt="" src="https://cdn-images-1.medium.com/max/734/1*EzjhwX8SPJ-Zlcjxiayt2A.png" />
+  <figcaption>Whalebrew installed to /usr/local/bin/whalebrew</figcaption>
+</figure>
+<p>Now let’s install figlet again, but this time with Whalebrew:</p>
+<pre><strong>$</strong> sudo whalebrew install whalebrew/figlet</pre>
+<figure>
+  <img alt="" src="https://cdn-images-1.medium.com/max/734/1*bLCbFgBYsdCcLfeKnr2UpA.png" />
+  <figcaption>whalebrew/figlet installed to /usr/local/bin/figlet</figcaption>
+</figure>
+<p>
+  Now let’s run figlet again and adore the glorious results (We’ll use the full path in case the APT figlet is first
+  in $PATH):
+</p>
+<pre><strong>$</strong> /usr/local/bin/figlet &quot;It&#39;s a whale of a time\!&quot;</pre>
+<figure>
+  <img alt="" src="https://cdn-images-1.medium.com/max/734/1*X8Eew1wrMcMjbw2-skNPGQ.png" />
+  <figcaption>figlet as run in a Docker container</figcaption>
+</figure>
+<p>
+  Tada! We’ve just run figlet from within a container. You may have noticed it took a bit longer to execute, depending
+  on your computer’s <em>runtime juice</em>.
+</p>
+<p>
+  So what just happened? Before we wrap it up we’ll take a quick look under the hood and examine the difference between
+  running a native binary and a Whalebrew command.
+</p>
+<h3>Native vs. ‘Native’</h3>
+<figure>
+  <img alt="" src="https://cdn-images-1.medium.com/max/799/1*zpAHqMDHdy4hqXN3fo1hAQ.jpeg" />
+  <figcaption>
+    <a href="http://bibliodyssey.blogspot.com/2006/08/bodmer-series-on-native-america.html">Facsimile of an
+      Indian Painting</a>
+  </figcaption>
+</figure>
+<p>
+  Maazhichige, wrong ‘native’! The figlet program installed with APT is an ELF executable, the
+  <a href="https://github.com/cmatsuoka/figlet">source code</a> compiled from C, and it runs directly on your system.
+</p>
+<p>The Whalebrew alias looks like this:</p>
+<pre><strong>$</strong> cat /usr/local/bin/figlet</pre>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/734/1*zMYeFQLlnwjjhttXCnVGiw.png" /></figure>
+<blockquote>
+  When a package is executed, Whalebrew will run the specified image with Docker, mount the current working directory in
+  /workdir, and pass through all of the arguments.
+</blockquote>
+<p>And this is essentially what Whalebrew executes:</p>
+<pre><strong>$</strong> docker run -it -v &quot;$(pwd)&quot;:/workdir -w /workdir whalebrew/figlet &quot;It&#39;s a whale of a time\!&quot;</pre>
+<figure><img alt="" src="https://cdn-images-1.medium.com/max/734/1*lSmdCGIGlEE6KDWGBHfFMA.png" /></figure>
+<p>And well, that’s it, move along. Baamaapii.</p>
+<img src="https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=9c3535b3c722" width="1"
+  height="1" />
