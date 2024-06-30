@@ -1,6 +1,6 @@
 ---
 title: Imposter Syndrome
-image: /assets/img/imposter-syndrome.png
+image: /blog/assets/img/imposter-syndrome.png
 layout: post
 category: web-development
 tags: [my-2-¢, self-worth, humans]
@@ -14,12 +14,12 @@ Ahnii! Notice the exclamation point? The Ojibwe greeting for 'Hello'?
 20 years ago I felt like an imposter in the eyes of my co-workers. Meanwhile, I was actually kicking ass.
 
 <p class="center" markdown="1">
-![scripts screenshot](https://blog.jonesrussell42.xyz/assets/img/imposter-syndrome.png){:class="half center"}
+![scripts screenshot](/blog/assets/img/imposter-syndrome.png){:class="half center"}
 </p>
 
 ## Introduction
 
-I'm a talented 41 year old Anishnawbek Web Developer who grew up on a [Northern Ontario Indian Reservation](https://sagamok.ca/) as defined by the Canadian Indian Act of 1875, under amendments up until 1951 since I was born in 1979.
+I'm a talented 41 year old Anishnawbek Web Developer who grew up on a [Northern Ontario Indian Reservation](https://sagamokanishnawbek.ca/) as defined by the Canadian Indian Act of 1875, under amendments up until 1951 since I was born in 1979.
 
 It wasn't until the amendments of 1985 that I was "enfranchised".
 
@@ -59,7 +59,7 @@ Ever since IRC, I've always felt this online, open-source community to be the nu
 
 I have worth. I am a great web developer.
 
-Check out my newest launch, my personal portfolio built on Svelte, TypeScript & Kubernetes at https://www.jonesrussell42.xyz. The repository is public at https://github.com/jonesrussell/portfolio-sapper.
+Check out my newest launch, my personal portfolio built on Svelte, TypeScript & Kubernetes at https://jonesrussell.github.io/me. The repository is public at https://github.com/jonesrussell/me.
 
 ## Now what?
 
@@ -67,6 +67,6 @@ This is now an open-source world and every company is a software company.
 
 **You're worth** it. So do the **work**.
 
-Meegwetch! (Thank you)
+Miigwetch! (Thank you)
 
 P.S. I look forward to hearing from you all.

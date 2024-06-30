@@ -1,6 +1,6 @@
 ---
 title: Quickly view project dependencies on the cli
-image: /assets/img/screenshot-packages.png
+image: /blog/assets/img/screenshot-packages.png
 layout: post
 caegories: [nodejs]
 tags: [cli, web-development]
