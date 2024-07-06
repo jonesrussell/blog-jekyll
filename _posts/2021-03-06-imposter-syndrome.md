@@ -39,7 +39,7 @@ As defined by [verwellmind](https://www.verywellmind.com/imposter-syndrome-and-s
 Impostor syndrome (IS) refers to an internal experience of believing you are not as competent as others perceive you to be. While this definition is usually narrowly applied to intelligence and achievement,  it has links to perfectionism and the social context.
 </blockquote>
 
-A little technical I know, thankfully so do they:
+A little technical, I know. Thankfully so do they:
 
 <blockquote>
  To put it simply, imposter syndrome is the experience of feeling like a  phony—you feel as though at any moment you are going to be found out as a fraud—like you don't belong where you are, and you only got there through dumb luck. It can affect anyone no matter their social status,  work background, skill level, or degree of expertise.
