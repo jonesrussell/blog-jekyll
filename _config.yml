@@ -18,13 +18,15 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# Basic site setup
+accent_colour: "#2a7ae2"
+
 title: Web Developer Blog
 email: jonesrussell42@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-    A comprehensive resource for web developers, offering insights into
-    modern technologies, development practices, and personal experiences.
-    Explore guides on Laravel, Node.js, Docker, and more, designed to
-    enhance your skills and understanding of web development.
+    A resource for web developers, I use modern technologies,
+    best practices, and personal experiences. Explore guides
+    on Laravel, Golang, Docker, and more.
 
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -54,12 +56,6 @@ remote_theme: JakeSteam/minimaJake@1.0.14
 #   - vendor/gems/
 #   - vendor/ruby/
 
-
-# Basic site setup
-description: In-depth ad-free articles about software development, Android, and the internet
-accent_colour: "#2a7ae2"
-url: https://jonesrussell.github.io
-
 # Optional native feature customisation (delete to turn off)
 table_of_contents_header: "Jump to:"
 post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://www.youtube.com/@fullstackdev42">Jake Week Lee</a>", a newsletter of articles & online things!</b></i>
@@ -88,6 +84,7 @@ minima:
       }
     - { platform: rss, user_url: "/feed.xml", user_title: "RSS Feed" }  
     - { platform: devto,          user_url: "https://dev.to/jonesrussell" }
+    - { platform: youtube,        user_url: "https://www.youtube.com/@fullstackdev42" }
   #   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
   #   - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
   #   - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }
@@ -97,7 +94,6 @@ minima:
   #   - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
   #   - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
   #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
-     - { platform: youtube,        user_url: "https://www.youtube.com/@fullstackdev42" }
 
 ###
 # Below here probably doesn't need changing #
