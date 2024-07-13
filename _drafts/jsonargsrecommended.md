@@ -2,8 +2,8 @@
 layout: post
 title: Why “ENTRYPOINT my-program start” is bad
 image: assets/img/bad-dockerfile.jpeg
-categories: []
-tags: []
+categories: [Docker, Linux, Best Practices]
+tags: [Dockerfile, ENTRYPOINT, Signals, Linux, Best Practices]
 ---
 When writing Dockerfiles, the way you run your app affects how your application handles OS signals.
 
