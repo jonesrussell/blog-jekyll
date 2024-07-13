@@ -26,15 +26,13 @@ description: >- # this means to ignore newlines until "baseurl:"
     Explore guides on Laravel, Node.js, Docker, and more, designed to
     enhance your skills and understanding of web development.
 
-baseurl: "/blog/" # the subpath of your site, e.g. /blog
+baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jonesrussell42
 github_username:  jonesrussell
 
 # Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+remote_theme: JakeSteam/minimaJake@1.0.14
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -55,3 +53,94 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+# Basic site setup
+description: In-depth ad-free articles about software development, Android, and the internet
+accent_colour: "#2a7ae2"
+url: https://blog.jakelee.co.uk
+
+# Optional native feature customisation (delete to turn off)
+table_of_contents_header: "Jump to:"
+post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a newsletter of articles & online things!</b></i>
+google_analytics: G-99X0QYL39T
+
+network:
+  - { name: Programming, url: "https://blog.jakelee.co.uk", colour: "#2a7ae2" }
+  - {
+      name: Internet History,
+      url: "https://history.jakelee.co.uk",
+      colour: "#075e78",
+    }
+  - { name: Theme, url: "https://minima.jakelee.co.uk", colour: "#951A00" }
+  - {
+      name: Fragments,
+      url: "https://fragments.jakelee.co.uk",
+      colour: "#ad33a9",
+    }
+  - { name: Everything Else, url: "https://jakelee.co.uk", colour: "#acacac" }
+
+# Social / dark mode settings
+minima:
+  skin: auto
+  social_links:
+    - { platform: github, user_url: "https://github.com/JakeSteam" }
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/Jake-Lee" }
+    - {
+        platform: stackoverflow,
+        user_url: "https://stackoverflow.com/users/608312/Jake-Lee",
+      }
+    - { platform: x, user_url: "https://www.twitter.com/JakeLeeUK" }
+    - {
+        platform: email,
+        user_url: "mailto:blog@jakelee.co.uk",
+        user_title: "blog@jakelee.co.uk",
+      }
+    - {
+        platform: code,
+        user_url: "https://github.com/JakeSteam/blog-programming",
+        user_title: "JakeSteam/blog-programming",
+      }
+    - { platform: rss, user_url: "/feed.xml", user_title: "RSS Feed" }
+    - {
+        platform: substack,
+        user_url: "https://jakeweeklee.substack.com/",
+        user_title: "Jake Week Lee",
+      }
+  #   - { platform: devto,          user_url: "https://dev.to/jekyll" }
+  #   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
+  #   - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
+  #   - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }
+  #   - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ" }
+  #   - { platform: instagram,      user_url: "https://www.instagram.com/jekyll" }
+  #   - { platform: keybase,        user_url: "https://keybase.io/jekyll" }
+  #   - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
+  #   - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
+  #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
+  #   - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
+
+###
+# Below here probably doesn't need changing #
+###
+
+# Site settings
+permalink: /:title/
+show_excerpts: true
+timezone: America/Toronto
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Pagination settings
+paginate: 10
+paginate_path: page/:num/
+
+# Syntax highlighter settings
+kramdown:
+  syntax_highlighter_opts:
+    default_lang: kotlin
+    guess_lang: true
