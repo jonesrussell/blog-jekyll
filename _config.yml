@@ -58,56 +58,36 @@ remote_theme: JakeSteam/minimaJake@1.0.14
 # Basic site setup
 description: In-depth ad-free articles about software development, Android, and the internet
 accent_colour: "#2a7ae2"
-url: https://blog.jakelee.co.uk
+url: https://jonesrussell.github.io
 
 # Optional native feature customisation (delete to turn off)
 table_of_contents_header: "Jump to:"
 post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://jakeweeklee.substack.com">Jake Week Lee</a>", a newsletter of articles & online things!</b></i>
-google_analytics: G-99X0QYL39T
-
-network:
-  - { name: Programming, url: "https://blog.jakelee.co.uk", colour: "#2a7ae2" }
-  - {
-      name: Internet History,
-      url: "https://history.jakelee.co.uk",
-      colour: "#075e78",
-    }
-  - { name: Theme, url: "https://minima.jakelee.co.uk", colour: "#951A00" }
-  - {
-      name: Fragments,
-      url: "https://fragments.jakelee.co.uk",
-      colour: "#ad33a9",
-    }
-  - { name: Everything Else, url: "https://jakelee.co.uk", colour: "#acacac" }
+google_analytics: G-9999999
 
 # Social / dark mode settings
 minima:
   skin: auto
   social_links:
-    - { platform: github, user_url: "https://github.com/JakeSteam" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/Jake-Lee" }
+    - { platform: github, user_url: "https://github.com/jonesrussell" }
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/jonesrussell42" }
     - {
         platform: stackoverflow,
-        user_url: "https://stackoverflow.com/users/608312/Jake-Lee",
+        user_url: "https://stackoverflow.com/users/437654/russell",
       }
-    - { platform: x, user_url: "https://www.twitter.com/JakeLeeUK" }
+    - { platform: x, user_url: "https://www.x.com/jonesrussell" }
     - {
         platform: email,
-        user_url: "mailto:blog@jakelee.co.uk",
-        user_title: "blog@jakelee.co.uk",
+        user_url: "mailto:jonesrussell42@gmail.com",
+        user_title: "jonesrussell42@gmail.com",
       }
     - {
         platform: code,
-        user_url: "https://github.com/JakeSteam/blog-programming",
+        user_url: "https://github.com/jonesrussell/blog",
         user_title: "JakeSteam/blog-programming",
       }
-    - { platform: rss, user_url: "/feed.xml", user_title: "RSS Feed" }
-    - {
-        platform: substack,
-        user_url: "https://jakeweeklee.substack.com/",
-        user_title: "Jake Week Lee",
-      }
-  #   - { platform: devto,          user_url: "https://dev.to/jekyll" }
+    - { platform: rss, user_url: "/feed.xml", user_title: "RSS Feed" }  
+    - { platform: devto,          user_url: "https://dev.to/jonesrussell" }
   #   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
   #   - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
   #   - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }
@@ -117,7 +97,7 @@ minima:
   #   - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
   #   - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
   #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
-  #   - { platform: youtube,        user_url: "https://www.youtube.com/jekyll" }
+     - { platform: youtube,        user_url: "https://www.youtube.com/@fullstackdev42" }
 
 ###
 # Below here probably doesn't need changing #
