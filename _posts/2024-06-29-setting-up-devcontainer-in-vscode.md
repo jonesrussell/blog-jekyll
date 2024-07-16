@@ -5,8 +5,6 @@ date:   2024-06-29
 categories: VSCode DevContainer
 ---
 
-## Introduction
-
 **Visual Studio Code (VSCode)** has become one of the most popular code editors due to its extensive features and capabilities. One such feature is the ability to use **DevContainers**, which allows developers to define their development environment as code. This blog post will guide you through the process of setting up a DevContainer in VSCode.
 
 ## Prerequisites
@@ -44,7 +42,7 @@ To do this:
 
 VSCode will start building the DevContainer. This may take a few minutes the first time as it needs to download the Docker image. Once the build is complete, VSCode will reload and your project will be open inside the DevContainer.
 
-## Conclusion
+## Done!
 
 And that's it! You've successfully set up a DevContainer in VSCode. Now you can enjoy a consistent and reproducible development environment that can be shared with your team. Happy coding!
 
