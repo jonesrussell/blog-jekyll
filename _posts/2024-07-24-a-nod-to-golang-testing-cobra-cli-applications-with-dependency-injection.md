@@ -4,8 +4,6 @@ title: "A Nod to 'Golang: Testing Cobra CLI Applications with Dependency Injecti
 date: 2024-07-06
 ---
 
-# A Nod to "Golang: Testing Cobra CLI Applications with Dependency Injection"
-
 Ahnii, fellow Gophers! Today, I want to bring your attention to a blog post that I stumbled upon while flailing about, trying to figure out how to test my Dependency Injected Cobra CLI app.
 
 [Golang: Testing Cobra CLI applications with dependency injection](https://web.archive.org/web/20240706150641/https://jackwrfuller.au/posts/testing-cobra-cli/) helped me the utmost. So thanks and credit to the author, Jack W R Fuller.
