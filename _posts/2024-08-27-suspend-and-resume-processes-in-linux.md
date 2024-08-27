@@ -1,3 +1,8 @@
+---
+layout: post
+title: "Suspend and Resume Processes in Linux"
+date: 2024-07-06
+---
 # Managing Processes in Linux
 
 Managing processes in Linux is an essential skill for any user. This post covers how to suspend, resume, and manage jobs using simple commands.
