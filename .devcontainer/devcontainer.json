@@ -7,14 +7,20 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"yzhang.markdown-all-in-one",           // Markdown support
+				"yzhang.markdown-all-in-one",           // Essential Markdown support
 				"DavidAnson.vscode-markdownlint",       // Markdown linting
 				"streetsidesoftware.code-spell-checker", // Spell checking
-				"eamodio.gitlens",                      // Git features
+				"eamodio.gitlens",                      // Enhanced Git features
 				"GitHub.copilot",                       // AI assistance
 				"redhat.vscode-yaml",                   // YAML support for front matter
 				"sissel.shopify-liquid",                // Liquid template syntax
-				"esbenp.prettier-vscode"                // Code formatting
+				"esbenp.prettier-vscode",               // Code formatting
+				"bierner.markdown-preview-github-styles", // GitHub-styled markdown preview
+				"bierner.markdown-emoji",               // Emoji support in markdown
+				"shd101wyy.markdown-preview-enhanced",  // Enhanced markdown preview
+				"ms-vscode.live-server",               // Live preview
+				"davidhouchin.whitespace-plus",         // Whitespace management
+				"formulahendry.auto-close-tag"         // HTML/XML tag closing
 			]
 		}
 	},
