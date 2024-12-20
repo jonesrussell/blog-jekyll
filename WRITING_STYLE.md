@@ -1,30 +1,60 @@
 # Writing Style Guide
 
-My blog posts follow these key style elements:
+## Post Types and Templates
 
-1. **Friendly, Conversational Tone**
-   - Use casual greetings (often starting with "Ahnii")
-   - Write as if speaking directly to the reader
-   - Keep it approachable and down-to-earth
+### 1. Standard Posts
+Use: `_templates/post-template.md`
+- General blog posts
+- Opinion pieces
+- News updates
 
-2. **Concise & Practical**
-   - Most posts are 1-3 minute reads
-   - Focus on actionable, practical information
-   - Get straight to the point without unnecessary fluff
+### 2. Tutorials
+Use: `_templates/tutorials/step-by-step.md`
+- Step-by-step guides
+- How-to articles
+- Practical walkthroughs
 
-3. **Clear Structure**
-   - Start with a brief introduction of the problem/topic
-   - Use clear headings to break up content
-   - Include bullet points for easy scanning
-   - End with a call to action or invitation for discussion
+### 3. Concept Explanations
+Use: `_templates/concepts/explanation.md`
+- Technical concepts
+- Theory discussions
+- Deep dives
 
-4. **Tutorial-Friendly Format**
-   - Step-by-step instructions when applicable
-   - Code snippets are clearly formatted
-   - Focus on beginner-friendly explanations
-   - Include time estimates when relevant
+### 4. Reviews
+Use: `_templates/reviews/review.md`
+- Tool reviews
+- Technology comparisons
+- Framework evaluations
 
-5. **Engagement Elements**
-   - End posts with questions or invitations for comments
-   - Use emojis sparingly but effectively
-   - Include relevant tags for discoverability 
+## Style Guidelines
+
+1. **Opening**
+   - Start with "Ahnii!"
+   - End with "Baamaapii 👋"
+
+2. **Time Estimates**
+   - Add (X minutes) to section headers
+   - Keep sections focused
+
+3. **Code Blocks**
+   - Always specify language
+   - Include comments
+   - Use meaningful examples
+
+4. **DEV.to Compatibility**
+   - Maximum 4 tags
+   - Clear descriptions
+   - Proper markdown formatting
+
+## Front Matter Requirements
+
+```yaml
+---
+layout: post
+title: "Title: Subtitle"
+date: YYYY-MM-DD
+categories: [cat1, cat2]
+tags: [tag1, tag2, tag3, tag4]
+description: "Compelling description"
+---
+```
