@@ -1,71 +1,70 @@
 ---
 layout: post
-title: Why “ENTRYPOINT my-program start” is bad
-image: assets/img/bad-dockerfile.jpeg
-categories: [Docker, Linux, Best Practices]
-tags: [Dockerfile, ENTRYPOINT, Signals, Linux, Best Practices]
+title: "Docker ENTRYPOINT Best Practices with JSON Arguments"
+date: 2024-03-19
+categories: [docker, devops]
+tags: [docker, entrypoint, containerization, best-practices]
+description: "Learn why using JSON format for Docker ENTRYPOINT is the recommended approach and how it can prevent common containerization issues."
 ---
-When writing Dockerfiles, the way you run your app affects how your application handles OS signals.
 
-Using the shell form, as shown below, is not recommended:
+# Docker ENTRYPOINT Best Practices with JSON Arguments
 
-```Dockerfile
-FROM alpine
-ENTRYPOINT my-program start
-# entrypoint becomes: /bin/sh -c my-program start 
+Ahnii,
+
+Ever had a Docker container fail mysteriously, only to discover it was due to ENTRYPOINT formatting? Let's dive into why JSON arguments are the way to go and how to implement them correctly.
+
+## The Problem (2 minutes)
+
+Shell form can cause unexpected behaviors:
+- Signal handling issues
+- PID 1 problems
+- Variable expansion quirks
+
+## The Solution: JSON Format
+
+Here's the recommended approach:
+
+```dockerfile
+ENTRYPOINT ["executable", "param1", "param2"]
+CMD ["param3", "param4"]
 ```
 
-This approach runs *my-program start* as a child process to a shell, which doesn't pass signals like SIGTERM and SIGKILL. As a result, your program won't respond correctly.
+## Key Benefits
 
-## What are signals in Linux?
+1. **Signal Handling**
+   - Proper propagation of signals
+   - Clean container shutdowns
+   - Better process management
 
-A signal is an interrupt delivered to a process. It's a way for processes and the operating system to communicate.
+2. **Variable Expansion**
+   - Predictable behavior
+   - No shell interpretation issues
+   - Direct executable access
 
-But it's more like sending a raven rather than picking up a phone.
+3. **Debugging**
+   - Clearer error messages
+   - Easier to trace issues
+   - Consistent behavior across platforms
 
-## Examples
+## Common Patterns
 
-Events like:
+Here are some real-world examples:
 
-- A user pressing Ctrl+C in a terminal sends an interrupt signal (SIGINT) to the process.
-- A process exceeding its allocated CPU or memory resources could trigger a signal.
-- A process could set a timer that sends a signal (SIGALRM) when it expires.
-- When a child process stops or terminates, it sends a SIGCHLD signal to its parent process.
+```dockerfile
+# Web Server
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
-They can indicate various events such as an error, a specific condition being met (it's 6am!), or a request for the process to terminate.
+# Node.js Application
+ENTRYPOINT ["node", "server.js"]
 
-The process that receives the signal can handle it in several ways: ignore it, perform a default action, or catch it with a custom handler.
-
-> "Excuse me, I'm going to have to ask you to stop what you're doing and, uh, die. kthx 💀"
-
-- **SIGTERM**: This signal is used to request a process to terminate gracefully. It’s often referred to as a soft kill because the process that receives the SIGTERM signal can choose to ignore it. It’s the polite way of asking a process to stop.
-
-- **SIGKILL**: Immediately terminate a process. Cannot be ignored or blocked, and the processes threads will also be terminated. It should only be used as a last resort, lest you wake the gremlins.
-
-- **SIGINT**: Ctrl-C.
-
-## What can happen without signals?
-
-In summary, using shell form can lead to issues with signal handling, performance, and process management. It’s generally recommended to use exec form to avoid these potential problems.
-
-Instead, use the exec form for ENTRYPOINT to run your executable as the main process in the container. This allows your program to receive OS signals properly.
-
-```
-FROM alpine
-ENTRYPOINT ["my-program", "start"]
+# Custom Script
+ENTRYPOINT ["./entrypoint.sh"]
 ```
 
-Running programs as PID 1 comes with special responsibilities in Linux, such as reaping child processes. If you need to use a shell, specify it explicitly with the SHELL instruction.
-For more details, check out the source of this information here.
+## Wrapping Up
 
-## Baamaapii
+Using JSON format for ENTRYPOINT is more than just a recommendation—it's a best practice that can save you from subtle but frustrating issues.
 
-Share your thoughts, reach out to me on social:
+What's your preferred ENTRYPOINT pattern? Have you encountered any interesting edge cases? Share your experiences below!
 
-    • youtube.com/@fullstackdev42
-    • x.com/jonesrussell42
-    • facebook.com/fullstackdev42/
-    
-## Further reading
-
-https://docs.docker.com/reference/dockerfile/#exec-form-entrypoint-example
+Baamaapii 👋

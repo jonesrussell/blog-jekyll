@@ -1,3 +1,65 @@
-💡Prompt  =  Subject（Subject Description）+ Subject Movement + Scene（Scene Description）+（Camera Language + Lighting + Atmosphere)-- optionalSubject: The subject is the main focus in the video, serving as an important embodiment of the theme. It can be people, animals, plants, objects, and so on；Subject Description: Descriptions of the subject's appearance details and body posture can be listed using multiple short sentences. For example: Athletic performance, Hairstyle and color, Clothing and accessories, Facial features, Body posture and so on；Subject Movement: Descriptions of the subject's movement status, including stillness and motion, should be straightforward and suitable for a 5-second video；Scene: The scene represents the environment in which the subject is situated, encompassing the foreground, background, and other elements;Scene Description: Scene descriptions for the subject's environment can be concise and focused, using a few short sentences to outline the setting without overwhelming the viewer. It should be suitable for what can be displayed within a 5-second video. Such as Indoor scene, Outdoor setting, Natural scene;Camera Language: It pertains to employing various applications of the camera lens, along with the transitions and edits between shots, to communicate a narrative or message and to generate particular visual impacts and emotional tones. Techniques include ultra-wide angle shots, bokeh (background blur), close-ups, telephoto shots, low-angle shots, high-angle shots, aerial views, and depth of field, among others; (Note: This should be differentiated from camera motion control.)Lighting: Light and shadow are the vital elements that imbue photographic works with soul. The application of light and shadow can make photos more profound and emotionally resonant, enabling us to create works with a rich sense of depth and expressive power. Techniques include:Ambient lighting, Morning light, Sunset, Interplay of light and shadow, Tyndall effect, Artificial lighting; Atmosphere: Describing the atmosphere of the anticipated video footage can involve various elements to set the mood and tone. Atmosphere: Describing the atmosphere of the anticipated video footage can involve various elements to set the mood and tone.
+---
+layout: post
+title: "The Ultimate AI Prompt Formula for Video Generation"
+date: 2024-03-19
+categories: [ai, prompts, video]
+tags: [ai, prompts, video-generation, creativity]
+description: "Master the art of crafting effective AI video prompts using this comprehensive formula that breaks down subject, movement, scene, and technical aspects."
+---
 
+# The Ultimate AI Prompt Formula for Video Generation
+
+Ahnii,
+
+Ever struggled to get your AI video generations just right? I've been there. After lots of experimentation, I've found a formula that consistently produces better results. Let's break it down!
+
+## The Formula Structure
+
+Here's the basic formula we'll be working with:
+
+```
+Prompt = Subject + Subject Description + Subject Movement + Scene + (Camera Language + Lighting + Atmosphere)
+```
+
+## Breaking Down Each Component
+
+### 1. Subject
+- The main focus of your video
+- Can be people, animals, objects, or anything else
+- Forms the foundation of your generation
+
+### 2. Subject Description
+Keep it detailed but concise:
+- Physical appearance
+- Clothing/accessories
+- Facial features
+- Body posture
+
+### 3. Subject Movement
+- Must be suitable for a 5-second video
+- Be specific about motion or stillness
+- Keep it straightforward
+
+### 4. Scene
+- Define the environment
+- Include foreground and background elements
+- Keep it focused and relevant
+
+### 5. Technical Elements (Optional)
+- **Camera Language**: Specify shots (wide-angle, close-up, etc.)
+- **Lighting**: Define the mood through light
+- **Atmosphere**: Set the overall tone
+
+## Example Prompt
+
+Here's how it comes together:
+
+```
 A TIE Fighter made from cereal pieces. The TIE Fighter is detailed with the cereal pieces clearly visible, flying through space. The scene is set against a starry background. Add the classic TIE Fighter sound effect to enhance the atmosphere.
+```
+
+## Wrapping Up
+
+Remember, the best prompts are clear, specific, and focused. Start with this formula and adjust based on your needs and results.
+
+Have you tried generating AI videos before? What challenges did you face? Drop a comment below and let's discuss your experiences!
