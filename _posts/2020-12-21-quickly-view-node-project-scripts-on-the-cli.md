@@ -1,10 +1,11 @@
 ---
-title: Quickly view nodejs project 'scripts' on the cli
-image: /blog/assets/img/screenshot-scripts.png
 layout: post
-categories: [nodejs]
-tags: [cli, web-development]
-slug: quickly-view-nodejs-project-scripts-on-the-cli
+title: "Quickly View Node.js Project Scripts on the CLI"
+date: 2020-12-21
+categories: [cli, nodejs]
+tags: [cli, nodejs, npm, productivity]
+description: "Create a simple CLI tool to view your Node.js project's npm scripts directly from the terminal."
+image: /assets/img/screenshot-scripts.png
 ---
 
 Ahnii! I previously wrote a command line utility named '[packages]({{ site.baseurl }}{% link _posts/2020-11-21-quickly-view-project-dependencies-on-the-cli.md %})' which simply prints a list of project dependencies on the command line.
