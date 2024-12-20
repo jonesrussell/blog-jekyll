@@ -7,8 +7,6 @@ tags: [docker, entrypoint, containerization, best-practices]
 description: "Learn why using JSON format for Docker ENTRYPOINT is the recommended approach and how it can prevent common containerization issues."
 ---
 
-# Docker ENTRYPOINT Best Practices with JSON Arguments
-
 Ahnii,
 
 Ever had a Docker container fail mysteriously, only to discover it was due to ENTRYPOINT formatting? Let's dive into why JSON arguments are the way to go and how to implement them correctly.
@@ -51,13 +49,13 @@ CMD ["param3", "param4"]
 Here are some real-world examples:
 
 ```dockerfile
-# Web Server
+---$1---
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
-# Node.js Application
+---$1---
 ENTRYPOINT ["node", "server.js"]
 
-# Custom Script
+---$1---
 ENTRYPOINT ["./entrypoint.sh"]
 ```
 
