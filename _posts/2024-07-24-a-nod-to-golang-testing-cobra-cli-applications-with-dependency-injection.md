@@ -1,35 +1,111 @@
 ---
 layout: post
-title: "A Nod to 'Golang: Testing Cobra CLI Applications with Dependency Injection'"
-date: 2024-07-06
+title: "Testing Cobra CLI Apps in Go: A DI Approach"
+date: 2024-07-24
+categories: [golang, testing]
+tags: [golang, cobra, cli, testing, dependency-injection]
+description: "Learn how to effectively test Cobra CLI applications using dependency injection in Go, with practical examples and best practices."
 ---
 
-Ahnii, fellow Gophers! Today, I want to bring your attention to a blog post that I stumbled upon while flailing about, trying to figure out how to test my Dependency Injected Cobra CLI app.
+# Testing Cobra CLI Apps in Go: A DI Approach
 
-[Golang: Testing Cobra CLI applications with dependency injection](https://web.archive.org/web/20240706150641/https://jackwrfuller.au/posts/testing-cobra-cli/) helped me the utmost. So thanks and credit to the author, Jack W R Fuller.
+Ahnii,
 
-## Assumptions
+Ever struggled with testing your Cobra CLI applications? I recently refactored one of my projects to use dependency injection, and it made testing so much easier. Let me show you how!
 
-Assumes experience with Cobra.
+## Why Dependency Injection? (2 minutes)
 
-## Why This Post is Useful
+Key benefits for CLI apps:
+- Easier to mock dependencies
+- More testable code
+- Cleaner separation of concerns
+- Flexible configuration
 
-- **Practical Examples**: The post provides practical examples of CLI application development using Go and Cobra CLI.
-- **Testing Guidance**: It offers guidance on how to test Cobra CLI applications while avoiding the trial and error.
-- **Dependency Injection**: It touches on the concept of dependency injection.
-- **Command Factories**: It introduces the command factories design pattern to avoid singleton subcommands.
-- 
-## New Cobra project
+## Basic Setup (5 minutes)
 
-SHOW DEFAULT main.go and root.go.
+Here's our basic CLI structure with DI:
 
-## GoCreate
+```go
+type AppDependencies struct {
+    Logger  Logger
+    Config  Config
+    Client  HTTPClient
+}
 
-To illustrate, here's my Cobra CLI projects main.go.
+func NewRootCmd(deps *AppDependencies) *cobra.Command {
+    cmd := &cobra.Command{
+        Use:   "mycli",
+        Short: "My CLI application",
+        RunE: func(cmd *cobra.Command, args []string) error {
+            return runRoot(deps, args)
+        },
+    }
+    return cmd
+}
+```
 
-https://github.com/jonesrussell/gocreate/blob/nod-to-dependency-injection/main.go
+## Testing Strategy (10 minutes)
 
-https://github.com/jonesrussell/gocreate/blob/nod-to-dependency-injection/cmd/root.go
+1. **Mock Dependencies**
+```go
+type MockLogger struct {
+    mock.Mock
+}
 
-https://github.com/jonesrussell/gocreate/blob/nod-to-dependency-injection/cmd/website.go
+func TestRootCommand(t *testing.T) {
+    mockLogger := &MockLogger{}
+    deps := &AppDependencies{
+        Logger: mockLogger,
+    }
+    
+    cmd := NewRootCmd(deps)
+    assert.NotNil(t, cmd)
+}
+```
+
+2. **Test Command Execution**
+```go
+func TestCommandExecution(t *testing.T) {
+    deps := setupTestDependencies()
+    cmd := NewRootCmd(deps)
+    
+    output, err := executeCommand(cmd, "arg1", "--flag=value")
+    assert.NoError(t, err)
+    assert.Contains(t, output, "expected output")
+}
+```
+
+## Best Practices
+
+- Keep dependencies minimal and focused
+- Use interfaces for flexibility
+- Test edge cases thoroughly
+- Mock external services
+
+## Common Patterns
+
+1. **Configuration Injection**
+```go
+func NewConfig() *Config {
+    return &Config{
+        // Default values
+    }
+}
+```
+
+2. **Logger Injection**
+```go
+type Logger interface {
+    Info(msg string, args ...interface{})
+    Error(msg string, args ...interface{})
+}
+```
+
+## Wrapping Up
+
+Dependency injection might seem like overhead at first, but it pays off in testability and maintainability. Start small and refactor as needed.
+
+How do you handle testing in your CLI applications? Have you tried dependency injection? Share your experiences below!
+
+Baamaapii 👋
 
