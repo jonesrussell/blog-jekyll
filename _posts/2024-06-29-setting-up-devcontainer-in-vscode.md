@@ -7,8 +7,6 @@ tags: [vscode, devcontainers, docker, development-environment]
 description: "Learn how to set up and use Dev Containers in Visual Studio Code for consistent, isolated development environments."
 ---
 
-# Setting Up a Dev Container in VS Code
-
 Ahnii,
 
 Tired of "it works on my machine" syndrome? Let's fix that with VS Code Dev Containers! I recently switched to using them for all my projects, and it's been a game-changer.

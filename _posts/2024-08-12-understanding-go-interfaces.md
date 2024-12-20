@@ -7,8 +7,6 @@ tags: [golang, interfaces, programming, software-design]
 description: "Master Go interfaces with practical examples and real-world use cases. Learn how to write more flexible and maintainable code using interface-based design."
 ---
 
-# Understanding Go Interfaces: A Practical Guide
-
 Ahnii,
 
 Interfaces in Go might seem simple at first, but they're incredibly powerful. Let's explore how to use them effectively and avoid common pitfalls.
@@ -26,14 +24,17 @@ Unlike other languages, Go interfaces are:
 Here's a simple example:
 
 ```go
+// Define a simple interface
 type Writer interface {
     Write([]byte) (int, error)
 }
 
+// Concrete implementation
 type FileWriter struct {
     file *os.File
 }
 
+// Implement the Writer interface
 func (fw *FileWriter) Write(data []byte) (int, error) {
     return fw.file.Write(data)
 }

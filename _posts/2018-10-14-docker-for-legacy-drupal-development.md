@@ -7,8 +7,6 @@ tags: [docker, drupal, containers, devops]
 description: "Learn how to leverage Linux containers for migrating Drupal 6 to Drupal 8, with practical examples and best practices."
 ---
 
-# Docker for Legacy Drupal Development: Migrating Drupal 6 to 8
-
 Ahnii,
 
 Let me start by saying this guide could be titled "Docker for Development" and be applied to virtually any stack. I'm using Drupal because I recently began a Drupal 6 (D6) to Drupal 8 (D8) website migration.

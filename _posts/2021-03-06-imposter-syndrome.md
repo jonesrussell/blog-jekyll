@@ -7,8 +7,6 @@ tags: [career, mental-health, growth, tech-culture]
 description: "A personal reflection on experiencing and overcoming imposter syndrome in the tech industry, with practical coping strategies."
 ---
 
-# Dealing with Imposter Syndrome in Tech
-
 Ahnii!
 
 Ever felt like you don't belong in tech? Like you're just pretending to be a developer? You're not alone. Let's talk about imposter syndrome and how to deal with it.

@@ -7,8 +7,6 @@ tags: [docker, containers, cli, devops]
 description: "Learn how to use Whalebrew to run Docker containers as if they were native commands, simplifying your development workflow."
 ---
 
-# Whalebrew: Docker Images as Native Commands
-
 Ahnii!
 
 If you're from the Mac world, you've probably used or heard of Homebrew. For the uninformed, Homebrew is the missing package manager for macOS. Whalebrew brings that same convenience to Docker containers.

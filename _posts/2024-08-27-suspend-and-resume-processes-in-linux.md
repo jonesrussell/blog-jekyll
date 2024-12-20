@@ -2,6 +2,9 @@
 layout: post
 title: "Suspend and Resume Processes in Linux"
 date: 2024-07-06
+categories: [linux]
+tags: [linux, processes, command-line, system-administration]
+description: "Learn how to effectively manage Linux processes using commands like Ctrl+Z, jobs, bg, and fg. Master the basics of process suspension and resumption."
 ---
 
 Managing processes in Linux is an essential skill for any user. This post covers how to suspend, resume, and manage jobs using simple commands.

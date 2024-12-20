@@ -7,8 +7,6 @@ tags: [laravel, php, ubuntu, development]
 description: "A comprehensive guide to setting up a Laravel development environment in Ubuntu 20.04, with best practices and troubleshooting tips."
 ---
 
-# Start Developing with Laravel in Ubuntu 20.04
-
 Ahnii!
 
 Ubuntu makes an excellent platform for Laravel development. Let me show you how to set up a proper development environment from scratch.

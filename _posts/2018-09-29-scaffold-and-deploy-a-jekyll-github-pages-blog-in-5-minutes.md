@@ -7,8 +7,6 @@ tags: [jekyll, github, static-sites, web-development]
 description: "Learn how to quickly set up and deploy a Jekyll blog to GitHub Pages, with step-by-step instructions for beginners."
 ---
 
-# Scaffold and Deploy a Jekyll GitHub Pages Blog in 5 Minutes
-
 Ahnii!
 
 Static websites have made a comeback. Innovations in content generation, the adoption of Markdown in workflows, deployment technology, and free hosting have made static websites an attractive option for those who don't need the capabilities of a framework or content management system.

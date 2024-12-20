@@ -7,8 +7,6 @@ tags: [cli, nodejs, npm, productivity]
 description: "Learn how to create a simple CLI tool to view your project's package.json dependencies directly from the terminal."
 ---
 
-# Quickly View Project Dependencies on the CLI
-
 Ahnii!
 
 I frequently find myself wanting to check package.json dependencies while working in the terminal. Let me share a simple tool I created to make this easier.

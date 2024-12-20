@@ -7,8 +7,6 @@ tags: [golang, cobra, cli, testing, dependency-injection]
 description: "Learn how to effectively test Cobra CLI applications using dependency injection in Go, with practical examples and best practices."
 ---
 
-# Testing Cobra CLI Apps in Go: A DI Approach
-
 Ahnii,
 
 Ever struggled with testing your Cobra CLI applications? I recently refactored one of my projects to use dependency injection, and it made testing so much easier. Let me show you how!
