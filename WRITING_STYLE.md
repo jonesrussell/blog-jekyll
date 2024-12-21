@@ -1,3 +1,5 @@
+> Note: This document and its contents were automatically generated based on patterns found in the `_posts` directory. The "Ahnii" greeting and "Baamaapii" farewell appear to be consistent patterns across blog posts.
+
 # Writing Style Guide
 
 ## Post Types and Templates
