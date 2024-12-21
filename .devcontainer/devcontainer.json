@@ -7,20 +7,22 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"yzhang.markdown-all-in-one",           // Essential Markdown support
-				"DavidAnson.vscode-markdownlint",       // Markdown linting
-				"streetsidesoftware.code-spell-checker", // Spell checking
-				"eamodio.gitlens",                      // Enhanced Git features
-				"GitHub.copilot",                       // AI assistance
-				"redhat.vscode-yaml",                   // YAML support for front matter
-				"sissel.shopify-liquid",                // Liquid template syntax
-				"esbenp.prettier-vscode",               // Code formatting
-				"bierner.markdown-preview-github-styles", // GitHub-styled markdown preview
-				"bierner.markdown-emoji",               // Emoji support in markdown
-				"shd101wyy.markdown-preview-enhanced",  // Enhanced markdown preview
-				"ms-vscode.live-server",               // Live preview
-				"davidhouchin.whitespace-plus",         // Whitespace management
-				"formulahendry.auto-close-tag"         // HTML/XML tag closing
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint",
+				"streetsidesoftware.code-spell-checker",
+				"eamodio.gitlens",
+				"GitHub.copilot",
+				"redhat.vscode-yaml",
+				"sissel.shopify-liquid",
+				"esbenp.prettier-vscode",
+				"bierner.markdown-preview-github-styles",
+				"bierner.markdown-emoji",
+				"shd101wyy.markdown-preview-enhanced",
+				"ms-vscode.live-server",
+				"davidhouchin.whitespace-plus",
+				"formulahendry.auto-close-tag",
+				"github.vscode-github-actions",
+				"Shopify.ruby-lsp"
 			]
 		}
 	},
@@ -29,7 +31,7 @@
 		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
 	],
 	
-	"postCreateCommand": "chmod 600 /home/vscode/.ssh/*",
+	"postCreateCommand": "gem install bundler && bundle install && chmod 600 /home/vscode/.ssh/*",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": true,
@@ -50,6 +52,9 @@
 		"ghcr.io/devcontainers-extra/features/actions-runner:1": {
 			"version": "latest",
 			"dotnetVersion": "latest"
+		},
+		"ghcr.io/devcontainers/features/ruby:1": {
+			"version": "latest"
 		}
 	}
 }
