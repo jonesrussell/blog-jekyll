@@ -7,8 +7,6 @@ tags: [writing, blogging, style-guide, ai-assisted, documentation]
 description: "How I collaborated with AI to document my blogging style and created a living style guide for consistency across my posts."
 ---
 
-# Meta-Blogging: Creating My Writing Style Guide
-
 Ahnii,
 
 Ever notice how your favorite bloggers have that distinct "voice" that makes their posts instantly recognizable? I recently realized I had developed my own style over time, but it wasn't documented anywhere. Here's how I turned that realization into action.
