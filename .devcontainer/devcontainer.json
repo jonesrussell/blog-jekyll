@@ -55,6 +55,9 @@
 		},
 		"ghcr.io/devcontainers/features/ruby:1": {
 			"version": "latest"
+		},
+		"ghcr.io/itsmechlark/features/act:1": {
+			"version": "latest"
 		}
 	}
 }
