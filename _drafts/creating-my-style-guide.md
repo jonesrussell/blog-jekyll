@@ -7,7 +7,7 @@ tags: [writing, blogging, style-guide, ai-assisted, documentation]
 description: "How I collaborated with AI to document my blogging style and created a living style guide for consistency across my posts."
 ---
 
-> Note: Both this blog post and my blog's style guide documentation were entirely generated through AI analysis of patterns found in my existing blog posts. The "Ahnii" greeting and "Baamaapii" farewell, for example, were identified as consistent patterns across posts.
+> Note: Both this blog post and my blog's [style guide documentation](https://github.com/jonesrussell/blog/blob/v1.0.0/WRITING_STYLE.md) were entirely generated through AI analysis of patterns found in my existing blog posts. The "Ahnii" greeting and "Baamaapii" farewell, for example, were identified as consistent patterns across posts.
 
 Ahnii,
 
