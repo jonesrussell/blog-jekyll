@@ -1,0 +1,42 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Default task - starts Jekyll server
+    deps: [install]
+    cmds:
+      - task: serve
+
+  clear:
+    desc: Clear the terminal screen
+    cmds:
+      - cmd: clear
+        platforms: [linux, darwin]
+      - cmd: cls
+        platforms: [windows]
+
+  install:
+    desc: Install dependencies
+    cmds:
+      - gem install bundler
+      - bundle install
+
+  serve:
+    desc: Start Jekyll server
+    cmds:
+      - bundle exec jekyll serve --livereload
+
+  build:
+    desc: Build the site
+    cmds:
+      - bundle exec jekyll build
+
+  clean:
+    desc: Clean build files
+    cmds:
+      - bundle exec jekyll clean
+
+  update:
+    desc: Update dependencies
+    cmds:
+      - bundle update 
