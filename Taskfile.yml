@@ -40,3 +40,38 @@ tasks:
     desc: Update dependencies
     cmds:
       - bundle update 
+
+  lint:
+    desc: Lint markdown files and front matter
+    deps: [lint:pull]
+    cmds:
+      - docker run -v ${PWD}:/workdir --rm -w /workdir davidanson/markdownlint-cli2 "_posts/**/*.md" "*.md"
+      - docker run -v ${PWD}:/workdir --rm -w /workdir cytopia/yamllint _config.yml _posts/
+
+  lint:pull:
+    desc: Pull required Docker images
+    cmds:
+      - docker pull pandoc/core:latest
+    status:
+      - docker image inspect pandoc/core:latest >/dev/null 2>&1
+
+  lint:check:
+    desc: Check markdown formatting
+    deps: [lint:pull]
+    cmds:
+      - |
+        for file in _posts/*.md; do
+          docker run --rm -v ${PWD}:/work -w /work pandoc/core:latest \
+            pandoc "$file" -f markdown -t markdown --check
+        done
+
+  lint:fix:
+    desc: Attempt to fix markdown issues automatically
+    deps: [lint:pull]
+    cmds:
+      - |
+        for file in _posts/*.md; do
+          docker run --rm -v ${PWD}:/work -w /work pandoc/core:latest \
+            pandoc "$file" -f markdown -t markdown -o "$file.tmp" \
+            && mv "$file.tmp" "$file"
+        done

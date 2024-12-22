@@ -6,13 +6,16 @@ A comprehensive resource for web developers, offering insights into modern techn
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [Web Developer Blog](#web-developer-blog)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Contact](#contact)
 
 ## Getting Started
 
@@ -29,21 +32,25 @@ Ensure you have the following prerequisites installed:
 ### Installation
 
 1. Clone the repo
+
 ```sh
 git clone https://github.com/jonesrussell/blog.git
 ```
 
 2. Navigate into the project directory
+
 ```sh
 cd blog
 ```
 
 3. Install the necessary gems
+
 ```sh
 bundle install
 ```
 
 4. Serve the site locally
+
 ```sh
 bundle exec jekyll serve
 ```
@@ -68,6 +75,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Russell Jones - [@jonesrussell42](twitter.com/jonesrussell42) - jonesrussell42@gmail.com
+Russell Jones - [@jonesrussell42](twitter.com/jonesrussell42) - <jonesrussell42@gmail.com>
 
 Project Link: [https://github.com/jonesrussell/blog](https://github.com/jonesrussell/blog)

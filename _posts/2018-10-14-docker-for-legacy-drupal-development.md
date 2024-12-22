@@ -44,6 +44,7 @@ mysql:5.6
 ```
 
 Download Drupal 6:
+
 ```bash
 cd ~
 wget https://ftp.drupal.org/files/projects/drupal-6.38.tar.gz
@@ -51,6 +52,7 @@ tar -xzf drupal-6.38.tar.gz
 ```
 
 Create the web container:
+
 ```bash
 sudo docker run -d  \
 -p 10080:80 \
@@ -67,6 +69,7 @@ Docker offers two options for data persistence:
 - Bind Mounts (host-managed)
 
 For development, bind mounts work well:
+
 ```bash
 -v ~/drupal-6.38:/var/www/html
 ```
@@ -74,6 +77,7 @@ For development, bind mounts work well:
 ## Cleanup
 
 When finished, clean up your containers:
+
 ```bash
 sudo docker container stop drupal-app drupal-mysql
 sudo docker container rm drupal-app drupal-mysql

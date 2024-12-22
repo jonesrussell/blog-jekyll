@@ -29,23 +29,25 @@ Static websites have made a comeback. Innovations in content generation, the ado
 ## Quick Start
 
 Install Jekyll:
+
 ```bash
 gem install bundler jekyll
 ```
 
 Create your site:
+
 ```bash
 jekyll new my-awesome-site
 cd my-awesome-site
 bundle exec jekyll serve
 ```
 
-Visit http://localhost:4000 to preview your site.
+Visit <http://localhost:4000> to preview your site.
 
 ## Deploy to GitHub Pages
 
 1. Create a new repository:
-   - Go to https://github.com/new
+   - Go to <https://github.com/new>
    - Name it "my-awesome-site"
    - Leave it public
    - Click "Create repository"
@@ -57,6 +59,7 @@ Visit http://localhost:4000 to preview your site.
    - Save changes
 
 3. Update your Gemfile:
+
 ```ruby
 # Comment out this line
 # gem "jekyll", "~> 3.8.4"
@@ -66,11 +69,13 @@ gem "github-pages", group: :jekyll_plugins
 ```
 
 4. Configure _config.yml:
+
 ```yaml
 baseurl: "/my-awesome-site" # the subpath of your site
 ```
 
 5. Push to GitHub:
+
 ```bash
 git init
 git add .
@@ -79,7 +84,7 @@ git remote add origin https://github.com/username/my-awesome-site.git
 git push -u origin master
 ```
 
-Visit https://username.github.io/my-awesome-site/ to see your live site!
+Visit <https://username.github.io/my-awesome-site/> to see your live site!
 
 ## Wrapping Up
 
@@ -87,4 +92,4 @@ You now have a working Jekyll blog hosted on GitHub Pages. To create new posts, 
 
 How are you planning to use your new Jekyll blog? Share your ideas below!
 
-Baamaapii 👋 
+Baamaapii 👋
