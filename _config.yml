@@ -126,3 +126,4 @@ favicon: "/blog/assets/images/favicon.ico"  # adjust path as needed
 
 # Use the description from front matter as the excerpt
 excerpt_separator: ""
+excerpt_separator: ""

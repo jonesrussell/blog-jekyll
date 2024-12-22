@@ -31,7 +31,7 @@
 		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
 	],
 	
-	"postCreateCommand": "gem install bundler && bundle install && chmod 600 /home/vscode/.ssh/*",
+	"postCreateCommand": "gem install bundler && bundle install && echo 'excerpt_separator: \"\"' >> _config.yml && chmod 600 /home/vscode/.ssh/*",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": true,
