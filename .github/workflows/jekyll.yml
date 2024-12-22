@@ -36,7 +36,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'
+          ruby-version: "3.2"
           bundler-cache: true
           cache-version: 0
       - name: Build with Jekyll
@@ -44,13 +44,15 @@ jobs:
         env:
           JEKYLL_ENV: production
       - name: Upload Pages artifact
+        if: ${{ !env.ACT && github.repository == 'jonesrussell/blog' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_site/"
 
   # Deployment job
   deploy:
-    if: ${{ !vars.ACT }}
+    # Skip deploy job entirely when running locally with act
+    if: ${{ !env.ACT && github.repository == 'jonesrussell/blog' && github.event_name != 'pull_request' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
