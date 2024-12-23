@@ -26,12 +26,14 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  ACT: false  # Default value for GitHub Actions
+  JEKYLL_ENV: production
+
 jobs:
   # Build job
   build:
     runs-on: ubuntu-22.04
-    env:
-      JEKYLL_ENV: production
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,8 +46,8 @@ jobs:
       - name: Build with Jekyll
         run: bundle exec jekyll build
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
         if: ${{ !env.ACT }}
+        uses: actions/upload-pages-artifact@v3
         with:
           path: "_site/"
       - name: Skip artifact upload in Act
