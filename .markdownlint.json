@@ -4,5 +4,8 @@
   "MD033": false,
   "MD041": false,
   "MD002": false,
-  "MD026": { "punctuation": ".,;:!" }
+  "MD026": { "punctuation": ".,;:!" },
+  "MD030": false,
+  "MD025": false,
+  "MD032": true
 } 

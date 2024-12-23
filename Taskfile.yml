@@ -67,19 +67,9 @@ tasks:
 
   lint:fix:
     desc: Attempt to fix markdown issues automatically
-    deps: [lint:pull]
     cmds:
       - |
         echo "Starting lint:fix task..."
-        for file in _posts/*.md _drafts/*.md; do
-          if [ -f "$file" ]; then
-            echo "Processing: $file"
-            docker run --rm \
-              -v "/home/russell/dev/blog:/data" \
-              pandoc/core \
-              "/data/$(echo $file)" -f markdown -t markdown -o "/data/${file}.tmp" \
-              && mv "${file}.tmp" "${file}" \
-              && echo "✅ Successfully processed: $file" \
-              || echo "❌ Failed to process: $file"
-          fi
-        done
+        docker run -v ${PWD}:/workdir --rm -w /workdir \
+          davidanson/markdownlint-cli2-rules \
+          --fix "_posts/**/*.md" "_drafts/**/*.md"
