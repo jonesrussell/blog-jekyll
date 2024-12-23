@@ -44,19 +44,24 @@ jobs:
         env:
           JEKYLL_ENV: production
       - name: Upload Pages artifact
-        if: ${{ !env.ACT && github.repository == 'jonesrussell/blog' }}
+        if: ${{ !github.env.ACT }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_site/"
+      - name: Skip artifact upload in Act
+        if: ${{ github.env.ACT }}
+        run: |
+          echo "Skipping artifact upload in Act environment"
+          echo "Build completed successfully"
 
   # Deployment job
   deploy:
     # Skip deploy job entirely when running locally with act
-    if: ${{ !env.ACT && github.repository == 'jonesrussell/blog' && github.event_name != 'pull_request' }}
+    if: ${{ !github.env.ACT }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: build
     steps:
       - name: Deploy to GitHub Pages
