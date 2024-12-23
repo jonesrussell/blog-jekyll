@@ -70,6 +70,8 @@ tasks:
     cmds:
       - |
         echo "Starting lint:fix task..."
-        docker run -v ${PWD}:/workdir --rm -w /workdir \
-          davidanson/markdownlint-cli2-rules \
+        docker run --rm \
+          -v "/home/russell/dev/blog:/workdir" \
+          -w /workdir \
+          davidanson/markdownlint-cli2 \
           --fix "_posts/**/*.md" "_drafts/**/*.md"
