@@ -16,6 +16,7 @@ Ever wanted to build your own AI chatbot but found the JavaScript examples a bit
 ## Why Go for AI?
 
 Here's why Go makes sense for AI applications:
+
 - Strong concurrency support
 - Excellent performance characteristics
 - Clear error handling
@@ -42,6 +43,7 @@ project/
 ## Core Components
 
 ### 1. Configuration
+
 We'll use environment variables for flexible configuration:
 
 ```go
@@ -53,6 +55,7 @@ type Config struct {
 ```
 
 ### 2. Chat Handler
+
 Our chat handler will manage conversations:
 
 ```go
@@ -65,6 +68,7 @@ type ChatHandler struct {
 ## What's Next?
 
 In the upcoming posts, we'll:
+
 - Implement the chat logic
 - Add conversation memory
 - Handle different types of messages

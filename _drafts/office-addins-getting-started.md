@@ -15,6 +15,7 @@ As web developers, we often think of Microsoft Office as a closed ecosystem. But
 ## What Are Office Add-ins? (2 minutes)
 
 Office Add-ins are essentially web applications embedded in Office. They run across platforms (Windows, Mac, web) and use familiar technologies:
+
 - HTML/CSS for UI
 - JavaScript/TypeScript for logic
 - Standard web APIs
@@ -23,12 +24,14 @@ Office Add-ins are essentially web applications embedded in Office. They run acr
 ## Getting Started (5 minutes)
 
 First, ensure you have:
+
 ```bash
 # Install required tools
 npm install -g yo generator-office
 ```
 
 Create your first add-in:
+
 ```bash
 # Generate a new Excel add-in project
 yo office --projectType excel --name "My First Add-in" --host excel
@@ -37,6 +40,7 @@ yo office --projectType excel --name "My First Add-in" --host excel
 ## Basic Structure (5 minutes)
 
 A typical Office Add-in has these key parts:
+
 ```text
 my-first-addin/
 ├── manifest.xml      # Add-in configuration
@@ -73,6 +77,7 @@ async function run() {
 ## Best Practices
 
 1. **Use TypeScript**
+
 ```typescript
 // Good
 interface UserData {
@@ -84,6 +89,7 @@ interface UserData {
 ```
 
 2. **Handle Errors Gracefully**
+
 ```typescript
 try {
     await Excel.run(async (context) => {
@@ -98,11 +104,13 @@ try {
 ## Testing Your Add-in
 
 Test locally using:
+
 ```bash
 npm start
 ```
 
 This will:
+
 1. Start a local dev server
 2. Open Office with your add-in
 3. Enable live reload for development

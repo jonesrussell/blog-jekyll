@@ -24,28 +24,34 @@ Prompt = Subject + Subject Description + Subject Movement + Scene + (Camera Lang
 ## Breaking Down Each Component
 
 ### 1. Subject
+
 - The main focus of your video
 - Can be people, animals, objects, or anything else
 - Forms the foundation of your generation
 
 ### 2. Subject Description
+
 Keep it detailed but concise:
+
 - Physical appearance
 - Clothing/accessories
 - Facial features
 - Body posture
 
 ### 3. Subject Movement
+
 - Must be suitable for a 5-second video
 - Be specific about motion or stillness
 - Keep it straightforward
 
 ### 4. Scene
+
 - Define the environment
 - Include foreground and background elements
 - Keep it focused and relevant
 
 ### 5. Technical Elements (Optional)
+
 - **Camera Language**: Specify shots (wide-angle, close-up, etc.)
 - **Lighting**: Define the mood through light
 - **Atmosphere**: Set the overall tone

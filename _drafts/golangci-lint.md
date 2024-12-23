@@ -13,7 +13,7 @@ Ahnii,
 
 As a developer, you know the importance of writing clean, maintainable code. But if you're like me, you've probably spent countless hours manually checking for all sorts of potential issues. Or you've pushed less than ideal code to the production.
 
-That's where linters come in. 
+That's where linters come in.
 
  golangci-lint comes in - your trusty GoGuardian against code smells!
 
@@ -39,7 +39,7 @@ Adding golangci-lint to your Go project is a breeze. Here's a quick rundown:
 
 3. **Let's Lint!:**  Once you're set up, simply run `golangci-lint run` in your terminal. This will execute all enabled linters and present you with a comprehensive report of any issues found in your code.
 
-##  Wrapping Up
+## Wrapping Up
 
 golangci-lint is an invaluable tool for any Go developer who wants to write clean, secure, and maintainable code. It streamlines the linting process, giving you valuable insights into your code's quality without the hassle. So, what are you waiting for? Give golangci-lint a try and see how it can elevate your Go development experience!
 
