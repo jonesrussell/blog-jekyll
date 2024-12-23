@@ -18,12 +18,14 @@ The challenge: D6 requires PHP 5.6 or lower, while D8 needs PHP 7.1+. How do you
 ## Understanding Containers vs VMs (5 minutes)
 
 ### Virtual Machines
+
 - Full OS and kernel
 - Resource heavy
 - Slow to start/stop
 - Complete isolation
 
 ### Containers
+
 - Share host kernel
 - Lightweight
 - Start/stop in milliseconds
@@ -65,6 +67,7 @@ nimmis/apache-php5
 ## Data Persistence (5 minutes)
 
 Docker offers two options for data persistence:
+
 - Volumes (Docker-managed)
 - Bind Mounts (host-managed)
 
@@ -94,4 +97,4 @@ sudo docker container rm drupal-app drupal-mysql
 
 Docker makes it easy to maintain legacy development environments without compromising your host system. What legacy systems are you maintaining? Share your containerization stories below!
 
-Baamaapii 👋 
+Baamaapii 👋

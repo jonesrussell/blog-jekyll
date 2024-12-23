@@ -22,36 +22,46 @@ Managing processes in Linux is an essential skill for any user. This post covers
 ## Example
 
 1. Start a process:
+
     ```sh
-    $ sleep 100
+    sleep 100
     ```
+
     This command starts a process that will sleep for 100 seconds.
 
 2. Suspend the process:
+
     ```sh
     Ctrl+Z
     ```
+
     This suspends the `sleep` process and puts it in the background.
 
 3. Check jobs:
+
     ```sh
     $ jobs
     [1]+  Stopped                 sleep 100
     ```
+
     This lists the jobs, showing that the `sleep` process is stopped.
 
 4. Resume in background:
+
     ```sh
     $ bg %1
     [1]+ sleep 100 &
     ```
+
     This resumes the `sleep` process in the background.
 
 5. Bring to foreground:
+
     ```sh
     $ fg %1
     sleep 100
     ```
+
     This brings the `sleep` process back to the foreground.
 
 ## Summary

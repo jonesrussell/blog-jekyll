@@ -14,6 +14,7 @@ Tired of "it works on my machine" syndrome? Let's fix that with VS Code Dev Cont
 ## What are Dev Containers? (2 minutes)
 
 Dev Containers provide:
+
 - Isolated development environments
 - Consistent tooling across team members
 - Project-specific configurations
@@ -27,6 +28,7 @@ Dev Containers provide:
    - Add "Dev Containers" extension
 
 2. **Basic Configuration**
+
    ```json
    {
        "name": "Your Project",

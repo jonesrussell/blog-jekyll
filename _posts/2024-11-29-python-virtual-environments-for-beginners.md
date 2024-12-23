@@ -16,6 +16,7 @@ Think of a virtual environment like a clean room for your Python project. It's a
 ## Why Do You Need One?
 
 Imagine you're working on two Python projects:
+
 - Project A needs version 1.0 of a package
 - Project B needs version 2.0 of the same package
 
@@ -34,6 +35,7 @@ source venv/bin/activate
 ```
 
 Let's break down that first command:
+
 - `python3` - runs Python 3
 - `-m venv` - tells Python to run the venv module
 - The last `venv` - is just the name of the directory (you can name it anything)
@@ -87,4 +89,4 @@ deactivate
 
 Virtual environments might seem like extra work at first, but they're a crucial tool for Python development. They keep your projects isolated, make them more portable, and help avoid dependency conflicts.
 
-Remember: if you're starting a new Python project, creating a virtual environment should be your first step! 
+Remember: if you're starting a new Python project, creating a virtual environment should be your first step!
