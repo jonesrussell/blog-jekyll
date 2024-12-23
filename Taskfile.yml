@@ -70,8 +70,10 @@ tasks:
     deps: [lint:pull]
     cmds:
       - |
-        for file in _posts/*.md; do
-          docker run --rm -v ${PWD}:/work -w /work pandoc/core:latest \
-            pandoc "$file" -f markdown -t markdown -o "$file.tmp" \
-            && mv "$file.tmp" "$file"
+        for file in _posts/*.md _drafts/*.md; do
+          if [ -f "$file" ]; then
+            docker run --rm -v ${PWD}:/work -w /work pandoc/core:latest \
+              pandoc "$file" -f markdown -t markdown -o "$file.tmp" \
+              && mv "$file.tmp" "$file"
+          fi
         done
