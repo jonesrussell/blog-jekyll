@@ -70,10 +70,16 @@ tasks:
     deps: [lint:pull]
     cmds:
       - |
+        echo "Starting lint:fix task..."
         for file in _posts/*.md _drafts/*.md; do
           if [ -f "$file" ]; then
-            docker run --rm -v ${PWD}:/work -w /work pandoc/core:latest \
-              pandoc "$file" -f markdown -t markdown -o "$file.tmp" \
-              && mv "$file.tmp" "$file"
+            echo "Processing: $file"
+            docker run --rm \
+              -v "/home/russell/dev/blog:/data" \
+              pandoc/core \
+              "/data/$(echo $file)" -f markdown -t markdown -o "/data/${file}.tmp" \
+              && mv "${file}.tmp" "${file}" \
+              && echo "✅ Successfully processed: $file" \
+              || echo "❌ Failed to process: $file"
           fi
         done
