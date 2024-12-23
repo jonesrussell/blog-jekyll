@@ -4,7 +4,7 @@ title: "Understanding Go Interfaces: A Practical Guide"
 date: 2024-08-12
 categories: [golang]
 tags: [golang, interfaces, programming, software-design]
-description: "Master Go interfaces with practical examples and real-world use cases. Learn how to write more flexible and maintainable code using interface-based design."
+summary: "Master Go interfaces with practical examples and real-world use cases. Learn how to write more flexible and maintainable code using interface-based design."
 ---
 
 Ahnii,

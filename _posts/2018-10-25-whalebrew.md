@@ -4,7 +4,7 @@ title: "Whalebrew: Docker Images as Native Commands"
 date: 2018-10-25
 categories: [docker, tools]
 tags: [docker, containers, cli, devops]
-description: "Learn how to use Whalebrew to run Docker containers as if they were native commands, simplifying your development workflow."
+summary: "Learn how to use Whalebrew to run Docker containers as if they were native commands, simplifying your development workflow."
 ---
 
 Ahnii!

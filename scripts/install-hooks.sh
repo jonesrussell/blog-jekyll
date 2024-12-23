@@ -15,27 +15,29 @@ cat > "$PRE_COMMIT" << 'EOL'
 echo "Running pre-commit checks..."
 
 # Check for title case in new/modified posts
-for file in $(git diff --cached --name-only | grep '^_posts/.*\.md$'); do
-    title=$(grep "^title:" "$file" | cut -d'"' -f2)
-    if [[ ! "$title" =~ ^[A-Z] ]]; then
-        echo "Error: Title in $file should be in Title Case"
-        exit 1
-    fi
-    
-    # Check for unique description
-    desc=$(grep "^description:" "$file" | cut -d'"' -f2)
-    if [ "$title" = "$desc" ] || [ -z "$desc" ]; then
-        echo "Error: $file needs a unique description"
-        exit 1
-    fi
-    
-    # Check for required front matter
-    for field in "layout:" "title:" "date:" "categories:" "tags:" "description:"; do
-        if ! grep -q "^$field" "$file"; then
-            echo "Error: Missing $field in $file"
+for file in $(git diff --cached --name-only --diff-filter=d | grep '^_posts/.*\.md$'); do
+    if [ -f "$file" ]; then  # Only check if file exists
+        title=$(grep "^title:" "$file" | cut -d'"' -f2)
+        if [[ ! "$title" =~ ^[A-Z] ]]; then
+            echo "Error: Title in $file should be in Title Case"
             exit 1
         fi
-    done
+        
+        # Check for unique summary
+        summary=$(grep "^summary:" "$file" | cut -d'"' -f2)
+        if [ "$title" = "$summary" ] || [ -z "$summary" ]; then
+            echo "Error: $file needs a unique summary"
+            exit 1
+        fi
+        
+        # Check for required front matter
+        for field in "layout:" "title:" "date:" "categories:" "tags:" "summary:"; do
+            if ! grep -q "^$field" "$file"; then
+                echo "Error: Missing $field in $file"
+                exit 1
+            fi
+        done
+    fi
 done
 
 # All checks passed

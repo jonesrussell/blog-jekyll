@@ -21,9 +21,16 @@ layout: default
             {{ post.title | escape }}
           </a>
         </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+        <div class="post-excerpt">
+          {%- if post.summary -%}
+            {{ post.summary }}
+          {%- elsif post.excerpt -%}
+            {% assign excerpt = post.excerpt | strip_html | strip_newlines | remove: "Ahnii" | strip %}
+            {% if excerpt != "" %}
+              {{ excerpt | truncatewords: 50 }}
+            {% endif %}
+          {%- endif -%}
+        </div>
       </li>
       {%- endfor -%}
     </ul>

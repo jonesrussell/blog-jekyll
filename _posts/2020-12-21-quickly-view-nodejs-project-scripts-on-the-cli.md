@@ -4,7 +4,7 @@ title: "Quickly View Node.js Project Scripts on the CLI"
 date: 2020-12-21
 categories: [cli, nodejs]
 tags: [cli, nodejs, npm, productivity]
-description: "Create a simple CLI tool to view your Node.js project's npm scripts directly from the terminal."
+summary: "Create a simple CLI tool to view your Node.js project's npm scripts directly from the terminal."
 image: /assets/img/screenshot-scripts.png
 ---
 

@@ -1,10 +1,12 @@
 ---
-title: Start Developing with Laravel in Ubuntu 20.04
+title: "Start Developing With Laravel in Ubuntu 20.04"
+date: 2021-04-03
 image: /blog/assets/img/laravel.png
 layout: post
 categories: laravel
 tags: [web-development, install]
 slug: start-developing-with-laravel-in-ubuntu-20.04
+summary: A guide to setting up Laravel development environment on Ubuntu 20.04, perfect for beginners in web development
 ---
 
 First and foremost, I find [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) the Linux distribution easiest to install and best supported when learning Web Development. I'm sure that's open for debate, but that's what the comments are for.

@@ -4,7 +4,7 @@ title: "Docker for Legacy Drupal Development"
 date: 2018-10-14
 categories: [docker, drupal]
 tags: [docker, drupal, containers, devops]
-description: "Learn how to leverage Linux containers for migrating Drupal 6 to Drupal 8, with practical examples and best practices."
+summary: "Learn how to leverage Linux containers for migrating Drupal 6 to Drupal 8, with practical examples and best practices."
 ---
 
 Ahnii,
