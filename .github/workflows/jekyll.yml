@@ -46,23 +46,28 @@ jobs:
       - name: Build with Jekyll
         run: bundle exec jekyll build
       - name: Upload Pages artifact
-        if: ${{ !env.ACT }}
+        if: ${{ !github.env.ACT }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_site/"
       - name: Skip artifact upload in Act
-        if: ${{ env.ACT }}
+        if: ${{ github.env.ACT }}
         run: echo "Running in Act - skipping artifact upload"
 
   # Deployment job
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-22.04
     needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        if: ${{ !env.ACT }}
+        if: ${{ !github.env.ACT }}
         uses: actions/deploy-pages@v4
       - name: Skip deployment in Act
-        if: ${{ env.ACT }}
-        run: echo "Running in Act - skipping deployment"
+        if: ${{ github.env.ACT }}
+        run: |
+          echo "Running in Act - skipping deployment"
+          echo "ACT environment variable value: ${{ github.env.ACT }}"
