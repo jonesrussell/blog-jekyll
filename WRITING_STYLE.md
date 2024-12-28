@@ -5,25 +5,33 @@
 ## Post Types and Templates
 
 ### 1. Standard Posts
+
 Use: `_templates/post-template.md`
+
 - General blog posts
 - Opinion pieces
 - News updates
 
 ### 2. Tutorials
+
 Use: `_templates/tutorials/step-by-step.md`
+
 - Step-by-step guides
 - How-to articles
 - Practical walkthroughs
 
 ### 3. Concept Explanations
+
 Use: `_templates/concepts/explanation.md`
+
 - Technical concepts
 - Theory discussions
 - Deep dives
 
 ### 4. Reviews
+
 Use: `_templates/reviews/review.md`
+
 - Tool reviews
 - Technology comparisons
 - Framework evaluations
@@ -31,19 +39,23 @@ Use: `_templates/reviews/review.md`
 ## Style Guidelines
 
 1. **Opening**
+
    - Start with "Ahnii!"
    - End with "Baamaapii 👋"
 
 2. **Time Estimates**
+
    - Add (X minutes) to section headers
    - Keep sections focused
 
 3. **Code Blocks**
+
    - Always specify language
    - Include comments
    - Use meaningful examples
 
 4. **DEV.to Compatibility**
+
    - Maximum 4 tags
    - Clear descriptions
    - Proper markdown formatting

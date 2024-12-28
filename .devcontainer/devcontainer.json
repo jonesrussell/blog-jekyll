@@ -31,7 +31,7 @@
 		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
 	],
 	
-	"postCreateCommand": "gem install bundler && bundle install && chmod 600 /home/vscode/.ssh/*",
+	"postCreateCommand": "chmod +x scripts/setup/* && scripts/setup/install-gems.sh && scripts/setup/install-task.sh",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": true,
@@ -53,14 +53,10 @@
 			"version": "latest",
 			"dotnetVersion": "latest"
 		},
-		"ghcr.io/devcontainers/features/ruby:1": {
-			"version": "latest"
-		},
 		"ghcr.io/itsmechlark/features/act:1": {
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
-			"moby": true,
 			"installDockerBuildx": true,
 			"installDockerComposeSwitch": true,
 			"version": "latest",

@@ -26,6 +26,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  ACT: false  # Default value for GitHub Actions
+  JEKYLL_ENV: production
+
 jobs:
   # Build job
   build:
@@ -36,27 +40,29 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'
+          ruby-version: "3.2"
           bundler-cache: true
           cache-version: 0
       - name: Build with Jekyll
         run: bundle exec jekyll build
-        env:
-          JEKYLL_ENV: production
       - name: Upload Pages artifact
+        if: ${{ !env.ACT }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_site/"
+      - name: Skip artifact upload in Act
+        if: ${{ env.ACT }}
+        run: echo "Running in Act - skipping artifact upload"
 
   # Deployment job
   deploy:
-    if: ${{ !vars.ACT }}
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        if: ${{ !env.ACT }}
         uses: actions/deploy-pages@v4
+      - name: Skip deployment in Act
+        if: ${{ env.ACT }}
+        run: echo "Running in Act - skipping deployment"

@@ -4,7 +4,7 @@ title: "Testing Cobra CLI Apps in Go: A DI Approach"
 date: 2024-07-24
 categories: [golang, testing]
 tags: [golang, cobra, cli, testing, dependency-injection]
-description: "Learn how to effectively test Cobra CLI applications using dependency injection in Go, with practical examples and best practices."
+summary: "Learn how to effectively test Cobra CLI applications using dependency injection in Go, with practical examples and best practices."
 ---
 
 Ahnii,
@@ -14,6 +14,7 @@ Ever struggled with testing your Cobra CLI applications? I recently refactored o
 ## Why Dependency Injection? (2 minutes)
 
 Key benefits for CLI apps:
+
 - Easier to mock dependencies
 - More testable code
 - Cleaner separation of concerns
@@ -45,6 +46,7 @@ func NewRootCmd(deps *AppDependencies) *cobra.Command {
 ## Testing Strategy (10 minutes)
 
 1. **Mock Dependencies**
+
 ```go
 type MockLogger struct {
     mock.Mock
@@ -62,6 +64,7 @@ func TestRootCommand(t *testing.T) {
 ```
 
 2. **Test Command Execution**
+
 ```go
 func TestCommandExecution(t *testing.T) {
     deps := setupTestDependencies()
@@ -83,6 +86,7 @@ func TestCommandExecution(t *testing.T) {
 ## Common Patterns
 
 1. **Configuration Injection**
+
 ```go
 func NewConfig() *Config {
     return &Config{
@@ -92,6 +96,7 @@ func NewConfig() *Config {
 ```
 
 2. **Logger Injection**
+
 ```go
 type Logger interface {
     Info(msg string, args ...interface{})
@@ -106,4 +111,3 @@ Dependency injection might seem like overhead at first, but it pays off in testa
 How do you handle testing in your CLI applications? Have you tried dependency injection? Share your experiences below!
 
 Baamaapii 👋
-

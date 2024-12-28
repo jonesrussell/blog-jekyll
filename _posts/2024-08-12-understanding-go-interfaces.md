@@ -4,7 +4,7 @@ title: "Understanding Go Interfaces: A Practical Guide"
 date: 2024-08-12
 categories: [golang]
 tags: [golang, interfaces, programming, software-design]
-description: "Master Go interfaces with practical examples and real-world use cases. Learn how to write more flexible and maintainable code using interface-based design."
+summary: "Master Go interfaces with practical examples and real-world use cases. Learn how to write more flexible and maintainable code using interface-based design."
 ---
 
 Ahnii,
@@ -14,6 +14,7 @@ Interfaces in Go might seem simple at first, but they're incredibly powerful. Le
 ## What Makes Go Interfaces Special? (2 minutes)
 
 Unlike other languages, Go interfaces are:
+
 - Implicitly implemented
 - Small by convention
 - Composable
@@ -43,6 +44,7 @@ func (fw *FileWriter) Write(data []byte) (int, error) {
 ## Interface Best Practices
 
 1. **Keep Interfaces Small**
+
 ```go
 // Good
 type Reader interface {
@@ -60,6 +62,7 @@ type BigInterface interface {
 ```
 
 2. **Accept Interfaces, Return Structs**
+
 ```go
 // Good
 func ProcessData(r Reader) error {
@@ -75,6 +78,7 @@ func ProcessData(f *os.File) error {
 ## Common Interface Patterns
 
 1. **The io.Reader/Writer Family**
+
 ```go
 type ReadWriter interface {
     Reader
@@ -83,6 +87,7 @@ type ReadWriter interface {
 ```
 
 2. **The Stringer Interface**
+
 ```go
 type Stringer interface {
     String() string
@@ -109,6 +114,7 @@ func (m *MockWriter) Write(data []byte) (int, error) {
 Here's how interfaces solve common problems:
 
 1. **Database Abstraction**
+
 ```go
 type Storage interface {
     Save(data interface{}) error
@@ -117,6 +123,7 @@ type Storage interface {
 ```
 
 2. **Logging**
+
 ```go
 type Logger interface {
     Info(msg string)
@@ -130,4 +137,4 @@ Interfaces are one of Go's most powerful features for writing flexible, testable
 
 What's your favorite use of interfaces in Go? Have you discovered any interesting patterns? Share in the comments!
 
-Baamaapii 👋 
+Baamaapii 👋

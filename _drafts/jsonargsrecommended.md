@@ -14,6 +14,7 @@ Ever had a Docker container fail mysteriously, only to discover it was due to EN
 ## The Problem (2 minutes)
 
 Shell form can cause unexpected behaviors:
+
 - Signal handling issues
 - PID 1 problems
 - Variable expansion quirks

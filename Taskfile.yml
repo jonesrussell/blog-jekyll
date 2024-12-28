@@ -67,11 +67,11 @@ tasks:
 
   lint:fix:
     desc: Attempt to fix markdown issues automatically
-    deps: [lint:pull]
     cmds:
       - |
-        for file in _posts/*.md; do
-          docker run --rm -v ${PWD}:/work -w /work pandoc/core:latest \
-            pandoc "$file" -f markdown -t markdown -o "$file.tmp" \
-            && mv "$file.tmp" "$file"
-        done
+        echo "Starting lint:fix task..."
+        docker run --rm \
+          -v "/home/russell/dev/blog:/workdir" \
+          -w /workdir \
+          davidanson/markdownlint-cli2 \
+          --fix "_posts/**/*.md" "_drafts/**/*.md"

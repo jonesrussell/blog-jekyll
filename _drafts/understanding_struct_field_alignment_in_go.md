@@ -1,6 +1,7 @@
 # Understanding Struct Field Alignment in Go
 
 ## Introduction
+
 When working with Go structs, the way fields are ordered can significantly impact memory usage. Let's explore how struct field alignment works and how to optimize it.
 
 ## The Basics of Memory Alignment
@@ -17,6 +18,7 @@ type BadStruct struct {
 ```
 
 ### Memory Sizes in Go
+
 - bool: 1 byte
 - int/uint: 8 bytes on 64-bit systems
 - pointer: 8 bytes on 64-bit systems
@@ -38,12 +40,14 @@ type GoodStruct struct {
 ```
 
 ### Rules for Optimal Alignment
+
 1. Place larger fields first
 2. Group similar-sized fields together
 3. Put smaller fields last
 4. Consider using embedded structs for better packing
 
 ## Real-World Example
+
 Here's a practical example from a game engine's asset manager:
 
 ```go
@@ -67,19 +71,24 @@ type AssetManager struct {
 ```
 
 ## Tools and Detection
+
 Go provides tools to help identify suboptimal field alignment:
+
 - `go vet`: Includes field alignment checks
 - golangci-lint: Provides the `fieldalignment` linter
 - Example command: `go vet -fieldalignment ./...`
 
 ## Impact on Performance
+
 While memory savings might seem small for individual structs, the impact can be significant when:
+
 - Creating many instances of the struct
 - Working with memory-constrained environments
 - Dealing with cache line optimization
 - Managing large data structures
 
 ## Best Practices
+
 1. Use the `fieldalignment` linter
 2. Document field sizes with comments
 3. Consider alignment when designing new structs
@@ -87,6 +96,7 @@ While memory savings might seem small for individual structs, the impact can be 
 5. Profile your application to identify memory bottlenecks
 
 ## Example Memory Layout Visualization
+
 ```
 // Memory layout for optimized struct:
 |-----------------------------------------------|
@@ -97,6 +107,7 @@ While memory savings might seem small for individual structs, the impact can be 
 ```
 
 ## Conclusion
+
 Proper field alignment is a subtle but important aspect of Go performance optimization. By understanding and applying these principles, you can write more memory-efficient code without sacrificing readability or maintainability.
 
 Would you like me to expand on any particular aspect of this blog post?

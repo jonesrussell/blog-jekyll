@@ -4,7 +4,7 @@ title: "Quickly View Project Dependencies on the CLI"
 date: 2020-11-21
 categories: [cli, nodejs]
 tags: [cli, nodejs, npm, productivity]
-description: "Learn how to create a simple CLI tool to view your project's package.json dependencies directly from the terminal."
+summary: "Learn how to create a simple CLI tool to view your project's package.json dependencies directly from the terminal."
 ---
 
 Ahnii!
@@ -14,6 +14,7 @@ I frequently find myself wanting to check package.json dependencies while workin
 ## The Problem (2 minutes)
 
 Common scenarios:
+
 - Checking installed packages
 - Verifying versions
 - Comparing dev vs production deps
@@ -75,11 +76,13 @@ npm link
 ## Usage
 
 Simply run in any Node.js project:
+
 ```bash
 packages
 ```
 
 Example output:
+
 ```
 Dependencies:
   express: ^4.17.1
@@ -93,6 +96,7 @@ DevDependencies:
 ## Enhanced Features
 
 Add filtering options:
+
 ```javascript
 function filterDependencies(deps, search) {
     if (!search) return deps;
@@ -110,4 +114,3 @@ function filterDependencies(deps, search) {
 Simple CLI tools can significantly improve your workflow. What command-line utilities have you created? Share your tools below!
 
 Baamaapii 👋
-

@@ -1,10 +1,12 @@
 ---
-title: Start Developing with Laravel in Ubuntu 20.04
+title: "Start Developing With Laravel in Ubuntu 20.04"
+date: 2021-04-03
 image: /blog/assets/img/laravel.png
 layout: post
 categories: laravel
 tags: [web-development, install]
 slug: start-developing-with-laravel-in-ubuntu-20.04
+summary: A guide to setting up Laravel development environment on Ubuntu 20.04, perfect for beginners in web development
 ---
 
 First and foremost, I find [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) the Linux distribution easiest to install and best supported when learning Web Development. I'm sure that's open for debate, but that's what the comments are for.
@@ -19,7 +21,7 @@ I suggest that your [install Homebrew](https://blog.aamnah.com/sysadmin/install-
 
 <blockquote>[DDEV](https://github.com/drud/ddev) is an open  source tool that makes it dead simple to get local PHP development  environments up and running within minutes. It's powerful and flexible  as a result of its per-project environment configurations, which can be  extended, version controlled, and shared. In short, DDEV aims to allow  development teams to use Docker in their workflow without the  complexities of bespoke configuration.</blockquote>
 
-Follow the directions at https://ddev.readthedocs.io/en/stable/#installation which will ensure you have everything needed to install DDEV and then Laravel.
+Follow the directions at <https://ddev.readthedocs.io/en/stable/#installation> which will ensure you have everything needed to install DDEV and then Laravel.
 
 ### Install Laravel
 
@@ -41,4 +43,4 @@ ddev launch
 
 The *ddev launch* command should have opened your default browser to this screen:
 
-![](/blog/assets/img/laravel.png)
+![Laravel welcome page showing successful installation](/blog/assets/img/laravel.png)
