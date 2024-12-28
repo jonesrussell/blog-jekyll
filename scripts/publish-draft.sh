@@ -59,7 +59,7 @@ POST_PATH="$POSTS_DIR/$POST_NAME"
 
 # Move the draft to posts
 mkdir -p "$POSTS_DIR"
-mv "$DRAFT_PATH" "$POST_PATH"
+git mv "$DRAFT_PATH" "$POST_PATH"
 
 echo "Published draft: $DRAFT_NAME"
 echo "New location: $POST_PATH" 
