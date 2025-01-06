@@ -29,12 +29,12 @@ Ever wondered why some PHP codebases are a joy to work with while others feel li
 
 ## Practical Implementation
 
-Let's look at a correct PSR-1 implementation:
+Let's look at a correct PSR-1 implementation from our [example repository](https://github.com/jonesrussell/php-fig-guide/blob/main/src/PSR1/UserManager.php):
 
 ```php
 <?php
 
-namespace Vendor\Package;
+namespace JonesRussell\PhpFigGuide\PSR1;
 
 class UserManager
 {
@@ -44,9 +44,16 @@ class UserManager
     public function getUserById($id)
     {
         // Implementation
+        return ['id' => $id, 'name' => 'John Doe'];
     }
 }
 ```
+
+This example demonstrates:
+- Proper namespace declaration using `StudlyCaps`
+- Class name in `StudlyCaps`
+- Constants in uppercase with underscores
+- Method name in `camelCase`
 
 ## Common Violations and Fixes
 
@@ -79,9 +86,12 @@ class UserManager
 
 ## Integration with Modern PHP Tools
 
-- Using PHP_CodeSniffer for PSR-1 validation
-- IDE integration for automatic PSR-1 compliance
-- Git hooks for pre-commit validation
+Our example repository includes setup for:
+
+- PHP_CodeSniffer for PSR-1 validation (`composer check-style`)
+- Automated style fixing (`composer fix-style`)
+- PHPUnit for testing implementations
+- Composer autoloading following PSR-4
 
 ## Next Steps
 
@@ -91,4 +101,4 @@ In our next post, we'll explore PSR-12, which extends these basic coding standar
 
 - [Official PSR-1 Specification](https://www.php-fig.org/psr/psr-1/)
 - [PHP_CodeSniffer PSR-1 Ruleset](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/PSR1/ruleset.xml)
-- [Series Example Repository](https://github.com/yourusername/php-fig-guide) 
+- [Series Example Repository](https://github.com/jonesrussell/php-fig-guide) (v0.1.0 - PSR-1 Implementation) 

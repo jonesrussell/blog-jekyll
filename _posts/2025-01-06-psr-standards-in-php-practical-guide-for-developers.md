@@ -53,12 +53,33 @@ Each post will include:
 
 To follow along with this series:
 
-- Clone our companion repository
-- Each PSR implementation will be tagged
-- Follow commits to see how standards build upon each other
+1. Clone our companion repository:
+   ```bash
+   git clone https://github.com/jonesrussell/php-fig-guide.git
+   cd php-fig-guide
+   composer install
+   ```
+
+2. Each PSR implementation has its own:
+   - Directory under `src/`
+   - Complete working examples
+   - Tests to verify compliance
+   - Tagged release (e.g., v0.1.0 for PSR-1)
+
+3. Use the provided Composer scripts:
+   ```bash
+   # Check coding standards
+   composer check-style
+
+   # Fix coding standards automatically
+   composer fix-style
+
+   # Run tests
+   composer test
+   ```
 
 ## Resources
 
 - [PHP-FIG Website](https://www.php-fig.org/)
 - [PSR Index](https://www.php-fig.org/psr/)
-- [Our Example Repository](https://github.com/yourusername/php-fig-guide) 
+- [Our Example Repository](https://github.com/jonesrussell/php-fig-guide) 
