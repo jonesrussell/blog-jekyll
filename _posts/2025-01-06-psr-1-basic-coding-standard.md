@@ -95,7 +95,7 @@ Our example repository includes setup for:
 
 ## Next Steps
 
-In our next post, we'll explore PSR-12, which extends these basic coding standards with more comprehensive style guidelines. This post is part of our [PSR Standards in PHP series](/php-fig-standards).
+In our next post, we'll explore PSR-12, which extends these basic coding standards with more comprehensive style guidelines. This post is part of our [PSR Standards in PHP series](/blog/psr-standards-in-php-practical-guide-for-developers).
 
 ## Resources
 
