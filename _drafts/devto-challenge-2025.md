@@ -14,7 +14,9 @@ As we step into 2025, it's time to look back at the year gone by and reflect on 
 
 ### Professional Growth
 
-- **Open Source Contributions**: Made over 3,000 commits across 45 different repositories, demonstrating consistent and prolific coding activity
+- **Open Source Contributions**:  
+  - Became a contributor to DDEV, a major open-source local development environment tool used by thousands of developers worldwide
+  - Made over 3,000 commits across 45 different repositories, demonstrating consistent and prolific coding activity
 - **Full-Stack Development**: Built and maintained diverse projects including:
   - A PHP-FIG standards guide with practical examples
   - Multiple Vue.js applications including PMaestro and DirectDiary
@@ -40,6 +42,7 @@ As we step into 2025, it's time to look back at the year gone by and reflect on 
 - **Documentation First**: Created comprehensive guides and documentation, particularly evident in the PHP-FIG standards guide project
 - **Modern Web Architecture**: Embraced JAMstack and modern web development practices, moving away from traditional monolithic approaches
 - **Version Control Mastery**: Maintained a consistent commit history with over 3,000 contributions, demonstrating strong Git workflow practices
+- **Container Expertise**: Deepened understanding of container technologies through DDEV contributions, working with Docker and development environments at a more sophisticated level
 
 ### Personal Development
 
