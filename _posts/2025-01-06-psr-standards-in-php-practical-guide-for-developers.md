@@ -27,7 +27,7 @@ PSRs solve several critical challenges in PHP development:
 This series will cover all accepted PSRs in detail. Here's what we've published so far:
 
 1. [PSR-1: Basic Coding Standard](/blog/psr-1-basic-coding-standard) - Published Jan 6, 2025
-2. PSR-3: Logger Interface - Coming Jan 7, 2025
+2. [PSR-3: Logger Interface](/blog/psr-3-logger-interface) - Published Jan 7, 2025
 3. PSR-4: Autoloading Standard - Coming Jan 8, 2025
 4. PSR-6: Caching Interface - Coming Jan 9, 2025
 5. PSR-7: HTTP Message Interface - Coming Jan 10, 2025
