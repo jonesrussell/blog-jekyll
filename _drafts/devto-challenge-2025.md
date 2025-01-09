@@ -8,7 +8,9 @@ cover_image: https://images.unsplash.com/photo-1483366774565-c783b9f70e2c?w=1000
 
 This is a submission for the [2025 New Year Writing challenge](https://dev.to/challenges/newyear): Retro'ing and Debugging 2024.
 
-As we step into 2025, it's time to look back at the year gone by and reflect on the journey. 2024 was a year of growth, learning, and overcoming challenges. Here are some key highlights:
+With 2025 here, a little reflection on 2024 is in order. Let's see if we can claim 2024 was a year of growth, learning, and overcoming challenges.
+
+Let's check out the highlight reel:
 
 ## Achievements
 
@@ -16,14 +18,22 @@ As we step into 2025, it's time to look back at the year gone by and reflect on 
 
 - **Open Source Contributions**:  
   - Became a contributor to DDEV, a major open-source local development environment tool used by thousands of developers worldwide
+
   - Made over 3,000 commits across 45 different repositories, demonstrating consistent and prolific coding activity
+
+- **Golang Mastery**: Developed several proof of concept CLI applications using Cobra, implementing testing practices and dependency injection patterns
+
 - **Full-Stack Development**: Built and maintained diverse projects including:
   - A PHP-FIG standards guide with practical examples
-  - Multiple Vue.js applications including PMaestro and DirectDiary
-  - A personal website using Svelte 4
-  - Go-based projects focusing on AI integration
-- **Technical Writing**: Created comprehensive documentation and guides, particularly focusing on PHP standards and best practices
-- **DevOps & Infrastructure**: Worked with Docker and various deployment configurations across multiple projects
+  - Multiple Vue.js applications including DirectDiary.com
+  - A personal website using Svelte 5
+  - Go-based projects focusing on career growth
+
+- **DevOps & Infrastructure**:
+  - Contributed to DDEV's container orchestration and configuration systems
+  - Implemented multi-stage Docker builds for optimized production deployments
+  - Developed custom Docker Compose configurations for complex local development environments
+  - Automated deployment pipelines using GitHub Actions for multiple projects
 
 ### Creative Pursuits
 
