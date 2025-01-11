@@ -1,4 +1,6 @@
-# Maintenance TODO List
+---
+title: Maintenance TODO List
+---
 
 ## Ruby Dependencies
 
@@ -30,29 +32,44 @@ Update `.github/dependabot.yml` to include:
 - [ ] Composer ecosystem monitoring
 - [ ] Weekly update schedule for all ecosystems
 
-```yaml
-version: 2
-updates:
-  - package-ecosystem: "devcontainers"
-    directory: "/"
-    schedule:
-      interval: weekly
-      
-  - package-ecosystem: "bundler"
-    directory: "/"
-    schedule:
-      interval: weekly
-      
-  - package-ecosystem: "composer"
-    directory: "/code/php-fig-guide"
-    schedule:
-      interval: weekly
-      
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: weekly
-```
+## Migration to Hugo
+
+- [ ] Set up new Hugo project structure
+  - [ ] Install Hugo
+  - [ ] Create new Hugo site scaffold
+  - [ ] Choose and configure Hugo theme
+- [ ] Content Migration
+  - [ ] Convert Jekyll frontmatter to Hugo format
+  - [ ] Update markdown files for Hugo compatibility
+  - [ ] Migrate _posts/ content to Hugo content/ directory
+  - [ ] Update internal links and references
+  - [ ] Convert any Jekyll-specific liquid templates to Hugo shortcodes
+- [ ] Configuration
+  - [ ] Create new config.toml/yaml/json
+  - [ ] Migrate Jekyll _config.yml settings to Hugo
+  - [ ] Set up Hugo taxonomies (tags, categories)
+  - [ ] Configure Hugo permalinks to match existing URLs
+- [ ] Theme & Layout
+  - [ ] Port custom Jekyll layouts to Hugo
+  - [ ] Update templates for PHP-FIG guide integration
+  - [ ] Recreate any custom shortcodes needed
+  - [ ] Ensure WRITING_STYLE.md guidelines are maintained in new templates
+- [ ] Build & Deploy
+  - [ ] Update GitHub Actions for Hugo builds
+  - [ ] Test build performance
+  - [ ] Set up Hugo-specific caching
+  - [ ] Update deployment scripts
+- [ ] Testing & Validation
+  - [ ] Verify all content renders correctly
+  - [ ] Check all internal links
+  - [ ] Test RSS feeds
+  - [ ] Validate SEO meta tags
+  - [ ] Ensure PHP-FIG guide submodule integration works
+- [ ] Post-Migration
+  - [ ] Update documentation for Hugo
+  - [ ] Set up redirects for any changed URLs
+  - [ ] Update README.md with new Hugo setup instructions
+  - [ ] Remove Jekyll-specific dependencies and files
 
 ## Analytics
 
