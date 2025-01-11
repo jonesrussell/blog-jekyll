@@ -365,4 +365,4 @@ Tomorrow, we'll look at PSR-7 (HTTP Message Interfaces). If you're interested in
 - [Official PSR-6 Specification](https://www.php-fig.org/psr/psr-6/)
 - [Our Example Repository](https://github.com/jonesrussell/php-fig-guide/tree/psr-6) (v0.6.0 - PSR-6 Implementation)
 - [Symfony Cache Component](https://symfony.com/doc/current/components/cache.html)
-- [PHP Cache](http://www.php-cache.com/) 
+- [PHP Cache](http://www.php-cache.com/)
