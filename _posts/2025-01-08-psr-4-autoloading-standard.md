@@ -32,7 +32,7 @@ Think of PSR-4 as your code's GPS system - it helps PHP find the right files aut
 
 Here's how I structure my projects:
 
-```
+```text
 vendor/
 └── jonesrussell/
     └── blog/
