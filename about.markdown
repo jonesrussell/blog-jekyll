@@ -4,32 +4,32 @@ title: About
 permalink: /about/
 ---
 
-Ahnii! I'm Russell Jones, a limitless developer who thrives on open source and building better web experiences.
+Ahnii! I'm Russell Jones, a limitless developer who thrives on open source, AI-augmented development, and building better web experiences.
 
 ## What I Do
 
 - Build and maintain PHP-FIG standards implementations
-- Create developer tools and automation scripts
-- Write about web development challenges and solutions
+- Create AI-enhanced developer tools and automation scripts
+- Write about web development challenges and AI solutions
 - Contribute to open source projects like DDEV
-- Share knowledge through tutorials and guides
+- Share knowledge about AI-first development approaches
 
 ## Why This Blog Exists
 
 This isn't just another tech blog. It's a space where I share real-world solutions to problems I've faced, focusing on:
 
 - Practical PHP-FIG standards implementation
-- Docker and container orchestration
+- AI-augmented development workflows
 - Modern JavaScript frameworks and tools
-- Development workflow optimization
-- Career growth in tech
+- Development workflow optimization with AI
+- Career growth in the age of AI
 
 ## My Tech Stack
 
 - **Languages**: PHP, JavaScript, Go
 - **Frameworks**: Laravel, Vue.js, Svelte
-- **Tools**: Docker, DDEV, GitHub Actions
-- **Practices**: TDD, CI/CD, Clean Code
+- **Tools**: Docker, DDEV, GitHub Actions, Cursor AI
+- **Practices**: TDD, CI/CD, AI-First Development
 
 ## Let's Connect
 
