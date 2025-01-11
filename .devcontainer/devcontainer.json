@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/jekyll
 {
-	"name": "Jekyll",
+	"name": "Jekyll + PHP",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
 	"customizations": {
@@ -22,7 +22,10 @@
 				"davidhouchin.whitespace-plus",
 				"formulahendry.auto-close-tag",
 				"github.vscode-github-actions",
-				"Shopify.ruby-lsp"
+				"Shopify.ruby-lsp",
+				"DEVSENSE.phptools-vscode",
+				"bmewburn.vscode-intelephense-client",
+				"xdebug.php-debug"
 			]
 		}
 	},
@@ -46,6 +49,11 @@
 		"ghcr.io/devcontainers/features/github-cli:1": {
 			"installDirectlyFromGitHubRelease": true,
 			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/php:1": {
+			"version": "8.2",
+			"installComposer": true,
+			"xdebug": true
 		},
 		"ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
 		"ghcr.io/joshuanianji/devcontainer-features/github-cli-persistence:1": {},

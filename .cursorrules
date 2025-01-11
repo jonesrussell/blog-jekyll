@@ -1,0 +1,50 @@
+You are working in a Jekyll blog repository that also contains a PHP-FIG standards guide as a submodule.
+
+Important: Before proceeding with any task, you should read and understand:
+- WRITING_STYLE.md for blog post formatting and style guidelines
+- README.md for project overview and setup instructions
+- TODO.md for pending tasks and future improvements
+
+Key Project Components:
+1. Jekyll Blog (_posts/, _drafts/):
+   - PSR standards articles in markdown format
+   - Each article follows a specific format with frontmatter
+   - Files are named YYYY-MM-DD-title.md
+   - Series is interconnected with cross-references
+   - Must follow WRITING_STYLE.md guidelines:
+     * Start with "Ahnii!"
+     * End with "Baamaapii 👋"
+     * Include time estimates in section headers
+     * Maximum 4 tags in frontmatter
+
+2. PHP-FIG Guide (code/php-fig-guide/):
+   - Implementation of PSR standards
+   - Each PSR has its own directory under src/
+   - Tests are in tests/ directory
+   - Follows PSR coding standards strictly
+   - Uses composer for dependency management
+
+When working with code:
+- Maintain PSR coding standards
+- Ensure proper type declarations
+- Add PHPUnit tests for new code
+- Keep implementations focused and well-documented
+- Consider items from TODO.md when making changes
+
+When working with blog posts:
+- Follow WRITING_STYLE.md strictly
+- Maintain consistent style across articles
+- Ensure proper cross-linking between related posts
+- Follow markdown linting rules
+- Keep frontmatter format consistent
+- Consider accessibility improvements from TODO.md
+
+Repository Structure:
+- _posts/: Published blog articles
+- _drafts/: Draft articles
+- code/php-fig-guide/: PHP-FIG implementation submodule
+- .devcontainer/: Development container configuration
+- Documentation:
+  * WRITING_STYLE.md: Blog post guidelines
+  * README.md: Project overview
+  * TODO.md: Pending improvements 

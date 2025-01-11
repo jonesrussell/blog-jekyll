@@ -6,6 +6,12 @@
 - [ ] Add explicit version constraints for csv and webrick gems
 - [ ] Run `bundle update` to update all dependencies
 
+## PHP Dependencies
+- [ ] Update PHP dependencies in php-fig-guide
+- [ ] Add Composer version constraints
+- [ ] Set up Composer audit for security checks
+- [ ] Consider adding PHP CS Fixer
+
 ## GitHub Actions
 - [ ] Update Ruby setup action version
 - [ ] Add caching for faster builds
@@ -16,6 +22,7 @@
 Update `.github/dependabot.yml` to include:
 - [ ] Bundler ecosystem monitoring
 - [ ] GitHub Actions monitoring
+- [ ] Composer ecosystem monitoring
 - [ ] Weekly update schedule for all ecosystems
 
 ```yaml
@@ -28,6 +35,11 @@ updates:
       
   - package-ecosystem: "bundler"
     directory: "/"
+    schedule:
+      interval: weekly
+      
+  - package-ecosystem: "composer"
+    directory: "/code/php-fig-guide"
     schedule:
       interval: weekly
       
@@ -54,6 +66,16 @@ updates:
   - [ ] jekyll-seo-tag
   - [ ] jekyll-archives
 
+## PHP-FIG Guide
+- [ ] Complete implementation of remaining PSR standards
+- [ ] Add comprehensive test coverage
+- [ ] Document each PSR implementation
+- [ ] Add usage examples
+- [ ] Consider adding benchmarks
+- [ ] Set up PHP CodeSniffer
+- [ ] Add PHPStan for static analysis
+- [ ] Implement CI/CD pipeline for PHP tests
+
 ## Security Updates
 - [ ] Add security.txt file
 - [ ] Add CORS headers
@@ -66,6 +88,8 @@ updates:
 - [ ] Add CONTRIBUTING.md guidelines
 - [ ] Add SECURITY.md for security policy
 - [ ] Document local development setup
+- [ ] Add PHP-FIG guide documentation
+- [ ] Document testing procedures for PHP code
 
 ## Performance
 - [ ] Optimize image assets
@@ -84,9 +108,18 @@ updates:
 - [ ] Set up CI/CD pipeline
 - [ ] Add lighthouse testing
 - [ ] Implement cross-browser testing
+- [ ] Add PHPUnit tests for PHP-FIG implementations
+- [ ] Set up PHP test coverage reporting
 
 ## Future Considerations
 - [ ] Consider implementing dark mode
 - [ ] Add search functionality
 - [ ] Implement commenting system
 - [ ] Add RSS feed improvements
+
+## Blog Content
+- [ ] Complete PSR standards article series
+- [ ] Add code examples for each PSR
+- [ ] Create index page for PHP-FIG series
+- [ ] Add cross-references between articles
+- [ ] Consider adding video tutorials
