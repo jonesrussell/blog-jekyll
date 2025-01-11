@@ -1,6 +1,6 @@
 // Debug configuration
 const DEBUG = {
-  enabled: false,
+  enabled: true,
   log: function(...args) {
     if (this.enabled) {
       console.log('[Search Debug]:', ...args);
@@ -74,36 +74,25 @@ function initSearch(baseUrl) {
       DEBUG.log('Query:', query);
       DEBUG.log('Data items:', data.length);
 
-      let results;
-      if (query.includes(' OR ')) {
-        // OR search - match any of the terms in tags
-        DEBUG.log('Performing OR search');
-        const terms = query.toLowerCase().split(/\s+OR\s+/).map(t => t.trim());
-        DEBUG.log('OR terms:', terms);
-        results = data.filter(item => {
-          const tagList = splitTags(item.tags);
-          DEBUG.log('Checking tags:', { tags: tagList, terms });
-          return terms.some(term => tagList.includes(term));
+      const searchTerms = query.toLowerCase().split(/\s+/).map(t => t.trim());
+      DEBUG.log('Search terms:', searchTerms);
+      
+      const results = data.filter(item => {
+        const itemTags = item.tags.toLowerCase().split(',').map(t => t.trim());
+        DEBUG.log('Checking item:', { title: item.title, tags: itemTags });
+        
+        return searchTerms.some(term => {
+          const matches = itemTags.includes(term);
+          DEBUG.log(`Term "${term}" matches tags:`, matches);
+          return matches;
         });
-      } else {
-        // Regular search - check all fields
-        DEBUG.log('Performing regular search');
-        const terms = query.toLowerCase().split(/\s+/).map(t => t.trim());
-        DEBUG.log('Search terms:', terms);
-        results = data.filter(item => terms.every(term => {
-          const tagList = splitTags(item.tags);
-          return tagList.includes(term) ||
-                 containsTerm(item.title, term) ||
-                 containsTerm(item.content, term);
-        }));
-      }
+      });
 
       DEBUG.log('Results found:', results.length);
       if (results.length > 0) {
         DEBUG.log('First result:', {
           title: results[0].title,
-          tags: results[0].tags,
-          url: results[0].url
+          tags: results[0].tags
         });
       }
       DEBUG.groupEnd();

@@ -3,12 +3,10 @@
   <p class="search-description">Search across various topics including:</p>
   
   <div class="search-topics">
-    <ul>
-      <li><button class="topic-pill" data-search="php psr standards">PHP Standards</button></li>
-      <li><button class="topic-pill" data-search="docker containers devops">Docker & Containers</button></li>
-      <li><button class="topic-pill" data-search="golang OR python">Languages</button></li>
-      <li><button class="topic-pill" data-search="development tools tips">Dev Tools & Tips</button></li>
-    </ul>
+    <button class="topic-pill" data-search="golang">Go Development</button>
+    <button class="topic-pill" data-search="docker containers devops">Docker & DevOps</button>
+    <button class="topic-pill" data-search="cli command-line">CLI & Tools</button>
+    <button class="topic-pill" data-search="development tutorial">Development Tips</button>
   </div>
 </div>
 
@@ -26,14 +24,51 @@
 <ul id="searchresults" class="post-list"></ul>
 
 <script src="{{site.baseurl}}/assets/js/search.js" type="text/javascript"></script>
-<script src="{{site.baseurl}}/assets/js/search-config.js" type="text/javascript"></script>
 
 <script>
-  // Enable debugging
-  DEBUG.enabled = true;
-  
-  // Initialize search functionality
-  const sjs = initSearch('{{site.baseurl}}');
-  initTopicPills(sjs);
-  handleUrlParams(sjs);
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize search
+  const sjs = SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('searchresults'),
+    json: '{{site.baseurl}}/assets/js/posts.json',
+    searchResultTemplate: '<li><article class="post-item"><h3><a class="post-link" href="{{site.baseurl}}{url}">{title}</a></h3><div class="post-meta">{date}</div><div class="post-excerpt">{excerpt}</div></article></li>',
+    noResultsText: 'No results found',
+    limit: 50,
+    fuzzy: false,
+    search: function(query, data) {
+      const searchTerms = query.toLowerCase().split(/\s+/).map(t => t.trim());
+      return data.filter(item => {
+        const itemTags = item.tags.toLowerCase().split(',').map(t => t.trim());
+        return searchTerms.some(term => itemTags.includes(term));
+      });
+    }
+  });
+
+  // Handle topic pills
+  const pills = document.querySelectorAll('.topic-pill');
+  pills.forEach(pill => {
+    pill.addEventListener('click', function() {
+      const searchInput = document.getElementById('search-input');
+      const searchTerms = this.dataset.search;
+      searchInput.value = searchTerms;
+      searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+      
+      // Update URL
+      const params = new URLSearchParams(window.location.search);
+      params.set('q', searchTerms);
+      const newUrl = window.location.pathname + '?' + params.toString();
+      window.history.pushState({}, '', newUrl);
+    });
+  });
+
+  // Handle URL parameters on load
+  const params = new URLSearchParams(window.location.search);
+  const searchQuery = params.get('q');
+  if (searchQuery) {
+    const searchInput = document.getElementById('search-input');
+    searchInput.value = searchQuery;
+    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+});
 </script>
