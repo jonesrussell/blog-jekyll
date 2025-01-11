@@ -8,9 +8,8 @@ Welcome to the Web Developer Blog, a space dedicated to exploring the latest in 
 
 Whether you're just starting your journey in web development or are a seasoned professional looking to stay ahead of the curve, our blog aims to provide valuable resources that empower you to build better websites and applications. From overcoming imposter syndrome to mastering CLI commands for efficient project management, we cover a wide array of topics designed to inspire and inform.
 
+For more about me and my work, visit my [personal website](https://jonesrussell.github.io/me/).
+
 Join us as we navigate the ever-evolving landscape of web development together. Subscribe to our RSS feed to stay updated with the latest posts and dive deeper into the world of web development with us.
 
 [Subscribe via RSS](/feed.xml)
-
-[jekyll]: https://github.com/jekyll
-[minima]: https://github.com/jekyll/minima
