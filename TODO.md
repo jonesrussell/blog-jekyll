@@ -4,37 +4,7 @@ menu_order: 999
 show_in_nav: true
 ---
 
-## Ruby Dependencies
-
-- [ ] Update minima theme from "~> 2.5" to latest version
-- [ ] Update jekyll-feed from "~> 0.12" to latest version
-- [ ] Add explicit version constraints for csv and webrick gems
-- [ ] Run `bundle update` to update all dependencies
-
-## PHP Dependencies
-
-- [ ] Update PHP dependencies in php-fig-guide
-- [ ] Add Composer version constraints
-- [ ] Set up Composer audit for security checks
-- [ ] Consider adding PHP CS Fixer
-
-## GitHub Actions
-
-- [ ] Update Ruby setup action version
-- [ ] Add caching for faster builds
-- [ ] Add status checks/tests before deployment
-- [ ] Consider adding automated testing workflow
-
-## Dependabot Configuration
-
-Update `.github/dependabot.yml` to include:
-
-- [ ] Bundler ecosystem monitoring
-- [ ] GitHub Actions monitoring
-- [ ] Composer ecosystem monitoring
-- [ ] Weekly update schedule for all ecosystems
-
-## Migration to Hugo
+## Migration to Hugo (Priority)
 
 - [ ] Set up new Hugo project structure
   - [ ] Install Hugo
@@ -73,24 +43,12 @@ Update `.github/dependabot.yml` to include:
   - [ ] Update README.md with new Hugo setup instructions
   - [ ] Remove Jekyll-specific dependencies and files
 
-## Analytics
+## PHP Dependencies
 
-- [ ] Update Google Analytics implementation to GA4
-- [ ] Review and update privacy policy accordingly
-- [ ] Consider adding cookie consent banner
-
-## Jekyll Configuration
-
-- [ ] Add explicit timezone setting
-- [ ] Update remote theme version
-- [ ] Add SEO optimization settings:
-  - [ ] Meta descriptions
-  - [ ] Open Graph tags
-  - [ ] Twitter card tags
-- [ ] Enable additional Jekyll plugins:
-  - [ ] jekyll-sitemap
-  - [ ] jekyll-seo-tag
-  - [ ] jekyll-archives
+- [ ] Update PHP dependencies in php-fig-guide
+- [ ] Add Composer version constraints
+- [ ] Set up Composer audit for security checks
+- [ ] Consider adding PHP CS Fixer
 
 ## PHP-FIG Guide
 
@@ -157,3 +115,45 @@ Update `.github/dependabot.yml` to include:
 - [ ] Create index page for PHP-FIG series
 - [ ] Add cross-references between articles
 - [ ] Consider adding video tutorials
+
+## ~~Ruby Dependencies~~ (Deprecated - Migrating to Hugo)
+
+- [ ] ~~Update minima theme from "~> 2.5" to latest version~~
+- [ ] ~~Update jekyll-feed from "~> 0.12" to latest version~~
+- [ ] ~~Add explicit version constraints for csv and webrick gems~~
+- [ ] ~~Run `bundle update` to update all dependencies~~
+
+## ~~Jekyll Configuration~~ (Deprecated - Migrating to Hugo)
+
+- [ ] ~~Add explicit timezone setting~~
+- [ ] ~~Update remote theme version~~
+- [ ] ~~Add SEO optimization settings:~~
+  - [ ] ~~Meta descriptions~~
+  - [ ] ~~Open Graph tags~~
+  - [ ] ~~Twitter card tags~~
+- [ ] ~~Enable additional Jekyll plugins:~~
+  - [ ] ~~jekyll-sitemap~~
+  - [ ] ~~jekyll-seo-tag~~
+  - [ ] ~~jekyll-archives~~
+
+## ~~GitHub Actions~~ (Will be replaced with Hugo-specific actions)
+
+- [ ] ~~Update Ruby setup action version~~
+- [ ] ~~Add caching for faster builds~~
+- [ ] ~~Add status checks/tests before deployment~~
+- [ ] ~~Consider adding automated testing workflow~~
+
+## Dependabot Configuration
+
+Update `.github/dependabot.yml` to include:
+
+- [ ] ~~Bundler ecosystem monitoring~~
+- [ ] GitHub Actions monitoring
+- [ ] Composer ecosystem monitoring
+- [ ] Weekly update schedule for all ecosystems
+
+## Analytics
+
+- [ ] Update Google Analytics implementation to GA4
+- [ ] Review and update privacy policy accordingly
+- [ ] Consider adding cookie consent banner
