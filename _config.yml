@@ -1,15 +1,23 @@
+# Social links
+twitter_username: jonesrussell42
+github_username: jonesrussell
+personal_website: https://jonesrussell.xyz
+social_links:
+  twitter: https://x.com/jonesrussell42
+  github: https://github.com/jonesrussell
+  personal: https://jonesrussell.xyz
+
 # Site settings
 title: Web Developer Blog
-description: >- 
-  A resource for web developers, I use modern technologies,
-  best practices, and personal experiences. Explore guides
-  on Laravel, Golang, Docker, and more.
+email: jonesrussell42@gmail.com
+description: >-
+  A resource for web developers, I use modern technologies, best practices, and personal experiences. 
+  Explore guides on Laravel, Golang, Docker, and more.
 baseurl: "/blog"
-url: "https://jonesrussell.github.io"
-timezone: America/Toronto
-accent_colour: "#2a7ae2"
-show_excerpts: true
-permalink: /:title/
+url: ""
+
+# Custom features
+table_of_contents_header: "Jump to:"
 
 # Author information
 email: jonesrussell42@gmail.com
