@@ -112,32 +112,34 @@ public function show(#[EntityId] int $id): Response
 ## Common Issues and Solutions
 
 1. **Mixed Line Endings**
-   ```php
-   // Check for mixed line endings
-   $ find . -name "*.php" -exec file {} \;
-   
-   // Fix with dos2unix
-   $ find . -name "*.php" -exec dos2unix {} \;
-   ```
+
+```php
+// Check for mixed line endings
+$ find . -name "*.php" -exec file {} \;
+
+// Fix with dos2unix
+$ find . -name "*.php" -exec dos2unix {} \;
+```
 
 2. **Incorrect Indentation**
-   ```php
-   // Bad
-   class Foo {
-       function bar() {
-   return true;
-       }
-   }
-   
-   // Good
-   class Foo
-   {
-       public function bar(): bool
-       {
-           return true;
-       }
-   }
-   ```
+
+```php
+// Bad
+class Foo {
+    function bar() {
+return true;
+    }
+}
+
+// Good
+class Foo
+{
+    public function bar(): bool
+    {
+        return true;
+    }
+}
+```
 
 ## Next Steps
 
@@ -147,4 +149,37 @@ In our next post, we'll explore PSR-4, which defines autoloading standards for P
 
 - [Official PSR-12 Specification](https://www.php-fig.org/psr/psr-12/)
 - [PHP_CodeSniffer PSR-12 Ruleset](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/src/Standards/PSR12/ruleset.xml)
-- [PHP-CS-Fixer Documentation](https://github.com/FriendsOfPHP/PHP-CS-Fixer) 
+- [PHP-CS-Fixer Documentation](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+
+### Example: Declare Statements
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor\Package;
+
+use Vendor\Package\{ClassA as A, ClassB, ClassC as C};
+use Vendor\Package\SomeNamespace\ClassD as D;
+```
+
+### Example: Class Structure
+
+```php
+<?php
+
+namespace Vendor\Package;
+
+class ClassName extends ParentClass implements \ArrayAccess, \Countable
+{
+    private $property;
+    
+    public function __construct()
+    {
+        // constructor body
+    }
+}
+```
+
+Baamaapii 👋

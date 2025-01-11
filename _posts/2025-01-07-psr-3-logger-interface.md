@@ -8,7 +8,9 @@ series: php-fig-standards
 summary: "Learn how to implement and use PSR-3's standardized logging interface in PHP applications, with practical examples of logging implementations and best practices for error handling."
 ---
 
-Ahnii! 
+> Updated on Jan 10, 2025: Fixed markdown formatting and removed emojis for consistency.
+
+Ahnii!
 
 Recently, I was helping a team migrate from Monolog to a custom logging solution, and guess what? They had to change code in dozens of files because their logging wasn't standardized. That's exactly the problem PSR-3 solves. Let me show you how!
 
@@ -177,34 +179,88 @@ class OrderController extends AbstractController
 
 ## Quick Tips (2 minutes)
 
-1. 🎯 **Be Specific**: Include relevant context in your logs
-   ```php
-   // Instead of this
-   $logger->error('Database error');
-   
-   // Do this
-   $logger->error('Database connection failed', [
-       'host' => $dbHost,
-       'error' => $e->getMessage(),
-       'retry_attempt' => $attempt
-   ]);
-   ```
+1. Be Specific: Include relevant context in your logs
 
-2. 🎨 **Use the Right Level**: Don't cry wolf!
-   ```php
-   // Don't do this
-   $logger->emergency('User not found');
-   
-   // Do this
-   $logger->notice('User not found', ['username' => $username]);
-   ```
+```php
+// Instead of this
+$logger->error('Database error');
+
+// Do this
+$logger->error('Database connection failed', [
+    'host' => $dbHost,
+    'error' => $e->getMessage(),
+    'retry_attempt' => $attempt
+]);
+```
+
+2. Use the Right Level: Don't cry wolf!
+
+```php
+// Don't do this
+$logger->emergency('User not found');
+
+// Do this
+$logger->notice('User not found', ['username' => $username]);
+```
 
 ## Next Steps
 
 Tomorrow, we'll dive into PSR-4 and see how it makes autoloading a breeze. This post is part of our [PSR Standards in PHP series](/blog/psr-standards-in-php-practical-guide-for-developers).
 
+## Examples
+
+```php
+<?php
+
+namespace Vendor\Package;
+
+use Psr\Log\LoggerInterface;
+
+class Example
+{
+    private $logger;
+
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
+}
+```
+
+## Usage
+
+```php
+<?php
+
+namespace Vendor\Package;
+
+use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
+
+class Example
+{
+    private $logger;
+
+    public function process($data)
+    {
+        try {
+            $this->logger->info('Processing data', ['data' => $data]);
+            // Process data
+        } catch (Exception $e) {
+            $this->logger->error('Failed to process data', [
+                'exception' => $e,
+                'data' => $data
+            ]);
+        }
+    }
+}
+```
+
 ## Resources
 
+For more information:
+
 - [Official PSR-3 Specification](https://www.php-fig.org/psr/psr-3/)
-- [Monolog Documentation](https://github.com/Seldaek/monolog)
-- [Series Example Repository](https://github.com/jonesrussell/php-fig-guide) (v0.2.0 - PSR-3 Implementation) 
+- [PHP-FIG Website](https://www.php-fig.org)
+
+Baamaapii 👋 
