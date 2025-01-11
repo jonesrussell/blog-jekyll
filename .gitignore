@@ -6,3 +6,8 @@ vendor
 Gemfile.lock
 *:Zone.Identifier
 
+*.tmp
+*~
+*.bak
+.*.swp
+.vscode/*.tmp
