@@ -75,6 +75,7 @@ class PostController
 ## Common Patterns I Use (5 minutes)
 
 ### 1. 🎯 Multiple Namespace Roots
+
 ```json
 {
     "autoload": {
@@ -87,6 +88,7 @@ class PostController
 ```
 
 ### 2. 🌳 Nested Namespaces
+
 ```php
 <?php
 
@@ -110,6 +112,7 @@ class Connection
 If you're using Laravel or Symfony (like I do), they follow PSR-4 out of the box:
 
 ### Laravel
+
 ```php
 <?php
 
@@ -125,6 +128,7 @@ class BlogController extends Controller
 ```
 
 ### Symfony
+
 ```php
 <?php
 
@@ -144,27 +148,30 @@ class BlogController extends AbstractController
 ## Quick Fixes for Common Issues (3 minutes)
 
 1. 🔍 **"Class Not Found" Errors**
-   ```bash
-   # When things go wrong, this is your friend:
-   composer dump-autoload
-   ```
+
+```bash
+# When things go wrong, this is your friend:
+composer dump-autoload
+```
 
 2. 🎯 **Directory Structure Mistakes**
-   ```
-   # Don't do this
-   src/
-   └── controllers/  # lowercase = bad
-       └── PostController.php
 
-   # Do this instead
-   src/
-   └── Controller/  # Matches namespace case
-       └── PostController.php
-   ```
+```text
+# Don't do this
+src/
+└── controllers/  # lowercase = bad
+    └── PostController.php
+
+# Do this instead
+src/
+└── Controller/  # Matches namespace case
+    └── PostController.php
+```
 
 ## Testing Your Setup (2 minutes)
 
 Drop this in `test-autoload.php`:
+
 ```php
 <?php
 
@@ -183,4 +190,6 @@ Tomorrow, we'll explore PSR-6 and see how it standardizes caching in PHP applica
 
 - [Official PSR-4 Specification](https://www.php-fig.org/psr/psr-4/)
 - [Composer Autoloading Documentation](https://getcomposer.org/doc/04-schema.md#autoload)
-- [Series Example Repository](https://github.com/jonesrussell/php-fig-guide) (v0.3.0 - PSR-4 Implementation) 
+- [Series Example Repository](https://github.com/jonesrussell/php-fig-guide) (v0.3.0 - PSR-4 Implementation)
+
+Baamaapii 👋
