@@ -46,13 +46,7 @@ tasks:
     deps: [lint:pull]
     cmds:
       - docker run -v "${PWD}:/workdir" --rm -w /workdir davidanson/markdownlint-cli2 "_posts/**/*.md" "*.md"
-      - |
-        if [ -f "_config.yml" ]; then
-          docker run -v "${PWD}:/workdir" --rm -w /workdir cytopia/yamllint .
-        else
-          echo "Warning: _config.yml not found"
-          exit 1
-        fi
+      - docker run -v "${PWD}:/workdir" --rm -w /workdir cytopia/yamllint .
 
   lint:pull:
     desc: Pull required Docker images
