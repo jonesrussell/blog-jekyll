@@ -1,5 +1,7 @@
 ---
-title: Maintenance TODO List
+title: TODO
+menu_order: 999
+show_in_nav: true
 ---
 
 ## Ruby Dependencies

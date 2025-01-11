@@ -2,6 +2,8 @@
 layout: page
 title: About
 permalink: /about/
+show_in_nav: true
+menu_order: 10
 ---
 
 Ahnii! I'm Russell Jones, a limitless developer who thrives on open source, AI-augmented development, and building better web experiences.
