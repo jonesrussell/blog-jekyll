@@ -16,6 +16,7 @@ In this tutorial, you'll learn how to X. By the end, you'll be able to Y.
 ## Prerequisites (2 minutes)
 
 Before starting, ensure you have:
+
 - Requirement 1
 - Requirement 2
 - Requirement 3
@@ -55,12 +56,14 @@ test_code();
 ## Troubleshooting
 
 Common issues and solutions:
+
 1. Problem 1: Solution
 2. Problem 2: Solution
 
 ## Next Steps
 
 What to learn next:
+
 - Advanced topic 1
 - Advanced topic 2
 
@@ -68,4 +71,4 @@ What to learn next:
 
 What you've learned and what to try next. Share your results below!
 
-Baamaapii 👋 
+Baamaapii 👋

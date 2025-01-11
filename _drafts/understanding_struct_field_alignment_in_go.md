@@ -97,7 +97,7 @@ While memory savings might seem small for individual structs, the impact can be 
 
 ## Example Memory Layout Visualization
 
-```
+```ascii
 // Memory layout for optimized struct:
 |-----------------------------------------------|
 | slice ptr  | slice len | slice cap|string ptr |

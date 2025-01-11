@@ -22,6 +22,7 @@ Brief introduction paragraph that hooks the reader and explains what they'll lea
 ## Main Content (10 minutes)
 
 ### Subsection 1
+
 Key concepts with practical examples:
 
 ```language
@@ -29,7 +30,9 @@ code_example();  # With comments
 ```
 
 ### Subsection 2
+
 More detailed information:
+
 1. Step one
 2. Step two
 3. Step three
@@ -44,4 +47,4 @@ More detailed information:
 
 Summary of key points and invitation for engagement: "What's your experience with X? Share below!"
 
-Baamaapii 👋 
+Baamaapii 👋
