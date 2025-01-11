@@ -6,13 +6,13 @@
     <ul>
       <li><button class="topic-pill" data-search="php psr standards">PHP Standards</button></li>
       <li><button class="topic-pill" data-search="docker containers devops">Docker & Containers</button></li>
-      <li><button class="topic-pill" data-search="golang python web-development">Languages</button></li>
+      <li><button class="topic-pill" data-search="golang OR python">Languages</button></li>
       <li><button class="topic-pill" data-search="development tools tips">Dev Tools & Tips</button></li>
     </ul>
   </div>
 </div>
 
-<form id="searchform">
+<form id="searchform" onsubmit="return false;">
   <input
     type="search"
     id="search-input"
@@ -29,9 +29,40 @@
 
 <script>
   var sjs = SimpleJekyllSearch({
-    searchInput: document.getElementById('searchform'),
+    searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('searchresults'),
     json: '{{site.baseurl}}/assets/js/posts.json',
+    fuzzy: false,
+    limit: 50,
+    noResultsText: 'No results found',
+    search: function(query, data) {
+      if (query.includes(' OR ')) {
+        // Handle OR search
+        const terms = query.toLowerCase().split(/\s+OR\s+/);
+        return data.filter(item => {
+          const tags = item.tags ? item.tags.toLowerCase() : '';
+          return terms.some(term => {
+            term = term.trim();
+            return tags.split(',').some(tag => tag.trim() === term);
+          });
+        });
+      } else {
+        // Handle regular search
+        const terms = query.toLowerCase().split(/\s+/);
+        return data.filter(item => {
+          const tags = item.tags ? item.tags.toLowerCase() : '';
+          const title = item.title ? item.title.toLowerCase() : '';
+          const content = item.content ? item.content.toLowerCase() : '';
+          
+          return terms.every(term => {
+            term = term.trim();
+            return tags.split(',').some(tag => tag.trim().includes(term)) ||
+                   title.includes(term) ||
+                   content.includes(term);
+          });
+        });
+      }
+    },
     templateMiddleware: function(prop, value, template) {
       if (prop === 'title' || prop === 'excerpt') {
         value = value.replace(/&amp;/g, '&');
@@ -39,15 +70,7 @@
       if (prop === 'url') {
         return value;
       }
-      return value.replace(
-        new RegExp(document.getElementById('search-input').value, 'gi'),
-        '<span class="highlight">$&</span>'
-      );
-    },
-    sortMiddleware: function(a, b) {
-      aPrio = matchPriority(a.matchedField);
-      bPrio = matchPriority(b.matchedField);
-      return bPrio - aPrio;
+      return value;
     },
     searchResultTemplate: '<li class="result-item">' +
       '<a class="post-link" href="{url}">{title}</a>' +
