@@ -32,10 +32,17 @@ function initializeSearch() {
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('searchresults'),
     json: '{{site.baseurl}}/assets/js/posts.json',
-    searchResultTemplate: '<li><article class="post-item"><h3><a class="post-link" href="{{site.baseurl}}{url}">{title}</a></h3><div class="post-meta">{date}</div><div class="post-excerpt">{excerpt}</div></article></li>',
+    searchResultTemplate: '<li><article class="post-item"><h3><a class="post-link" href="{{site.baseurl}}{url}">{title}</a></h3><div class="post-meta">{date}</div><div class="post-excerpt">{content}</div></article></li>',
     noResultsText: 'No results found',
     limit: 50,
     fuzzy: false,
+    templateMiddleware: function(prop, value, template) {
+      if (prop === 'content') {
+        // Take first 200 characters of content as excerpt
+        return value.substring(0, 200) + '...';
+      }
+      return value;
+    },
     search: function(query, data) {
       const searchTerms = query.toLowerCase().split(/\s+/).map(t => t.trim());
       return data.filter(item => {
