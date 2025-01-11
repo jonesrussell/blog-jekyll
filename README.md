@@ -12,6 +12,8 @@ A resource for web developers, offering insights into modern technologies, devel
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
+      - [Using Dev Container (Recommended)](#using-dev-container-recommended)
+      - [Local Installation](#local-installation)
   - [Development Environment](#development-environment)
   - [Usage](#usage)
   - [Contributing](#contributing)
@@ -71,6 +73,7 @@ bundle exec jekyll serve
 ## Development Environment
 
 This project includes a dev container configuration that provides:
+
 - Jekyll development environment
 - PHP 8.2 with Xdebug
 - Composer
@@ -96,6 +99,7 @@ Contributions are what make the open-source community such an amazing place to l
 5. Open a Pull Request
 
 Please ensure you follow:
+
 - WRITING_STYLE.md for blog posts
 - PSR coding standards for PHP code
 - Include tests for new code
@@ -109,5 +113,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Russell Jones - [@jonesrussell42](twitter.com/jonesrussell42) - <jonesrussell42@gmail.com>
 
 Project Links:
+
 - Blog: [https://github.com/jonesrussell/blog](https://github.com/jonesrussell/blog)
 - PHP-FIG Guide: [https://github.com/jonesrussell/php-fig-guide](https://github.com/jonesrussell/php-fig-guide)

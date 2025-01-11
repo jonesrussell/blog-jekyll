@@ -1,0 +1,7 @@
+extends: existence
+message: "Posts should start with 'Ahnii!' and end with 'Baamaapii 👋'"
+level: error
+scope: raw
+raw:
+  - '(?<!Ahnii!\n\n)^[A-Z]'  # Check for missing greeting
+  - '(?<!Baamaapii 👋\n)$'   # Check for missing farewell 

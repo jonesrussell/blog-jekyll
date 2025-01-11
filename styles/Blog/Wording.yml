@@ -1,0 +1,13 @@
+extends: substitution
+message: "Use '%s' instead of '%s'"
+level: warning
+ignorecase: true
+swap:
+  comprehensive: guide
+  complete: ""
+  full: ""
+  robust: ""
+  very: ""
+  really: ""
+  basically: ""
+  actually: "" 
