@@ -14,25 +14,31 @@ Here's a reference guide to all tools available in Cursor AI. This helps both us
 ## Search Tools (5 minutes)
 
 ### Semantic Search
-```
+
+```bash
 codebase_search
 ```
+
 - Purpose: Find relevant code snippets based on semantic meaning
 - Best for: Understanding code context and finding related functionality
 - Note: Reuses user's exact query when possible for better results
 
 ### Text Search
-```
+
+```bash
 grep_search
 ```
+
 - Purpose: Find exact text matches using regex
 - Best for: Finding specific strings, function names, or patterns
 - More precise than semantic search for known text
 
 ### File Search
-```
+
+```bash
 file_search
 ```
+
 - Purpose: Fuzzy search for files by name
 - Best for: Finding files when you know part of the name
 - Limited to 10 results per query
@@ -40,26 +46,32 @@ file_search
 ## File Operations (5 minutes)
 
 ### Read Files
-```
+
+```bash
 read_file
 ```
+
 - Purpose: View file contents
 - Can read up to 250 lines at a time
 - Provides summary of lines not shown
 - Important: Always verify complete context is gathered
 
 ### List Directory
-```
+
+```bash
 list_dir
 ```
+
 - Purpose: Quick directory exploration
 - Best for: Understanding project structure
 - Use before deeper operations
 
 ### Delete Files
-```
+
+```bash
 delete_file
 ```
+
 - Purpose: Remove files from workspace
 - Fails gracefully if:
   - File doesn't exist
@@ -69,9 +81,11 @@ delete_file
 ## Code Editing (10 minutes)
 
 ### Edit Files
-```
+
+```bash
 edit_file
 ```
+
 - Purpose: Modify existing files
 - Key features:
   - Uses `// ... existing code ...` for unchanged sections
@@ -83,17 +97,21 @@ edit_file
   - Include necessary context
 
 ### Reapply Edits
-```
+
+```bash
 reapply
 ```
+
 - Purpose: Retry failed edits with smarter model
 - Use immediately after `edit_file` if results aren't as expected
 - Only works on most recent edit
 
 ### Parallel Edits
-```
+
+```bash
 parallel_apply
 ```
+
 - Purpose: Make similar edits across multiple files
 - Best for: Consistent changes needed in many locations
 - Limitations:
@@ -104,9 +122,11 @@ parallel_apply
 ## Terminal Operations (5 minutes)
 
 ### Run Commands
-```
+
+```bash
 run_terminal_cmd
 ```
+
 - Purpose: Execute shell commands
 - Key features:
   - Can run in background
@@ -139,19 +159,22 @@ run_terminal_cmd
 ## Common Workflows (5 minutes)
 
 1. **Finding and Editing**
-   ```
-   list_dir → codebase_search → read_file → edit_file
-   ```
+
+```bash
+list_dir → codebase_search → read_file → edit_file
+```
 
 2. **Bulk Changes**
-   ```
-   grep_search → parallel_apply
-   ```
+
+```bash
+grep_search → parallel_apply
+```
 
 3. **File Operations**
-   ```
-   file_search → read_file → delete_file
-   ```
+
+```bash
+file_search → read_file → delete_file
+```
 
 Remember: These tools are powerful but require careful use. Always verify changes and consider the impact of operations.
 
