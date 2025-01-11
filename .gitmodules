@@ -1,0 +1,3 @@
+[submodule "code/php-fig-guide"]
+	path = code/php-fig-guide
+	url = https://github.com/jonesrussell/php-fig-guide.git
