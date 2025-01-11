@@ -24,7 +24,7 @@ tasks:
   serve:
     desc: Start Jekyll server
     cmds:
-      - bundle exec jekyll serve --livereload
+      - bundle exec jekyll serve
 
   build:
     desc: Build the site

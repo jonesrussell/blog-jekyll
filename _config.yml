@@ -1,128 +1,57 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-# Basic site setup
-accent_colour: "#2a7ae2"
-
 title: Web Developer Blog
+description: >- 
+  A resource for web developers, I use modern technologies,
+  best practices, and personal experiences. Explore guides
+  on Laravel, Golang, Docker, and more.
+baseurl: "/blog"
+url: "https://jonesrussell.github.io"
+timezone: America/Toronto
+accent_colour: "#2a7ae2"
+show_excerpts: true
+permalink: /:title/
+
+# Author information
 email: jonesrussell42@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-    A resource for web developers, I use modern technologies,
-    best practices, and personal experiences. Explore guides
-    on Laravel, Golang, Docker, and more.
-
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "https://jonesrussell.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: jonesrussell
 twitter_username: jonesrussell42
-github_username:  jonesrussell
 
-# Build settings
+# Theme settings
 remote_theme: JakeSteam/minimaJake@1.0.14
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# Optional native feature customisation (delete to turn off)
-table_of_contents_header: "Jump to:"
-post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://www.youtube.com/@fullstackdev42">Jake Week Lee</a>", a newsletter of articles & online things!</b></i>
-google_analytics: G-9999999
-
-# Social / dark mode settings
 minima:
   skin: auto
   social_links:
-    - { platform: github, user_url: "https://github.com/jonesrussell" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/jonesrussell42" }
-    - {
-        platform: stackoverflow,
-        user_url: "https://stackoverflow.com/users/437654/russell",
-      }
-    - { platform: x, user_url: "https://www.x.com/jonesrussell" }
-    - {
-        platform: email,
-        user_url: "mailto:jonesrussell42@gmail.com",
-        user_title: "jonesrussell42@gmail.com",
-      }
-    - {
-        platform: code,
-        user_url: "https://github.com/jonesrussell/blog",
-        user_title: "JakeSteam/blog-programming",
-      }
-    - { platform: rss, user_url: "/feed.xml", user_title: "RSS Feed" }  
-    - { platform: devto,          user_url: "https://dev.to/jonesrussell" }
-    - { platform: youtube,        user_url: "https://www.youtube.com/@fullstackdev42" }
-  #   - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
-  #   - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
-  #   - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }
-  #   - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ" }
-  #   - { platform: instagram,      user_url: "https://www.instagram.com/jekyll" }
-  #   - { platform: keybase,        user_url: "https://keybase.io/jekyll" }
-  #   - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
-  #   - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
-  #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
+    - { platform: github,        user_url: "https://github.com/jonesrussell" }
+    - { platform: linkedin,      user_url: "https://www.linkedin.com/in/jonesrussell42" }
+    - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/437654/russell" }
+    - { platform: x,            user_url: "https://www.x.com/jonesrussell" }
+    - { platform: email,        user_url: "mailto:jonesrussell42@gmail.com", user_title: "jonesrussell42@gmail.com" }
+    - { platform: code,         user_url: "https://github.com/jonesrussell/blog", user_title: "JakeSteam/blog-programming" }
+    - { platform: rss,          user_url: "/feed.xml", user_title: "RSS Feed" }
+    - { platform: devto,        user_url: "https://dev.to/jonesrussell" }
+    - { platform: youtube,      user_url: "https://www.youtube.com/@fullstackdev42" }
 
-###
-# Below here probably doesn't need changing #
-###
-
-# Site settings
-permalink: /:title/
-show_excerpts: true
-timezone: America/Toronto
-
-# Build settings
+# Plugin settings
 plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# Pagination settings
+# Pagination
 paginate: 10
 paginate_path: page/:num/
 
-# Syntax highlighter settings
+# Content settings
+excerpt_separator: ""
 kramdown:
   syntax_highlighter_opts:
     default_lang: kotlin
     guess_lang: true
 
-# Add favicon settings
-favicon: "/blog/assets/images/favicon.ico"  # adjust path as needed
+# Custom features
+table_of_contents_header: "Jump to:"
+post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://www.youtube.com/@fullstackdev42">Jake Week Lee</a>", a newsletter of articles & online things!</b></i>
 
-# Use the description from front matter as the excerpt
-excerpt_separator: ""
+# Assets
+favicon: "/assets/images/favicon.ico"
