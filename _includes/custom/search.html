@@ -26,99 +26,14 @@
 <ul id="searchresults" class="post-list"></ul>
 
 <script src="{{site.baseurl}}/assets/js/search.js" type="text/javascript"></script>
+<script src="{{site.baseurl}}/assets/js/search-config.js" type="text/javascript"></script>
 
 <script>
-  var sjs = SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('searchresults'),
-    json: '{{site.baseurl}}/assets/js/posts.json',
-    fuzzy: false,
-    limit: 50,
-    noResultsText: 'No results found',
-    search: function(query, data) {
-      if (query.includes(' OR ')) {
-        // Handle OR search
-        const terms = query.toLowerCase().split(/\s+OR\s+/);
-        return data.filter(item => {
-          const tags = item.tags ? item.tags.toLowerCase() : '';
-          return terms.some(term => {
-            term = term.trim();
-            return tags.split(',').some(tag => tag.trim() === term);
-          });
-        });
-      } else {
-        // Handle regular search
-        const terms = query.toLowerCase().split(/\s+/);
-        return data.filter(item => {
-          const tags = item.tags ? item.tags.toLowerCase() : '';
-          const title = item.title ? item.title.toLowerCase() : '';
-          const content = item.content ? item.content.toLowerCase() : '';
-          
-          return terms.every(term => {
-            term = term.trim();
-            return tags.split(',').some(tag => tag.trim().includes(term)) ||
-                   title.includes(term) ||
-                   content.includes(term);
-          });
-        });
-      }
-    },
-    templateMiddleware: function(prop, value, template) {
-      if (prop === 'title' || prop === 'excerpt') {
-        value = value.replace(/&amp;/g, '&');
-      }
-      if (prop === 'url') {
-        return value;
-      }
-      return value;
-    },
-    searchResultTemplate: '<li class="result-item">' +
-      '<a class="post-link" href="{url}">{title}</a>' +
-      '<span class="post-meta">{date} • {tags}</span>' +
-      '<p class="post-excerpt">{excerpt}</p>' +
-      '</li>'
-  });
-
-  function matchPriority(fieldMatched) {
-    switch (fieldMatched) {
-      case 'tags':
-        return 5;
-      case 'title':
-        return 4;
-      case 'excerpt':
-        return 3;
-      default:
-        return 0;
-    }
-  }
-
-  // Handle topic pill clicks
-  document.querySelectorAll('.topic-pill').forEach(pill => {
-    pill.addEventListener('click', function() {
-      const searchInput = document.getElementById('search-input');
-      const searchTerm = this.dataset.search;
-      searchInput.value = searchTerm;
-      searchInput.focus();
-      sjs.search(searchTerm);
-      
-      // Toggle active state
-      document.querySelectorAll('.topic-pill').forEach(p => p.classList.remove('active'));
-      this.classList.add('active');
-
-      // Update URL with search parameter
-      const url = new URL(window.location);
-      url.searchParams.set('q', searchTerm);
-      window.history.pushState({}, '', url);
-    });
-  });
-
-  window.addEventListener('load', function() {
-    var searchParam = new URLSearchParams(window.location.search).get('q');
-    if (searchParam != null) {
-      document.getElementById('search-input').value = searchParam;
-      setTimeout(() => {
-        sjs.search(searchParam);
-      }, 100);
-    }
-  }, false);
+  // Enable debugging
+  DEBUG.enabled = true;
+  
+  // Initialize search functionality
+  const sjs = initSearch('{{site.baseurl}}');
+  initTopicPills(sjs);
+  handleUrlParams(sjs);
 </script>
