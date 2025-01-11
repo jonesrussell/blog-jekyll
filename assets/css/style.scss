@@ -6,18 +6,116 @@
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
 
-/* Misc tidying of overall layout */
+/* Layout & Spacing */
+.wrapper {
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.page-content {
+  padding: 2rem 0;
+}
+
 .content {
-  padding: 15px;
+  padding: 1rem;
 }
 
+/* Header & Navigation */
 .site-header {
-  border-top: 0px;
+  border-top: 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
+.site-nav {
+  line-height: 3rem;
+}
+
+.site-nav .page-link {
+  padding: 5px;
+  margin-left: 1.5rem;
+}
+
+.site-nav .page-link:first-child {
+  margin-left: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.post-title,
+.page-heading {
+  margin-top: 0;
+  font-size: 2.5rem;
+  line-height: 1.3;
+}
+
+/* Post Content */
+.post-content {
+  h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+}
+
+.post-content h1 { text-indent: -12px; }
+.post-content h2 { text-indent: -10px; }
+.post-content h3 { text-indent: -8px; }
+.post-content h4 { text-indent: -6px; }
+.post-content h5 { text-indent: -4px; }
+.post-content h6 { text-indent: -2px; }
+
+/* Post List */
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-list > li {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.post-list > li:last-child {
+  border-bottom: none;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.post-link {
+  display: block;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.post-excerpt {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+}
+
+/* Search */
+#search-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border: 2px solid {{ site.accent_colour }};
+  border-radius: 4px;
+  margin: 1rem 0 2rem;
+}
+
+/* Cards & Images */
 .card {
   border: 1px solid {{ site.accent_colour }};
-  border-radius: .25rem;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin: 1rem 0;
 }
 
 .bg-img {
@@ -27,31 +125,46 @@
   background-color: #fff;
 }
 
-.post-title {
-  line-height: 1.3;
-}
-
 .post-header .bg-img {
-  background-size: cover;
-  min-height: 180px;
-  background-position: center;
-  background-color: #fff;
   border: 1px solid {{ site.accent_colour }};
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
-.centred-content {
-  margin: auto;
-  text-align: center;
+/* Table of Contents */
+.toc {
+  float: right;
+  border: 1px solid {{ site.accent_colour }};
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
-blockquote {
-  text-indent: -35px !important;
-  padding-left: 50px !important;
+.toc summary {
+  margin-left: 1.25rem;
 }
 
-/* Makes the meta info pretty */
-.contact-list li+li {
+.toc ul {
+  list-style: none;
+  margin-left: 0.625rem;
+  margin-bottom: 0;
+}
+
+.toc li {
+  margin-left: 0.625rem;
+}
+
+/* Footer */
+.site-footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-col {
+  margin-bottom: 1rem;
+}
+
+.contact-list li + li {
   padding-top: 5px;
 }
 
@@ -67,90 +180,14 @@ blockquote {
   text-decoration: underline;
 }
 
+/* Icons & Links */
 .svg-icon {
   fill: #828282;
+  vertical-align: middle;
 }
 
 a:hover .svg-icon {
   fill: {{ site.accent_colour }};
-}
-
-/* Fixes the in-post indent applying to homepage */
-.homepage-title {
-  margin-left: 0px;
-  padding-left: 0px;
-}
-
-/* Fixes weird table word break behaviour */
-table {
-  table-layout: fixed;
-  word-break: break-word;
-}
-
-/* Fixes "tag" styling */
-.tag,
-.tag:visited {
-  color: #828282;
-}
-
-/* Fixes icon / username alignment in footer */
-.username,
-.svg-icon {
-    vertical-align: middle;
-}
-
-/* Styles the pagination & link to other blog */
-.centred-homepage-content {
-  width: 100%;
-  text-align: center;
-}
-
-.highlight {
-  background: {{ site.accent_colour }};
-}
-
-/* Adds extra padding to top right links */
-.page-link {
-  padding: 5px;
-}
-
-/* Adds GitHub style links to headers on mouseover */
-.post-content h1 {
-  text-indent: -12px;
-  overflow-wrap: break-word;
-}
-
-.post-content h2 {
-  text-indent: -10px;
-  overflow-wrap: break-word;
-}
-
-.post-content h3 {
-  text-indent: -8px;
-  overflow-wrap: break-word;
-}
-
-.post-content h4 {
-  text-indent: -6px;
-  overflow-wrap: break-word;
-}
-
-.post-content h5 {
-  text-indent: -4px;
-  overflow-wrap: break-word;
-}
-
-.post-content h6 {
-  text-indent: -2px;
-  overflow-wrap: break-word;
-}
-
-h1 .octicon, h2 .octicon, h3 .octicon, h4 .octicon, h5 .octicon, h6 .octicon {
-  visibility: hidden;
-}
-
-h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:hover .octicon, h6:hover .octicon {
-  visibility: visible;
 }
 
 .octicon {
@@ -158,41 +195,41 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
   padding: 0;
   margin-left: -16px;
   vertical-align: middle;
+  visibility: hidden;
 }
 
-/* Table of contents */
-.toc {
-  float: right;
-  border: 1px solid {{ site.accent_colour }};
-  border-radius: 0.25rem;
-  padding-top: 15px;
-  padding-right: 15px;
-  padding-bottom: 15px;
-  margin-left: 15px;
+h1:hover .octicon,
+h2:hover .octicon,
+h3:hover .octicon,
+h4:hover .octicon,
+h5:hover .octicon,
+h6:hover .octicon {
+  visibility: visible;
 }
 
-.toc summary {
-  margin-left: 20px;
+/* Tables */
+table {
+  table-layout: fixed;
+  word-break: break-word;
 }
 
-.toc ul {
-  list-style: none;
-  margin-left: 10px;
-  margin-bottom: 0px;
+/* Utilities */
+.centred-content,
+.centred-homepage-content {
+  margin: auto;
+  text-align: center;
 }
 
-.toc li {
-  margin-left: 10px;
+.highlight {
+  background: {{ site.accent_colour }};
 }
 
-/* Search page */
-#search-input {
-  font-size: 30px;
-  display: block;
-  width: 400px
+blockquote {
+  text-indent: -35px !important;
+  padding-left: 50px !important;
 }
 
-/* Site picker */
+/* Site Picker */
 .site-picker {
   line-height: 26px;
   border-bottom: 5px solid {{ site.accent_colour }};
@@ -200,7 +237,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon, h5:h
 }
 
 .site-tile {
-  padding: 3.5px 10px 3.5px 10px;
+  padding: 3.5px 10px;
   color: #ffffff !important;
   white-space: nowrap;
 }

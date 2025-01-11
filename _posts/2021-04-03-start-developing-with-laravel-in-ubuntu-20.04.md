@@ -1,7 +1,7 @@
 ---
 title: "Start Developing With Laravel in Ubuntu 20.04"
 date: 2021-04-03
-image: /blog/assets/img/laravel.png
+image: /blog/assets/images/laravel.png
 layout: post
 categories: laravel
 tags: [web-development, install]
@@ -43,4 +43,4 @@ ddev launch
 
 The *ddev launch* command should have opened your default browser to this screen:
 
-![Laravel welcome page showing successful installation](/blog/assets/img/laravel.png)
+![Laravel welcome page showing successful installation](/blog/assets/images/laravel.png)
