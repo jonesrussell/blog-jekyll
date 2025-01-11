@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "PSR-6: Caching Interface in PHP"
-date: 2024-03-09 12:00:00 -0600
-categories: php standards
-series: php-fig-standards
+date: 2025-01-10
+categories: [php, standards]
 tags: [php, php-fig, psr-6, caching]
+series: php-fig-standards
 summary: "Explore PSR-6's caching interface standard, understand cache pools and items, and implement robust caching solutions in PHP applications."
 ---
 
