@@ -244,46 +244,48 @@ assert($dispatcher instanceof EventDispatcherInterface);
 ## Best Practices
 
 1. **Event Naming and Structure**
-   ```php
-   // Bad - Generic event with mixed responsibilities
-   class GenericEvent
-   {
-       private $data;
-       public function setData($data) { /* ... */ }
-   }
-   
-   // Good - Specific event with clear purpose
-   class UserEmailChangedEvent
-   {
-       public function __construct(
-           private User $user,
-           private string $oldEmail,
-           private string $newEmail
-       ) {}
-   }
-   ```
+
+```php
+// Bad - Generic event with mixed responsibilities
+class GenericEvent
+{
+    private $data;
+    public function setData($data) { /* ... */ }
+}
+
+// Good - Specific event with clear purpose
+class UserEmailChangedEvent
+{
+    public function __construct(
+        private User $user,
+        private string $oldEmail,
+        private string $newEmail
+    ) {}
+}
+```
 
 2. **Listener Organization**
-   ```php
-   // Bad - Monolithic listener
-   class UserListener
-   {
-       public function onUserChange($event) {
-           // Handle registration
-           // Handle profile updates
-           // Handle deletions
-           // Too many responsibilities!
-       }
-   }
-   
-   // Good - Single responsibility listeners
-   class UserRegistrationListener
-   {
-       public function __invoke(UserRegisteredEvent $event) {
-           // Handle only registration
-       }
-   }
-   ```
+
+```php
+// Bad - Monolithic listener
+class UserListener
+{
+    public function onUserChange($event) {
+        // Handle registration
+        // Handle profile updates
+        // Handle deletions
+        // Too many responsibilities!
+    }
+}
+
+// Good - Single responsibility listeners
+class UserEmailChangeListener
+{
+    public function __invoke(UserEmailChangedEvent $event) {
+        // Only handle email change notifications
+    }
+}
+```
 
 ## Common Patterns
 
@@ -343,5 +345,5 @@ In our next post, we'll explore PSR-7, which defines interfaces for HTTP message
 ## Resources
 
 - [Official PSR-14 Specification](https://www.php-fig.org/psr/psr-14/)
-- [Symfony EventDispatcher Component](https://symfony.com/doc/current/components/event_dispatcher.html)
-- [Laravel Events](https://laravel.com/docs/events) 
+
+Baamaapii 👋

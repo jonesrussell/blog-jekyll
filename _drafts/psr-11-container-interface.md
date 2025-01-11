@@ -13,6 +13,7 @@ PSR-11 defines a common interface for dependency injection containers in PHP. Th
 ## Understanding Dependency Injection Containers
 
 A dependency injection container (DIC) is responsible for:
+
 1. Managing service definitions
 2. Creating service instances
 3. Resolving dependencies
@@ -198,43 +199,45 @@ assert($container instanceof \Psr\Container\ContainerInterface);
 ## Best Practices
 
 1. **Service Resolution**
-   ```php
-   // Bad - Service locator pattern
-   class UserService
-   {
-       public function __construct(private ContainerInterface $container) {}
-       
-       public function doSomething()
-       {
-           $dep = $this->container->get('some.service');
-       }
-   }
-   
-   // Good - Explicit dependency injection
-   class UserService
-   {
-       public function __construct(
-           private SomeServiceInterface $someService
-       ) {}
-   }
-   ```
+
+```php
+// Bad - Service locator pattern
+class UserService
+{
+    public function __construct(private ContainerInterface $container) {}
+    
+    public function doSomething()
+    {
+        $dep = $this->container->get('some.service');
+    }
+}
+
+// Good - Explicit dependency injection
+class UserService
+{
+    public function __construct(
+        private SomeServiceInterface $someService
+    ) {}
+}
+```
 
 2. **Container Configuration**
-   ```php
-   // Bad - Runtime service definition
-   if ($condition) {
-       $container->set('service', new ServiceA());
-   } else {
-       $container->set('service', new ServiceB());
-   }
-   
-   // Good - Configuration-driven definition
-   $container->set('service', function (ContainerInterface $c) {
-       return $c->get('config')->get('use_service_a')
-           ? new ServiceA()
-           : new ServiceB();
-   });
-   ```
+
+```php
+// Bad - Runtime service definition
+if ($condition) {
+    $container->set('service', new ServiceA());
+} else {
+    $container->set('service', new ServiceB());
+}
+
+// Good - Configuration-driven definition
+$container->set('service', function (ContainerInterface $c) {
+    return $c->get('config')->get('use_service_a')
+        ? new ServiceA()
+        : new ServiceB();
+});
+```
 
 ## Next Steps
 
@@ -244,4 +247,4 @@ In our next post, we'll explore PSR-14, which defines a standard event dispatche
 
 - [Official PSR-11 Specification](https://www.php-fig.org/psr/psr-11/)
 - [PHP-DI Documentation](http://php-di.org/)
-- [Symfony DependencyInjection Component](https://symfony.com/doc/current/components/dependency_injection.html) 
+- [Symfony DependencyInjection Component](https://symfony.com/doc/current/components/dependency_injection.html)

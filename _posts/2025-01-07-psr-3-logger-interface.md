@@ -148,6 +148,7 @@ $logger->critical('Payment gateway {gateway} is down!', [
 If you're using Laravel or Symfony, they've already done the heavy lifting:
 
 ### Laravel
+
 ```php
 // In a service
 public function processOrder($orderId)
@@ -166,6 +167,7 @@ public function processOrder($orderId)
 ```
 
 ### Symfony
+
 ```php
 class OrderController extends AbstractController
 {
@@ -248,7 +250,7 @@ class Example
             // Process data
         } catch (Exception $e) {
             $this->logger->error('Failed to process data', [
-                'exception' => $e,
+                'error' => $e->getMessage(),
                 'data' => $data
             ]);
         }
@@ -263,4 +265,4 @@ For more information:
 - [Official PSR-3 Specification](https://www.php-fig.org/psr/psr-3/)
 - [PHP-FIG Website](https://www.php-fig.org)
 
-Baamaapii 👋 
+Baamaapii 👋
