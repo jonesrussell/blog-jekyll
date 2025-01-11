@@ -76,6 +76,7 @@ description: "Compelling description"
 ## Language and Style
 
 ### Writing Concisely
+
 - Avoid unnecessary adjectives like "comprehensive", "complete", "full", "robust", etc.
 - Remove words that don't add value (very, really, basically, actually)
 - Use active voice instead of passive
@@ -83,12 +84,15 @@ description: "Compelling description"
 - If a word doesn't change the meaning when removed, remove it
 
 ### Examples
+
 ❌ Don't:
+
 - "A comprehensive guide to PHP-FIG standards"
 - "A complete tutorial that fully explains..."
 - "A really useful tool that actually helps..."
 
 ✅ Do:
+
 - "A guide to PHP-FIG standards"
 - "A tutorial explaining..."
 - "A tool that helps..."
