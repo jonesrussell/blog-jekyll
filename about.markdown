@@ -4,12 +4,45 @@ title: About
 permalink: /about/
 ---
 
-Welcome to the Web Developer Blog, a space dedicated to exploring the latest in web development technologies and practices. Here, you'll find insightful articles ranging from deep dives into frameworks like Laravel and Node.js, to practical tips for enhancing your development workflow with tools such as Docker and DDEV.
+Ahnii! I'm Russell Jones, a limitless developer who thrives on open source and building better web experiences.
 
-Whether you're just starting your journey in web development or are a seasoned professional looking to stay ahead of the curve, our blog aims to provide valuable resources that empower you to build better websites and applications. From overcoming imposter syndrome to mastering CLI commands for efficient project management, we cover a wide array of topics designed to inspire and inform.
+## What I Do
 
-For more about me and my work, visit my [personal website](https://jonesrussell.github.io/me/).
+- Build and maintain PHP-FIG standards implementations
+- Create developer tools and automation scripts
+- Write about web development challenges and solutions
+- Contribute to open source projects like DDEV
+- Share knowledge through tutorials and guides
 
-Join us as we navigate the ever-evolving landscape of web development together. Subscribe to our RSS feed to stay updated with the latest posts and dive deeper into the world of web development with us.
+## Why This Blog Exists
+
+This isn't just another tech blog. It's a space where I share real-world solutions to problems I've faced, focusing on:
+
+- Practical PHP-FIG standards implementation
+- Docker and container orchestration
+- Modern JavaScript frameworks and tools
+- Development workflow optimization
+- Career growth in tech
+
+## My Tech Stack
+
+- **Languages**: PHP, JavaScript, Go
+- **Frameworks**: Laravel, Vue.js, Svelte
+- **Tools**: Docker, DDEV, GitHub Actions
+- **Practices**: TDD, CI/CD, Clean Code
+
+## Let's Connect
+
+- [Personal Website](https://jonesrussell.github.io/me/)
+- [Twitter](https://twitter.com/jonesrussell42)
+- [GitHub](https://github.com/jonesrussell)
+- [DEV.to](https://dev.to/jonesrussell)
+- [YouTube](https://www.youtube.com/@fullstackdev42)
+
+## Subscribe
+
+Stay updated with my latest posts and projects:
 
 [Subscribe via RSS](/feed.xml)
+
+Baamaapii 👋
