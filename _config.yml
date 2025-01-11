@@ -29,10 +29,14 @@ remote_theme: JakeSteam/minimaJake@1.0.14
 minima:
   skin: auto
   social_links:
-    - { platform: github,        user_url: "https://github.com/jonesrussell" }
+    - platform: github
+      user_url: "https://github.com/jonesrussell"
+      title: "GitHub"
+    - platform: x
+      user_url: "https://x.com/jonesrussell42"
+      title: "X (formerly Twitter)"
     - { platform: linkedin,      user_url: "https://www.linkedin.com/in/jonesrussell42" }
     - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/437654/russell" }
-    - { platform: x,            user_url: "https://www.x.com/jonesrussell" }
     - { platform: email,        user_url: "mailto:jonesrussell42@gmail.com", user_title: "jonesrussell42@gmail.com" }
     - { platform: code,         user_url: "https://github.com/jonesrussell/blog", user_title: "JakeSteam/blog-programming" }
     - { platform: rss,          user_url: "/feed.xml", user_title: "RSS Feed" }
