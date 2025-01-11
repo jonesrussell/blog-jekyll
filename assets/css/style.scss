@@ -6,19 +6,6 @@
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
 
-/* Debug Mode */
-body.debug {
-  * { outline: 1px solid rgba(255, 0, 0, 0.2); }
-  .wrapper { outline: 2px solid rgba(0, 255, 0, 0.2); }
-  .site-header { outline: 2px solid rgba(0, 0, 255, 0.2); }
-  .site-nav { outline: 2px solid rgba(255, 255, 0, 0.2); }
-  .page-content { outline: 2px solid rgba(255, 0, 255, 0.2); }
-  .site-footer { outline: 2px solid rgba(0, 255, 255, 0.2); }
-  .post-list > li { outline: 2px solid rgba(128, 0, 255, 0.2); }
-  .post-content { outline: 2px solid rgba(255, 128, 0, 0.2); }
-  img { outline: 3px solid rgba(255, 0, 0, 0.4); }
-}
-
 /* Layout & Spacing */
 .wrapper {
   max-width: 960px;
