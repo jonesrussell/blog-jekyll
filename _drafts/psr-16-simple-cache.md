@@ -226,22 +226,24 @@ $value = $cache->get('key', 'default');
 ## Best Practices
 
 1. **Key Namespacing**
-   ```php
-   // Bad - Flat keys
-   $cache->set('users', $users);
-   
-   // Good - Namespaced keys
-   $cache->set('app:users:active', $users);
-   ```
+
+```php
+// Bad - Flat keys
+$cache->set('users', $users);
+
+// Good - Namespaced keys
+$cache->set('app:users:active', $users);
+```
 
 2. **TTL Management**
-   ```php
-   // Bad - Hardcoded TTL
-   $cache->set('stats', $stats, 3600);
-   
-   // Good - Configurable TTL
-   $cache->set('stats', $stats, $this->config->get('cache.stats_ttl'));
-   ```
+
+```php
+// Bad - Hardcoded TTL
+$cache->set('stats', $stats, 3600);
+
+// Good - Configurable TTL
+$cache->set('stats', $stats, $this->config->get('cache.stats_ttl'));
+```
 
 ## Common Patterns
 
@@ -330,4 +332,6 @@ In our next post, we'll explore PSR-13, which defines interfaces for hypermedia 
 
 - [Official PSR-16 Specification](https://www.php-fig.org/psr/psr-16/)
 - [Symfony Cache Component](https://symfony.com/doc/current/components/cache.html)
-- [PHP Cache](http://www.php-cache.com/) 
+- [Laravel Cache](https://laravel.com/docs/cache)
+
+Baamaapii 👋

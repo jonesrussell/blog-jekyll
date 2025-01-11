@@ -54,11 +54,12 @@ Each post will include:
 To follow along with this series:
 
 1. Clone our companion repository:
-   ```bash
-   git clone https://github.com/jonesrussell/php-fig-guide.git
-   cd php-fig-guide
-   composer install
-   ```
+
+```bash
+git clone https://github.com/jonesrussell/php-fig-guide.git
+cd php-fig-guide
+composer install
+```
 
 2. Each PSR implementation has its own:
    - Directory under `src/`
@@ -67,19 +68,19 @@ To follow along with this series:
    - Tagged release (e.g., v0.1.0 for PSR-1)
 
 3. Use the provided Composer scripts:
-   ```bash
-   # Check coding standards
-   composer check-style
 
-   # Fix coding standards automatically
-   composer fix-style
+```bash
+# Check coding standards
+composer check-style
 
-   # Run tests
-   composer test
-   ```
+# Fix coding standards automatically
+composer fix-style
+```
 
 ## Resources
 
 - [PHP-FIG Website](https://www.php-fig.org/)
 - [PSR Index](https://www.php-fig.org/psr/)
-- [Our Example Repository](https://github.com/jonesrussell/php-fig-guide) 
+- [Our Example Repository](https://github.com/jonesrussell/php-fig-guide)
+
+Baamaapii 👋

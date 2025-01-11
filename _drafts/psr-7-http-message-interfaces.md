@@ -227,25 +227,27 @@ $psrRequest = $psrHttpFactory->createRequest($symfonyRequest);
 ## Best Practices
 
 1. **Immutability**
-   ```php
-   // Bad - Modifying message directly
-   $request->method = 'POST';
-   
-   // Good - Using withers
-   $newRequest = $request->withMethod('POST');
-   ```
+
+```php
+// Bad - Modifying message directly
+$request->method = 'POST';
+
+// Good - Using withers
+$newRequest = $request->withMethod('POST');
+```
 
 2. **Stream Handling**
-   ```php
-   // Bad - Loading entire body into memory
-   $content = $request->getBody()->getContents();
-   
-   // Good - Streaming large responses
-   $body = $response->getBody();
-   while (!$body->eof()) {
-       echo $body->read(8192);
-   }
-   ```
+
+```php
+// Bad - Loading entire body into memory
+$content = $request->getBody()->getContents();
+
+// Good - Streaming large responses
+$body = $response->getBody();
+while (!$body->eof()) {
+    echo $body->read(8192);
+}
+```
 
 ## Common Patterns
 
@@ -317,4 +319,6 @@ In our next post, we'll explore PSR-15, which builds upon PSR-7 to define HTTP s
 
 - [Official PSR-7 Specification](https://www.php-fig.org/psr/psr-7/)
 - [Guzzle HTTP Client](https://docs.guzzlephp.org/)
-- [Laminas Diactoros](https://docs.laminas.dev/laminas-diactoros/) 
+- [Laminas Diactoros](https://docs.laminas.dev/laminas-diactoros/)
+
+Baamaapii 👋

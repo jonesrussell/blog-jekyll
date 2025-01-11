@@ -322,26 +322,27 @@ class ApiController
 ## Best Practices
 
 1. **Link Relations**
-   ```php
-   // Bad - Using arbitrary relation names
-   $link->withRel('get-user-stuff');
-   
-   // Good - Using standard IANA relations
-   $link->withRel('self')
-        ->withRel('next')
-        ->withRel('prev');
-   ```
+
+```php
+// Bad - Using arbitrary relation names
+$link->withRel('get-user-stuff');
+
+// Good - Using standard IANA relations
+$link->withRel('self')
+     ->withRel('next')
+     ->withRel('prev');
+```
 
 2. **Template Parameters**
-   ```php
-   // Bad - Hardcoded IDs
-   $link = new Link("/users/123/posts");
-   
-   // Good - Templated links
-   $link = new Link("/users/{userId}/posts{?page,limit}")
-       ->withRel('posts')
-       ->withAttribute('templated', true);
-   ```
+
+```php
+// Bad - Hardcoded IDs
+$link = new Link("/users/123/posts");
+
+// Good - Templated links
+$link = (new Link("/users/{id}/posts"))
+    ->withTemplated(true);
+```
 
 ## Common Patterns
 
@@ -476,4 +477,6 @@ This concludes our series on PHP-FIG standards. Each PSR we've covered contribut
 
 - [Official PSR-13 Specification](https://www.php-fig.org/psr/psr-13/)
 - [IANA Link Relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
-- [HAL - Hypertext Application Language](https://stateless.group/hal_specification.html) 
+- [HAL Specification](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal)
+
+Baamaapii 👋
