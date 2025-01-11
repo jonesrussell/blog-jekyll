@@ -382,11 +382,7 @@ h1, h2, h3, h4, h5, h6 {
     &.active {
       background: var(--accent-color);
       border-color: var(--accent-color);
-      color: var(--text-color);
-
-      &::before {
-        color: var(--text-color);
-      }
+      color: var(--background-color);
     }
   }
 }

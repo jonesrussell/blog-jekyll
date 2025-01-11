@@ -26,9 +26,9 @@
 <script src="{{site.baseurl}}/assets/js/search.js" type="text/javascript"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize search
-  const sjs = SimpleJekyllSearch({
+// Search configuration
+function initializeSearch() {
+  return SimpleJekyllSearch({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('searchresults'),
     json: '{{site.baseurl}}/assets/js/posts.json',
@@ -44,31 +44,51 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+}
 
-  // Handle topic pills
+// Topic pill management
+function initializeTopicPills() {
   const pills = document.querySelectorAll('.topic-pill');
   pills.forEach(pill => {
     pill.addEventListener('click', function() {
-      const searchInput = document.getElementById('search-input');
-      const searchTerms = this.dataset.search;
-      searchInput.value = searchTerms;
-      searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-      
-      // Update URL
-      const params = new URLSearchParams(window.location.search);
-      params.set('q', searchTerms);
-      const newUrl = window.location.pathname + '?' + params.toString();
-      window.history.pushState({}, '', newUrl);
+      updateActivePill(pills, this);
+      updateSearchInput(this.dataset.search);
+      updateURL(this.dataset.search);
     });
   });
+}
 
-  // Handle URL parameters on load
+function updateActivePill(pills, activePill) {
+  pills.forEach(p => p.classList.remove('active'));
+  activePill.classList.add('active');
+}
+
+function updateSearchInput(searchTerms) {
+  const searchInput = document.getElementById('search-input');
+  searchInput.value = searchTerms;
+  searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+}
+
+// URL management
+function updateURL(searchTerms) {
+  const params = new URLSearchParams(window.location.search);
+  params.set('q', searchTerms);
+  const newUrl = window.location.pathname + '?' + params.toString();
+  window.history.pushState({}, '', newUrl);
+}
+
+function handleURLParameters() {
   const params = new URLSearchParams(window.location.search);
   const searchQuery = params.get('q');
   if (searchQuery) {
-    const searchInput = document.getElementById('search-input');
-    searchInput.value = searchQuery;
-    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+    updateSearchInput(searchQuery);
   }
+}
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  initializeSearch();
+  initializeTopicPills();
+  handleURLParameters();
 });
 </script>
