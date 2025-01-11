@@ -18,9 +18,6 @@
 				"formulahendry.auto-close-tag",
 				"github.vscode-github-actions",
 				"Shopify.ruby-lsp",
-				"DEVSENSE.phptools-vscode",
-				"bmewburn.vscode-intelephense-client",
-				"xdebug.php-debug",
 				"errata-ai.vale-server"
 			]
 		}
@@ -28,7 +25,7 @@
 	"mounts": [
 		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
 	],
-	"postCreateCommand": "curl -sfL https://github.com/errata-ai/vale/releases/download/v2.29.6/vale_2.29.6_Linux_64-bit.tar.gz | tar xz && sudo mv vale /usr/local/bin/ && chmod +x scripts/setup/* && scripts/setup/install-gems.sh && scripts/setup/install-task.sh",
+	"postCreateCommand": "chmod +x scripts/setup/* && scripts/setup/install-gems.sh && scripts/setup/install-vale.sh && scripts/setup/install-task.sh",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": true,
