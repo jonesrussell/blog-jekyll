@@ -76,7 +76,7 @@ description: "Compelling description"
 ## Language and Style
 
 ### Writing Concisely
-- Avoid unnecessary adjectives like "comprehensive", "complete", "full", etc.
+- Avoid unnecessary adjectives like "comprehensive", "complete", "full", "robust", etc.
 - Remove words that don't add value (very, really, basically, actually)
 - Use active voice instead of passive
 - Get to the point quickly
