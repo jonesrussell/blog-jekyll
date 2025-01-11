@@ -353,16 +353,40 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .topic-pill {
     color: var(--text-muted);
     font-size: var(--font-size-sm);
     background: var(--bg-subtle);
     padding: calc(var(--space-xs) / 2) var(--space-sm);
     border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
     
     &::before {
       content: "•";
       color: var(--accent-color);
       margin-right: var(--space-xs);
+    }
+
+    &:hover {
+      background: var(--bg-hover);
+      border-color: var(--accent-color);
+      color: var(--text-color);
+    }
+
+    &.active {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      color: var(--text-color);
+
+      &::before {
+        color: var(--text-color);
+      }
     }
   }
 }

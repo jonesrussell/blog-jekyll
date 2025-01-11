@@ -4,10 +4,10 @@
   
   <div class="search-topics">
     <ul>
-      <li>Development tools & environments (Docker, DDEV, VS Code)</li>
-      <li>Languages (Go, PHP, Python, JavaScript)</li>
-      <li>Real-world solutions & experiences</li>
-      <li>Development practices & tips</li>
+      <li><button class="topic-pill" data-search="php psr standards">PHP Standards</button></li>
+      <li><button class="topic-pill" data-search="docker ddev devcontainer">Docker & Containers</button></li>
+      <li><button class="topic-pill" data-search="golang python javascript">Languages</button></li>
+      <li><button class="topic-pill" data-search="development tools tips">Dev Tools & Tips</button></li>
     </ul>
   </div>
 </div>
@@ -68,6 +68,20 @@
         return 0;
     }
   }
+
+  // Handle topic pill clicks
+  document.querySelectorAll('.topic-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      const searchInput = document.getElementById('search-input');
+      searchInput.value = this.dataset.search;
+      searchInput.focus();
+      sjs.search(this.dataset.search);
+      
+      // Toggle active state
+      document.querySelectorAll('.topic-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
 
   window.addEventListener('load', function() {
     var searchParam = new URLSearchParams(window.location.search).get('q');
