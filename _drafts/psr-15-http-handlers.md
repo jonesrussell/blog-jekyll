@@ -255,37 +255,39 @@ $app->get('/api/users', function (Request $request, Response $response) {
 ## Best Practices
 
 1. **Middleware Composition**
-   ```php
-   // Bad - Monolithic middleware
-   class BigMiddleware implements MiddlewareInterface
-   {
-       public function process(
-           ServerRequestInterface $request,
-           RequestHandlerInterface $handler
-       ): ResponseInterface {
-           // Authentication
-           // Rate limiting
-           // Logging
-           // Too many responsibilities!
-           return $handler->handle($request);
-       }
-   }
-   
-   // Good - Single responsibility
-   $pipeline
-       ->pipe(new AuthenticationMiddleware())
-       ->pipe(new RateLimitMiddleware())
-       ->pipe(new LoggingMiddleware());
-   ```
+
+```php
+// Bad - Monolithic middleware
+class BigMiddleware implements MiddlewareInterface
+{
+    public function process(
+        ServerRequestInterface $request,
+        RequestHandlerInterface $handler
+    ): ResponseInterface {
+        // Authentication
+        // Rate limiting
+        // Logging
+        // Too many responsibilities!
+        return $handler->handle($request);
+    }
+}
+
+// Good - Single responsibility
+$pipeline
+    ->pipe(new AuthenticationMiddleware())
+    ->pipe(new RateLimitMiddleware())
+    ->pipe(new LoggingMiddleware());
+```
 
 2. **Request Attribute Handling**
-   ```php
-   // Bad - Using headers for middleware communication
-   $request = $request->withHeader('user_id', $userId);
-   
-   // Good - Using request attributes
-   $request = $request->withAttribute('user_id', $userId);
-   ```
+
+```php
+// Bad - Using headers for middleware communication
+$request = $request->withHeader('user_id', $userId);
+
+// Good - Using request attributes
+$request = $request->withAttribute('user_id', $userId);
+```
 
 ## Common Patterns
 
@@ -346,5 +348,7 @@ In our next post, we'll explore PSR-6, which defines a standard interface for ca
 ## Resources
 
 - [Official PSR-15 Specification](https://www.php-fig.org/psr/psr-15/)
-- [Middleware in PHP](https://www.php-fig.org/psr/psr-15/meta/)
-- [Slim Framework Documentation](https://www.slimframework.com/docs/v4/) 
+- [Middleware Examples](https://github.com/middlewares)
+- [PSR-7 and PSR-15 Integration Guide](https://docs.laminas.dev/laminas-stratigility/)
+
+Baamaapii 👋
