@@ -31,12 +31,12 @@ This series will cover all accepted PSRs in detail. Here's what we've published 
 3. [PSR-4: Autoloading Standard](/blog/psr-4-autoloading-standard) - Published Jan 8, 2025
 4. [PSR-6: Caching Interface](/blog/psr-6-caching-interface) - Published Jan 10, 2025
 5. [PSR-7: HTTP Message Interface](/blog/psr-7-http-message-interfaces) - Published Jan 24, 2025
-6. PSR-11: Container Interface - Coming Jan 15, 2025
-7. PSR-12: Extended Coding Style - Coming Jan 16, 2025
-8. PSR-13: Hypermedia Links - Coming Jan 17, 2025
-9. PSR-14: Event Dispatcher - Coming Jan 18, 2025
-10. PSR-15: HTTP Handlers - Coming Jan 19, 2025
-11. PSR-16: Simple Cache - Coming Jan 20, 2025
+6. PSR-11: Container Interface - Coming Jan 25, 2025
+7. PSR-12: Extended Coding Style - Coming Jan 26, 2025
+8. PSR-13: Hypermedia Links - Coming Jan 27, 2025
+9. PSR-14: Event Dispatcher - Coming Jan 28, 2025
+10. PSR-15: HTTP Handlers - Coming Jan 29, 2025
+11. PSR-16: Simple Cache - Coming Jan 30, 2025
 
 Stay tuned! We'll update this post with links as each new article is published.
 
