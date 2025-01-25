@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "PSR-7: HTTP Message Interfaces in PHP"
-date: 2025-01-24 12:00:00 -0600
-categories: php standards
-series: php-fig-standards
+date: 2025-01-24
+categories: [php, standards]
 tags: [php, php-fig, psr-7, http]
+series: php-fig-standards
 summary: "Deep dive into PSR-7's HTTP message interfaces, understanding HTTP message abstraction, and implementing HTTP clients and servers in PHP."
 ---
 
