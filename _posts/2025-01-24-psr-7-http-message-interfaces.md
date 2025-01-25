@@ -1,7 +1,11 @@
 ---
 layout: post
 title: "PSR-7: HTTP Message Interfaces in PHP"
+<<<<<<<< HEAD:_posts/2025-01-24-psr-7-http-message-interfaces.md
 date: 2025-01-24 12:00:00 -0600
+========
+date: 2025-01-14 12:00:00 -0600
+>>>>>>>> 143681cdc2a2d12511a238d150a79991ad417d0e:_posts/2025-01-14-psr-7-http-message-interfaces.md
 categories: php standards
 series: php-fig-standards
 tags: [php, php-fig, psr-7, http]
