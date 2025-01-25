@@ -1,5 +1,5 @@
 {
-	"name": "Jekyll + PHP",
+	"name": "Blog Jekyll + PHP",
 	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
 	"customizations": {
 		"vscode": {
@@ -8,7 +8,6 @@
 				"DavidAnson.vscode-markdownlint",
 				"streetsidesoftware.code-spell-checker",
 				"eamodio.gitlens",
-				"GitHub.copilot",
 				"sissel.shopify-liquid",
 				"esbenp.prettier-vscode",
 				"bierner.markdown-preview-github-styles",
@@ -17,9 +16,7 @@
 				"davidhouchin.whitespace-plus",
 				"formulahendry.auto-close-tag",
 				"github.vscode-github-actions",
-				"Shopify.ruby-lsp",
-				"errata-ai.vale-server"
-			]
+				"Shopify.ruby-lsp"			]
 		}
 	},
 	"mounts": [
