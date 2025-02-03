@@ -50,19 +50,25 @@ interface ContainerInterface
 
 ## Basic Implementation
 
+Here's a simple implementation of a dependency injection container that adheres to PSR-11:
+
 ```php
 <?php
 
-namespace Acme\Container;
+namespace JonesRussell\PhpFigGuide\PSR11;
 
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
 
-class Container implements ContainerInterface
+class SimpleContainer implements ContainerInterface
 {
     private array $services = [];
-    private array $factories = [];
+
+    public function set(string $id, $service): void
+    {
+        $this->services[$id] = $service;
+    }
 
     public function get($id)
     {
@@ -70,33 +76,19 @@ class Container implements ContainerInterface
             throw new class extends \Exception implements NotFoundExceptionInterface {};
         }
 
-        if (isset($this->services[$id])) {
-            return $this->services[$id];
-        }
-
-        try {
-            $service = $this->factories[$id]($this);
-            $this->services[$id] = $service;
-            return $service;
-        } catch (\Exception $e) {
-            throw new class($e->getMessage(), 0, $e) extends \Exception implements ContainerExceptionInterface {};
-        }
+        return $this->services[$id];
     }
 
     public function has($id): bool
     {
-        return isset($this->services[$id]) || isset($this->factories[$id]);
-    }
-
-    public function set(string $id, $concrete): void
-    {
-        if (is_callable($concrete)) {
-            $this->factories[$id] = $concrete;
-        } else {
-            $this->services[$id] = $concrete;
-        }
+        return isset($this->services[$id]);
     }
 }
+
+// Example usage
+$container = new SimpleContainer();
+$container->set('database', new DatabaseConnection());
+$database = $container->get('database');
 ```
 
 ## Real-World Usage
@@ -249,4 +241,4 @@ In our next post, we'll explore PSR-14, which defines a standard event dispatche
 - [PHP-DI Documentation](http://php-di.org/)
 - [Symfony DependencyInjection Component](https://symfony.com/doc/current/components/dependency_injection.html)
 
-Baamaapii 👋 
+Baamaapii 👋
