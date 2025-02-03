@@ -313,7 +313,7 @@ class ResponseFactory
 
 ## Next Steps
 
-In our next post, we'll explore PSR-15, which builds upon PSR-7 to define HTTP server request handlers and middleware. Check out our [example repository](https://github.com/yourusername/php-fig-guide/tree/psr-7) for the implementation of these standards.
+In our next post, we'll explore PSR-15, which builds upon PSR-7 to define HTTP server request handlers and middleware. Check out our [example repository](https://github.com/jonesrussell/php-fig-guide/tree/psr-7) for the implementation of these standards.
 
 ## Resources
 

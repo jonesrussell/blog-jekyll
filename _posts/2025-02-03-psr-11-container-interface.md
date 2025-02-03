@@ -233,7 +233,7 @@ $container->set('service', function (ContainerInterface $c) {
 
 ## Next Steps
 
-In our next post, we'll explore PSR-14, which defines a standard event dispatcher interface. Check out our [example repository](https://github.com/yourusername/php-fig-guide/tree/psr-11) for the implementation of these standards.
+In our next post, we'll explore PSR-14, which defines a standard event dispatcher interface. Check out our [example repository](https://github.com/jonesrussell/php-fig-guide/tree/psr-11) for the implementation of these standards.
 
 ## Resources
 
