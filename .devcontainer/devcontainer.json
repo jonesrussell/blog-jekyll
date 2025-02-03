@@ -41,7 +41,7 @@
 		"ghcr.io/devcontainers/features/php:1": {
 			"version": "8.2",
 			"installComposer": true,
-			"xdebug": true
+			"xdebug": false
 		},
 		"ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
 		"ghcr.io/joshuanianji/devcontainer-features/github-cli-persistence:1": {},
