@@ -24,7 +24,7 @@ A dependency injection container (DIC) is responsible for:
 ```php
 <?php
 
-namespace Psr\Container;
+namespace JonesRussell\PhpFigGuide\PSR11;
 
 interface ContainerInterface
 {
@@ -57,9 +57,9 @@ Here's a simple implementation of a dependency injection container that adheres 
 
 namespace JonesRussell\PhpFigGuide\PSR11;
 
-use Psr\Container\ContainerInterface;
-use Psr\Container\NotFoundExceptionInterface;
-use Psr\Container\ContainerExceptionInterface;
+use JonesRussell\PhpFigGuide\PSR11\ContainerInterface;
+use JonesRussell\PhpFigGuide\PSR11\NotFoundExceptionInterface;
+use JonesRussell\PhpFigGuide\PSR11\ContainerExceptionInterface;
 
 class SimpleContainer implements ContainerInterface
 {
@@ -89,6 +89,58 @@ class SimpleContainer implements ContainerInterface
 $container = new SimpleContainer();
 $container->set('database', new DatabaseConnection());
 $database = $container->get('database');
+```
+
+## Advanced Usage of ExampleContainer
+
+### 1. Registering Services with Dependencies
+
+You can register services that depend on other services. For example, if you have a `UserService` that requires a `DatabaseConnection`, you can set it up like this:
+
+```php
+<?php
+
+class DatabaseConnection {
+    public function connect() {
+        return "Database connected!";
+    }
+}
+
+class UserService {
+    private DatabaseConnection $db;
+
+    public function __construct(DatabaseConnection $db) {
+        $this->db = $db;
+    }
+
+    public function getUser() {
+        return "User data from " . $this->db->connect();
+    }
+}
+
+// Example usage
+$container = new SimpleContainer();
+$container->set('database', new DatabaseConnection());
+$container->set('userService', new UserService($container->get('database')));
+
+$userService = $container->get('userService');
+echo $userService->getUser(); // Output: User data from Database connected!
+```
+
+### 2. Using Factory Functions
+
+You can also register services using factory functions, which allows for more complex instantiation logic:
+
+```php
+<?php
+
+$container->set('userService', function (ContainerInterface $c) {
+    return new UserService($c->get('database'));
+});
+
+// Example usage
+$userService = $container->get('userService');
+echo $userService->getUser(); // Output: User data from Database connected!
 ```
 
 ## Real-World Usage
@@ -143,7 +195,7 @@ class UserController
 <?php
 
 use Illuminate\Container\Container;
-use Psr\Container\ContainerInterface;
+use JonesRussell\PhpFigGuide\PSR11\ContainerInterface;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -171,21 +223,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         });
     }
 }
-```
-
-### 2. Symfony Example
-
-```php
-<?php
-
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-
-$container = new ContainerBuilder();
-$container->register('mailer', 'Mailer')
-    ->addArgument('%mailer.transport%');
-
-// Symfony's container already implements PSR-11
-assert($container instanceof \Psr\Container\ContainerInterface);
 ```
 
 ## Best Practices
@@ -239,6 +276,5 @@ In our next post, we'll explore PSR-14, which defines a standard event dispatche
 
 - [Official PSR-11 Specification](https://www.php-fig.org/psr/psr-11/)
 - [PHP-DI Documentation](http://php-di.org/)
-- [Symfony DependencyInjection Component](https://symfony.com/doc/current/components/dependency_injection.html)
 
 Baamaapii 👋
