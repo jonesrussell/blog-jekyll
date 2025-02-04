@@ -74,13 +74,3 @@ author_name: "Russell Jones"
 # Ensure the feed URL is correctly set
 feed:
   url: "/blog/feed.xml"
-
-# Add this line to exclude additional files and directories
-exclude:
-  - bin
-  - code
-  - scripts
-  - Gemfile
-  - Gemfile.lock
-  - Taskfile.yml
-  - WRITING_STYLE.md
