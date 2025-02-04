@@ -14,7 +14,7 @@ description: >-
   A resource for web developers, I use modern technologies, best practices, and personal experiences. 
   Explore guides on Laravel, Golang, Docker, and more.
 baseurl: "/blog"
-url: "https://jonesrussell.github.io/blog"
+url: "https://jonesrussell.github.io"
 
 # Custom features
 table_of_contents_header: "Jump to:"
@@ -83,5 +83,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Taskfile.yml
-  - TODO.md
   - WRITING_STYLE.md
