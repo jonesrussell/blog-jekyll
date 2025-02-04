@@ -1,11 +1,11 @@
 # Social links
 twitter_username: jonesrussell42
 github_username: jonesrussell
-personal_website: https://jonesrussell.xyz
+personal_website: https://jonesrussell.github.io/me
 social_links:
   twitter: https://x.com/jonesrussell42
   github: https://github.com/jonesrussell
-  personal: https://jonesrussell.xyz
+  personal: https://jonesrussell.github.io/me
 
 # Site settings
 title: Web Developer Blog
@@ -14,7 +14,7 @@ description: >-
   A resource for web developers, I use modern technologies, best practices, and personal experiences. 
   Explore guides on Laravel, Golang, Docker, and more.
 baseurl: "/blog"
-url: ""
+url: "https://jonesrussell.github.io/blog"
 
 # Custom features
 table_of_contents_header: "Jump to:"
@@ -67,3 +67,21 @@ post_end_promo: <i><b>Enjoyed this article? You'll like "<a href="https://www.yo
 
 # Assets
 favicon: "/assets/images/favicon.ico"
+
+# Add a default author name for the RSS feed
+author_name: "Russell Jones"
+
+# Ensure the feed URL is correctly set
+feed:
+  url: "/blog/feed.xml"
+
+# Add this line to exclude additional files and directories
+exclude:
+  - bin
+  - code
+  - scripts
+  - Gemfile
+  - Gemfile.lock
+  - Taskfile.yml
+  - TODO.md
+  - WRITING_STYLE.md
