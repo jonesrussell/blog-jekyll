@@ -75,3 +75,8 @@ tasks:
           -w /workdir \
           davidanson/markdownlint-cli2 \
           --fix "_posts/**/*.md" "_drafts/**/*.md"
+
+  act:
+    desc: Run GitHub Actions locally using act
+    cmds:
+      - act -j build
