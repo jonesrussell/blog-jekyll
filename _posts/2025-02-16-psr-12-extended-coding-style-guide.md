@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "PSR-12: Extended Coding Style Guide in PHP"
-date: 2024-01-20 12:00:00 -0600
+date: 2025-02-16
 categories: php standards
 series: php-fig-standards
 tags: [php, php-fig, psr-12, coding-style]
+summary: "PSR-12 extends PSR-1 and PSR-2 to provide a comprehensive coding style guide for modern PHP, ensuring consistency across PHP code."
 ---
 
 PSR-12 extends PSR-1 and PSR-2 (now deprecated) to provide a comprehensive coding style guide for modern PHP. This standard ensures consistency across PHP code by defining specific formatting rules.
