@@ -36,7 +36,7 @@ This isn't just another tech blog. It's where I share:
 ## Let's Connect
 
 - [Personal Website](https://jonesrussell.github.io/me/)
-- [Twitter](https://twitter.com/jonesrussell42)
+- [X](https://x.com/jonesrussell42)
 - [GitHub](https://github.com/jonesrussell)
 - [DEV.to](https://dev.to/jonesrussell)
 - [YouTube](https://www.youtube.com/@fullstackdev42)

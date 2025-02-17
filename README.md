@@ -110,7 +110,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Russell Jones - [@jonesrussell42](twitter.com/jonesrussell42) - <jonesrussell42@gmail.com>
+Russell Jones - [@jonesrussell42](x.com/jonesrussell42) - <russell@web.net>
 
 Project Links:
 

@@ -1,9 +1,9 @@
 # Social links
-twitter_username: jonesrussell42
+x_username: jonesrussell42
 github_username: jonesrussell
 personal_website: https://jonesrussell.github.io/me
 social_links:
-  twitter: https://x.com/jonesrussell42
+  x: https://x.com/jonesrussell42
   github: https://github.com/jonesrussell
   personal: https://jonesrussell.github.io/me
 
@@ -22,7 +22,7 @@ table_of_contents_header: "Jump to:"
 # Author information
 email: jonesrussell42@gmail.com
 github_username: jonesrussell
-twitter_username: jonesrussell42
+x_username: jonesrussell42
 
 # Theme settings
 remote_theme: JakeSteam/minimaJake@1.0.14
@@ -34,7 +34,7 @@ minima:
       title: "GitHub"
     - platform: x
       user_url: "https://x.com/jonesrussell42"
-      title: "X (formerly Twitter)"
+      title: "X"
     - { platform: linkedin,      user_url: "https://www.linkedin.com/in/jonesrussell42" }
     - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/437654/russell" }
     - { platform: email,        user_url: "mailto:jonesrussell42@gmail.com", user_title: "jonesrussell42@gmail.com" }

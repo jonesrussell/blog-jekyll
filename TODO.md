@@ -130,7 +130,7 @@ show_in_nav: true
 - [ ] ~~Add SEO optimization settings:~~
   - [ ] ~~Meta descriptions~~
   - [ ] ~~Open Graph tags~~
-  - [ ] ~~Twitter card tags~~
+  - [ ] ~~X card tags~~
 - [ ] ~~Enable additional Jekyll plugins:~~
   - [ ] ~~jekyll-sitemap~~
   - [ ] ~~jekyll-seo-tag~~
