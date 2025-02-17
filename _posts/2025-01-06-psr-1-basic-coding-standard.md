@@ -10,6 +10,7 @@ summary: "A guide to PSR-1, the foundational coding standard for PHP that establ
 
 > Updated on Jan 7, 2025: Improved writing style and examples for better clarity.
 > Updated on Jan 10, 2025: Removed emojis and simplified language for consistency.
+> Updated on Feb 16, 2025: Added additional comments and clarifications.
 
 Ahnii!
 
@@ -23,17 +24,17 @@ Think of PSR-1 as the "house rules" for PHP code. Just like how every house has 
 
 Here are the ground rules:
 
-- Only use `<?php` and `<?=` tags (forget about those old-school short tags)
-- Always use UTF-8 without BOM (it prevents weird encoding issues)
-- Keep your files focused - either declare stuff OR do stuff, not both
+- Only use `<?php` and `<?=` tags (forget about those old-school short tags).
+- Always use UTF-8 without BOM (it prevents weird encoding issues).
+- Keep your files focused - either declare stuff OR do stuff, not both.
 
 ### Naming Things Right (3 minutes)
 
 Let's make it clear:
 
-- Classes use `StudlyCaps` (like `UserManager`, `OrderProcessor`)
-- Constants should be in `UPPER_CASE` (like `MAX_ATTEMPTS`, `API_VERSION`)
-- Methods use `camelCase` (like `getUserById`, `processOrder`)
+- Classes use `StudlyCaps` (like `UserManager`, `OrderProcessor`).
+- Constants should be in `UPPER_CASE` (like `MAX_ATTEMPTS`, `API_VERSION`).
+- Methods use `camelCase` (like `getUserById`, `processOrder`).
 
 ## Real-World Example (10 minutes)
 
@@ -44,12 +45,39 @@ Here's a practical example from our [repository](https://github.com/jonesrussell
 
 namespace JonesRussell\PhpFigGuide\PSR1;
 
+/**
+ * User management class following PSR-1 standards.
+ *
+ * This class provides methods to manage user-related operations, including
+ * retrieving user information by ID and defining constants for versioning
+ * and error types.
+ */
 class UserManager
 {
-    const VERSION = '1.0.0';
-    const ERROR_TYPE_NOT_FOUND = 'not_found';
+    /**
+     * Version number of the implementation.
+     *
+     * @var string
+     */
+    public const VERSION = '1.0.0';
 
-    public function getUserById($id)
+    /**
+     * Error type constant for not found errors.
+     *
+     * @var string
+     */
+    public const ERROR_TYPE_NOT_FOUND = 'not_found';
+
+    /**
+     * Get user information by ID.
+     *
+     * This method retrieves user data based on the provided user ID.
+     * It returns an associative array containing the user's ID and name.
+     *
+     * @param  int $id The user ID to retrieve.
+     * @return array User data with 'id' and 'name' keys.
+     */
+    public function getUserById(int $id): array
     {
         // Implementation
         return ['id' => $id, 'name' => 'John Doe'];
@@ -59,10 +87,10 @@ class UserManager
 
 Let's break down what makes this code PSR-1 compliant:
 
-- Proper namespace using `StudlyCaps`
-- Class name in `StudlyCaps`
-- Constants in UPPERCASE_WITH_UNDERSCORES
-- Method in `camelCase`
+- Proper namespace using `StudlyCaps`.
+- Class name in `StudlyCaps`.
+- Constants in `UPPERCASE_WITH_UNDERSCORES`.
+- Method in `camelCase`.
 
 ## Common Mistakes and Fixes (5 minutes)
 
@@ -97,10 +125,10 @@ class UserManager {}
 
 I use these tools in all my projects:
 
-- PHP_CodeSniffer: `composer check-style` to spot issues
-- Auto-fixing: `composer fix-style` to fix common mistakes
-- IDE Integration: Let your editor help you stay compliant
-- Git hooks: Catch issues before they hit your repo
+- PHP_CodeSniffer: `composer check-style` to spot issues.
+- Auto-fixing: `composer fix-style` to fix common mistakes.
+- IDE Integration: Let your editor help you stay compliant.
+- Git hooks: Catch issues before they hit your repo.
 
 ## Next Steps
 
