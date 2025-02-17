@@ -13,14 +13,16 @@ PSR-12 extends PSR-1 and PSR-2 (now deprecated) to provide a comprehensive codin
 
 ### 1. General Code Layout
 
-- Files MUST use Unix LF line endings
-- Files MUST end with a single blank line
-- The closing `?>` tag MUST be omitted from files containing only PHP
-- Lines SHOULD be 80 characters or less
-- There MUST be one blank line after namespace declarations
-- Opening braces MUST be on the same line as the statement
+- Files MUST use Unix LF line endings.
+- Files MUST end with a single blank line.
+- The closing `?>` tag MUST be omitted from files containing only PHP.
+- Lines SHOULD be 80 characters or less.
+- There MUST be one blank line after namespace declarations.
+- Opening braces MUST be on the same line as the statement.
 
 ### 2. Class Structure
+
+Here's an example of a properly structured class:
 
 ```php
 <?php
@@ -44,6 +46,8 @@ class ClassName extends ParentClass implements \ArrayAccess, \Countable
 ```
 
 ### 3. Control Structures
+
+Examples of control structures formatted according to PSR-12:
 
 ```php
 <?php
@@ -78,6 +82,8 @@ try {
 
 ### 1. Type Declarations
 
+Example of using type declarations in method signatures:
+
 ```php
 <?php
 
@@ -90,6 +96,8 @@ public function processUser(
 ```
 
 ### 2. Attribute Syntax
+
+Example of using attribute syntax in PHP 8:
 
 ```php
 <?php
@@ -113,11 +121,11 @@ public function show(#[EntityId] int $id): Response
 
 1. **Mixed Line Endings**
 
-```php
-// Check for mixed line endings
+```bash
+# Check for mixed line endings
 $ find . -name "*.php" -exec file {} \;
 
-// Fix with dos2unix
+# Fix with dos2unix
 $ find . -name "*.php" -exec dos2unix {} \;
 ```
 
@@ -143,7 +151,7 @@ class Foo
 
 ## Next Steps
 
-In our next post, we'll explore PSR-4, which defines autoloading standards for PHP classes. Check out our [example repository](https://github.com/yourusername/php-fig-guide/tree/psr-12) for the implementation of these standards.
+In our next post, we'll explore PSR-13, which defines standards for HTTP message interfaces in PHP. Check out our [example repository](https://github.com/yourusername/php-fig-guide/tree/psr-12) for the implementation of these standards.
 
 ## Resources
 

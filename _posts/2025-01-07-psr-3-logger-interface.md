@@ -8,7 +8,8 @@ series: php-fig-standards
 summary: "Learn how to implement and use PSR-3's standardized logging interface in PHP applications, with practical examples of logging implementations and best practices for error handling."
 ---
 
-> Updated on Jan 10, 2025: Fixed markdown formatting and removed emojis for consistency.
+> Updated on Jan 10, 2025: Fixed markdown formatting and removed emojis for consistency.  
+> Updated on Feb 16, 2025: Added additional comments and clarifications.
 
 Ahnii!
 
@@ -27,6 +28,12 @@ Here's what this contract looks like:
 
 namespace Psr\Log;
 
+/**
+ * LoggerInterface defines the contract for logging implementations.
+ *
+ * This interface provides methods for logging messages at different levels
+ * of severity, allowing for a consistent logging approach across applications.
+ */
 interface LoggerInterface
 {
     public function emergency($message, array $context = array());
@@ -45,14 +52,14 @@ interface LoggerInterface
 
 Think of these levels as a severity scale, from "everything's on fire" to "just FYI":
 
-1. **Emergency**: 🔥 The house is burning down (system is completely broken)
+1. **Emergency**: 🔥 The house is burning down (system is completely broken).
 2. **Alert**: 🚨 Wake up, we need to fix this now!
-3. **Critical**: ⚠️ Major component is broken
-4. **Error**: ❌ Something failed, but the app is still running
-5. **Warning**: ⚡ Heads up, something's not right
-6. **Notice**: 📢 Something normal but noteworthy happened
-7. **Info**: ℹ️ Just keeping you in the loop
-8. **Debug**: 🔍 For the curious developers
+3. **Critical**: ⚠️ Major component is broken.
+4. **Error**: ❌ Something failed, but the app is still running.
+5. **Warning**: ⚡ Heads up, something's not right.
+6. **Notice**: 📢 Something normal but noteworthy happened.
+7. **Info**: ℹ️ Just keeping you in the loop.
+8. **Debug**: 🔍 For the curious developers.
 
 ## Real-World Implementation (10 minutes)
 
@@ -66,22 +73,45 @@ namespace App\Logging;
 use Psr\Log\AbstractLogger;
 use Psr\Log\LogLevel;
 
+/**
+ * SmartLogger is an implementation of the PSR-3 Logger Interface.
+ *
+ * This logger writes log messages to a file and sends critical messages
+ * to a Slack channel for immediate attention.
+ */
 class SmartLogger extends AbstractLogger
 {
-    private $logFile;
-    private $slackWebhook;
+    private string $logFile;
+    private string $slackWebhook;
 
+    /**
+     * Initialize the logger with file and Slack configuration.
+     *
+     * @param string $logFile      Path to the log file
+     * @param string $slackWebhook Slack webhook URL
+     */
     public function __construct(string $logFile, string $slackWebhook)
     {
         $this->logFile = $logFile;
         $this->slackWebhook = $slackWebhook;
     }
 
-    public function log($level, $message, array $context = array())
+    /**
+     * Logs with an arbitrary level.
+     *
+     * This method formats the log message and writes it to the log file.
+     * It also sends critical and emergency messages to Slack.
+     *
+     * @param  mixed              $level   Log level
+     * @param  string|\Stringable $message Message to log
+     * @param  array              $context Context data for interpolation
+     * @return void
+     */
+    public function log($level, string|\Stringable $message, array $context = []): void
     {
         // Format the message
         $timestamp = date('Y-m-d H:i:s');
-        $message = $this->interpolate($message, $context);
+        $message = $this->interpolate((string)$message, $context);
         $logLine = "[$timestamp] [$level] $message" . PHP_EOL;
         
         // Always write to file
@@ -93,6 +123,17 @@ class SmartLogger extends AbstractLogger
         }
     }
 
+    /**
+     * Send a notification to Slack.
+     *
+     * This method sends a formatted message to the specified Slack webhook
+     * for critical and emergency log levels.
+     *
+     * @param string $level   Log level
+     * @param string $message Message to send
+     *
+     * @return void
+     */
     private function notifySlack($level, $message)
     {
         $emoji = $level === LogLevel::EMERGENCY ? '🔥' : '⚠️';
@@ -109,7 +150,17 @@ class SmartLogger extends AbstractLogger
         curl_close($ch);
     }
 
-    private function interpolate($message, array $context = array())
+    /**
+     * Interpolates context values into message placeholders.
+     *
+     * This method replaces placeholders in the message with actual values
+     * from the context array.
+     *
+     * @param  string $message Message with placeholders
+     * @param  array  $context Values to replace placeholders
+     * @return string Interpolated message
+     */
+    private function interpolate($message, array $context = array()): string
     {
         $replace = array();
         foreach ($context as $key => $val) {
